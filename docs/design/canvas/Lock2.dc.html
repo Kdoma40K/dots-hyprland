@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lockscreen dark</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px">
+<dc-import name="LockKit" mode="dark" wall="/_blob/8e06eae08b7345055faa2b24c1b84525" signal="#d36662" trace="#729b9c" tint="#0a110f" tint2="#151c1b" label="LOCK · DARK · W5 BLURRED" hint-size="1920px,1080px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

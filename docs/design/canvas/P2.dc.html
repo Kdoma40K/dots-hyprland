@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>P2 CMF hero clock</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; position: relative; overflow: hidden; color: #111111; font-family: 'IBM Plex Mono', monospace">
+<dc-import name="DesktopKit" wall="/_blob/e60e5da0119dbddda263dbd92bd61244" mode="light" signal="#d24d46" trace="#517fa7" tint="#f0edf4" tint2="#e3e0e6" panel="none" side="left" greebles="{{ true }}" orbit="{{ false }}" viz="scope" label="P2 · CMF HERO · W2 LIGHT" hint-size="1920px,1080px"></dc-import>
+
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<path d="{{arcD}}" stroke="rgba(17,17,17,0.55)" stroke-width="1"/>
+<path d="{{tickD}}" stroke="rgba(17,17,17,0.55)" stroke-width="1"/>
+<path d="{{arcInnerD}}" stroke="rgba(17,17,17,0.45)" stroke-width="1" stroke-dasharray="2 6"/>
+<path d="{{cursorD}}" stroke="#d24d46" stroke-width="3"/>
+</svg>
+<sc-for list="{{arcLabels}}" as="l" hint-placeholder-count="5"><span style="position: absolute; left: {{l.x}}; top: {{l.y}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: rgba(17,17,17,0.6)">{{l.t}}</span></sc-for>
+<span style="position: absolute; left: {{curLX}}; top: {{curLY}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: #d24d46">NOW</span>
+<div style="position: absolute; left: {{boxX}}; top: {{boxY}}; display: flex; align-items: center"><span style="border: 2px solid #d24d46; background: #f7f5f9; padding: 4px 9px; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 20px">301</span><span style="width: 24px; height: 18px; background: #26292c"></span></div>
+
+<div style="position: absolute; left: 300px; top: 300px; width: 800px; height: 320px; background: #a8a6aa; border-radius: 34px; clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%)"></div>
+<span style="position: absolute; left: 1000px; top: 294px; width: 20px; height: 6px; background: #d24d46"></span>
+<div style="position: absolute; left: 270px; top: 270px; width: 800px; height: 300px; box-sizing: border-box; border-radius: 30px; background: #f7f5f9; border: 1px solid rgba(17,17,17,0.14)">
+<div style="position: absolute; left: 40px; top: 30px; display: flex; gap: 14px"><span style="width: 40px; height: 12px; background-image: radial-gradient(#111111 1.5px, transparent 1.7px); background-size: 8px 6px"></span><span style="width: 40px; height: 12px; background-image: radial-gradient(#111111 1.5px, transparent 1.7px); background-size: 8px 6px"></span></div>
+<div style="position: absolute; right: 44px; top: 34px; display: flex; gap: 8px"><span style="width: 30px; height: 4px; background: #111111"></span><span style="width: 30px; height: 4px; background: rgba(17,17,17,0.16)"></span><span style="width: 30px; height: 4px; background: #111111"></span></div>
+<div style="position: absolute; left: 40px; top: 84px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #555555">CPU</span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 24px">012</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #555555">GPU °C</span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 24px">041</span></div>
+</div>
+<div style="position: absolute; left: 190px; top: 66px; display: flex; align-items: flex-start; gap: 14px">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 136px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: rgba(17,17,17,0.07)">88:88</span><span style="position: relative">21:26</span></span>
+<span style="display: flex; flex-direction: column; gap: 8px; padding-top: 6px"><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 34px">07</span><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #555555">PDT</span><span style="width: 10px; height: 10px; background: #d24d46"></span></span>
+</div>
+<div style="position: absolute; left: 40px; right: 40px; bottom: 30px; display: flex; align-items: center; gap: 22px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 17px; white-space: nowrap">WED 28 OCT 2026</span>
+<span style="font-size: 12px; color: #555555; white-space: nowrap">DAY 301 / 365</span>
+<div style="flex-grow: 1; height: 14px; position: relative; background: repeating-linear-gradient(90deg, #555555 0 1px, transparent 1px 7px); background-size: 100% 6px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid #555555"><span style="position: absolute; left: 0; bottom: 0; width: 82%; height: 3px; background: #111111"></span><span style="position: absolute; left: 82%; top: 0; width: 4px; height: 14px; background: #d24d46"></span></div>
+</div>
+</div>
+
+<div style="position: absolute; left: 610px; top: 620px; width: 120px; height: 120px; box-sizing: border-box; border-radius: 50%; border: 1px dashed #555555; display: flex; align-items: center; justify-content: center">
+<div style="position: relative; width: 50px; height: 50px; box-sizing: border-box; border-radius: 50%; border: 8px solid #d24d46; background: #f7f5f9"></div>
+</div>
+<div style="position: absolute; left: 760px; top: 640px; display: flex; align-items: center; gap: 14px; background: rgba(240,237,244,0.94); border: 1px solid rgba(17,17,17,0.14); border-radius: 16px; padding: 10px 14px">
+<div style="position: relative; width: 150px; height: 52px; border: 1px solid rgba(17,17,17,0.14); border-radius: 6px; background-image: linear-gradient(rgba(17,17,17,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,0.07) 1px, transparent 1px); background-size: 100% 13px, 25px 100%; overflow: hidden"><svg width="150" height="52" viewBox="0 0 150 52" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><polyline points="{{scope}}" stroke="#517fa7" stroke-width="1.6"/></svg></div>
+<span style="display: flex; flex-direction: column; gap: 3px; font-family: 'Departure Mono', monospace"><span style="font-size: 11px; color: #555555">AUD-01 · 3:01</span><span style="font-size: 14px">DEEP DEEPER</span></span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">|◀ <span style="color: #d24d46">▮▮</span> ▶|</span>
+</div>
+
+<div style="position: absolute; left: 1460px; top: 90px; width: 420px; display: flex; flex-direction: column; gap: 14px; font-family: 'Departure Mono', monospace">
+<div style="background: rgba(240,237,244,0.94); border: 1px solid rgba(17,17,17,0.14); border-radius: 20px; padding: 16px; display: flex; gap: 16px; align-items: center">
+<div style="width: 130px; height: 130px; position: relative; flex-shrink: 0">
+<sc-for list="{{rings}}" as="r" hint-placeholder-count="5"><div style="position: absolute; left: {{r.off}}; top: {{r.off}}; width: {{r.d}}; height: {{r.d}}; box-sizing: border-box; border-radius: 50%; border: 1px solid rgba(17,17,17,0.16)"></div></sc-for>
+<div style="position: absolute; left: 58px; top: 58px; width: 14px; height: 14px; border-radius: 50%; background: #111111"></div>
+<sc-for list="{{planets}}" as="p" hint-placeholder-count="5"><div style="position: absolute; left: {{p.x}}; top: {{p.y}}; width: {{p.s}}; height: {{p.s}}; border-radius: 50%; background: {{p.c}}"></div></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; color: #555555">SOL // TOP VIEW</span><span style="font-size: 12px"><span style="color: #d24d46">●</span> EARTH · YOU</span><span style="font-size: 12px"><span style="color: #517fa7">■</span> ISS OVER [REGION]</span></div>
+</div>
+<div style="background: rgba(240,237,244,0.94); border: 1px solid rgba(17,17,17,0.14); border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 12px">
+<div style="display: flex; justify-content: space-between"><span style="font-size: 14px">LCH // LAUNCH BAY</span><span style="color: #555555">SUPER+1..5</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{bay}}" as="b" hint-placeholder-count="3"><a href="#" style="border: 1px solid {{b.border}}; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 6px; color: #111111; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="{{b.icon}}"/></svg><span>{{b.name}}</span><span style="font-size: 10px; color: #555555">{{b.meta}}</span></a></sc-for>
+</div>
+<span style="color: #555555">GAMES // RECENT</span>
+<sc-for list="{{games}}" as="g" hint-placeholder-count="2"><div style="display: grid; grid-template-columns: minmax(0, 1fr) 54px; gap: 8px"><span>{{g}}</span><span style="color: #d24d46; text-align: right">▸ PLAY</span></div></sc-for>
+</div>
+<div style="border-radius: 12px; overflow: hidden; display: flex; background: #ffffff">
+<div style="flex-grow: 1; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 11px; color: #555555"><span>FROM: LAUNCH LIBRARY</span><span>N° 0034</span></div><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 24px">T-02:14:33</span><span style="font-size: 12px">[MISSION NAME] · [PROVIDER]</span></div>
+<div style="width: 28px; border-left: 2px dashed #b7b0a5; background: #d24d46"></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const cx = 670, cy = 680, R = 470, A0 = -192, SPAN = 182;
+const P = (deg, r) => [cx + r * Math.cos(deg * Math.PI / 180), cy + r * Math.sin(deg * Math.PI / 180)];
+const f = (v) => v.toFixed(1);
+const a0 = P(A0, R), a1 = P(A0 + SPAN, R);
+const arcD = 'M ' + f(a0[0]) + ' ' + f(a0[1]) + ' A ' + R + ' ' + R + ' 0 0 1 ' + f(a1[0]) + ' ' + f(a1[1]);
+const Ri = R - 28;
+const b0 = P(A0 + 6, Ri), b1 = P(-70, Ri);
+const arcInnerD = 'M ' + f(b0[0]) + ' ' + f(b0[1]) + ' A ' + Ri + ' ' + Ri + ' 0 0 1 ' + f(b1[0]) + ' ' + f(b1[1]);
+let tickD = '';
+const arcLabels = [];
+for (let k = 0; k <= 96; k++) {
+const d = A0 + k * SPAN / 96;
+const len = k % 16 === 0 ? 18 : (k % 4 === 0 ? 10 : 5);
+const s = P(d, R), e = P(d, R + len);
+tickD += 'M ' + f(s[0]) + ' ' + f(s[1]) + ' L ' + f(e[0]) + ' ' + f(e[1]) + ' ';
+if (k % 16 === 0) {
+const l = P(d, R + 36);
+if (!(l[0] > 250 && l[0] < 1120 && l[1] > 250 && l[1] < 640)) arcLabels.push({ x: (l[0] - 9).toFixed(0) + 'px', y: (l[1] - 8).toFixed(0) + 'px', t: ('0' + (k / 4)).slice(-2) });
+}
+}
+const cd = A0 + (21 + 26 / 60) * SPAN / 24;
+const c0 = P(cd, R - 8), c1 = P(cd, R + 26), cl = P(cd, R + 50);
+const cursorD = 'M ' + f(c0[0]) + ' ' + f(c0[1]) + ' L ' + f(c1[0]) + ' ' + f(c1[1]);
+let scope = '';
+for (let x = 0; x <= 150; x += 3) scope += x + ',' + (26 + 14 * Math.sin(x * 0.09) * Math.cos(x * 0.03) + 4 * Math.sin(x * 0.5)).toFixed(1) + ' ';
+const ringR = [16, 28, 40, 52, 64];
+const ang = [30, 210, 320, 120, 250];
+const sizes = [4, 5, 7, 10, 8];
+const rings = ringR.map((r) => ({ off: (65 - r) + 'px', d: (2 * r) + 'px' }));
+const planets = ringR.map((r, i) => {
+const a = ang[i] * Math.PI / 180;
+const s = sizes[i];
+return { x: (65 + r * Math.cos(a) - s / 2) + 'px', y: (65 + r * Math.sin(a) - s / 2) + 'px', s: s + 'px', c: i === 2 ? '#d24d46' : (i === 4 ? '#517fa7' : 'rgba(17,17,17,0.5)') };
+});
+const bay = [
+{ name: 'YOUTUBE', meta: '[1] RESUME', border: '#d24d46', icon: 'M3 6h18v12H3zM10 9l5 3-5 3z' },
+{ name: 'NETFLIX', meta: '[2] RESUME', border: 'rgba(17,17,17,0.16)', icon: 'M4 4h16v16H4zM8 4v16M16 4v16M4 9h4M4 15h4M16 9h4M16 15h4' },
+{ name: 'STEAM', meta: '[3] LIBRARY', border: 'rgba(17,17,17,0.16)', icon: 'M6 9h12a4 4 0 0 1 0 8c-2 0-3-2-6-2s-4 2-6 2a4 4 0 0 1 0-8zM8 11v4M6 13h4M16 12h.01M18 14h.01' }
+];
+return {
+arcD: arcD, arcInnerD: arcInnerD, tickD: tickD, arcLabels: arcLabels, cursorD: cursorD,
+curLX: (cl[0] - 12).toFixed(0) + 'px', curLY: (cl[1] - 8).toFixed(0) + 'px',
+boxX: (a0[0] - 172).toFixed(0) + 'px', boxY: (a0[1] - 18).toFixed(0) + 'px',
+scope: scope, rings: rings, planets: planets, bay: bay,
+games: ['CYBERPUNK 2077', 'BLACK MYTH: WUKONG']
+};
+}
+}
+</script>
+</body>
+</html>

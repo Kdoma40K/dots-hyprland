@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quick tiles and slider</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Roboto+Flex:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 620px; box-sizing: border-box; padding: 40px 64px; background: #16232b; color: #e5d1c5; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b; letter-spacing: 2px">EL-03 // RIGHT SIDEBAR · QUICK TILES + BRIGHTNESS</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">NOW · M3 TONAL TILES</div>
+<div style="flex-grow: 1; background: #1d1b20; border-radius: 24px; padding: 18px; display: flex; flex-direction: column; gap: 14px; font-family: 'Roboto Flex', sans-serif; color: #e6e0e9">
+<div style="display: flex; gap: 4px; height: 36px"><div style="flex-grow: 3; background: #d0bcff; border-radius: 10px 4px 4px 10px"></div><div style="flex-grow: 1; background: #2b2930; border-radius: 4px 10px 10px 4px"></div></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<div style="background: #d0bcff; color: #381e72; border-radius: 999px; height: 56px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0"/><path d="M5 12a10 10 0 0 1 14 0"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></div>
+<div style="background: #2b2930; border-radius: 999px; height: 56px; display: flex; align-items: center; gap: 8px; padding: 0 14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 7l10 10-5 5V2l5 5L7 17"/></svg><span style="display: flex; flex-direction: column; font-size: 12px"><span>Bluetooth</span><span style="color: #cac4d0">Not connected</span></span></div>
+<div style="background: #2b2930; border-radius: 999px; height: 56px; display: flex; align-items: center; padding: 0 14px; font-size: 12px">EasyEffects</div>
+<div style="background: #d0bcff; color: #381e72; border-radius: 999px; height: 56px; display: flex; align-items: center; padding: 0 14px; font-size: 12px">Anti-flashbang</div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">A · PANEL SWITCHES + RULER</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="color: #8d969b">BRT</span><span>069</span></div>
+<div style="position: relative; height: 22px; background: repeating-linear-gradient(90deg, #6b7378 0 1px, transparent 1px 8px); background-size: 100% 10px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid #6b7378">
+<div style="position: absolute; left: 0; bottom: 0; width: 69%; height: 2px; background: #e05a2b"></div>
+<div style="position: absolute; left: 69%; top: 0; width: 2px; height: 22px; background: #e05a2b"></div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<div style="border: 1px solid #e05a2b; border-radius: 4px; padding: 10px; display: flex; flex-direction: column; gap: 8px"><span style="display: flex; justify-content: space-between"><span style="color: #8d969b">NET-01</span><span style="width: 7px; height: 7px; border-radius: 50%; background: #e05a2b"></span></span><span>WIFI</span></div>
+<div style="border: 1px solid #6b7378; border-radius: 4px; padding: 10px; display: flex; flex-direction: column; gap: 8px"><span style="display: flex; justify-content: space-between"><span style="color: #8d969b">NET-02</span><span style="width: 7px; height: 7px; border-radius: 50%; border: 1px solid #6b7378; box-sizing: border-box"></span></span><span>BLUETOOTH</span></div>
+<div style="border: 1px solid #6b7378; border-radius: 4px; padding: 10px; display: flex; flex-direction: column; gap: 8px"><span style="display: flex; justify-content: space-between"><span style="color: #8d969b">AUD-01</span><span style="width: 7px; height: 7px; border-radius: 50%; border: 1px solid #6b7378; box-sizing: border-box"></span></span><span>EFFECTS</span></div>
+<div style="border: 1px solid #e05a2b; border-radius: 4px; padding: 10px; display: flex; flex-direction: column; gap: 8px"><span style="display: flex; justify-content: space-between"><span style="color: #8d969b">VIS-01</span><span style="width: 7px; height: 7px; border-radius: 50%; background: #e05a2b"></span></span><span>ANTI-FLASH</span></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">B · GAUGES + BLOCK BAR</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="color: #8d969b">BRIGHTNESS</span><span>69%</span></div>
+<div style="height: 16px; background: repeating-linear-gradient(90deg, #e5d1c5 0 9px, transparent 9px 12px); width: 69%"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 44px; align-items: center; gap: 8px"><span>WIFI</span><span style="height: 10px; background: #24343e"><span style="display: block; width: 80%; height: 10px; background: #e05a2b"></span></span><span style="text-align: right">ON</span></div>
+<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 44px; align-items: center; gap: 8px"><span>BLUETOOTH</span><span style="height: 10px; background: #24343e"></span><span style="text-align: right; color: #8d969b">OFF</span></div>
+<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 44px; align-items: center; gap: 8px"><span>EFFECTS</span><span style="height: 10px; background: #24343e"></span><span style="text-align: right; color: #8d969b">OFF</span></div>
+<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 44px; align-items: center; gap: 8px"><span>ANTI-FLASH</span><span style="height: 10px; background: #24343e"><span style="display: block; width: 100%; height: 10px; background: #9fbfae"></span></span><span style="text-align: right">ON</span></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">C · TELEMETRY READOUT</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between">
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b">BRT %</span>
+<span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 40px; line-height: 1">069</span>
+</div>
+<div style="height: 2px; background: #24343e"><div style="width: 69%; height: 2px; background: #e05a2b"></div></div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: flex; gap: 6px"><span>WIFI</span><span style="flex-grow: 1; border-bottom: 1px dotted #6b7378; margin-bottom: 4px"></span><span style="color: #9fbfae">LINK OK</span></div>
+<div style="display: flex; gap: 6px"><span>BT</span><span style="flex-grow: 1; border-bottom: 1px dotted #6b7378; margin-bottom: 4px"></span><span style="color: #8d969b">STANDBY</span></div>
+<div style="display: flex; gap: 6px"><span>FX</span><span style="flex-grow: 1; border-bottom: 1px dotted #6b7378; margin-bottom: 4px"></span><span style="color: #8d969b">STANDBY</span></div>
+<div style="display: flex; gap: 6px"><span>ANTI-FLASH</span><span style="flex-grow: 1; border-bottom: 1px dotted #6b7378; margin-bottom: 4px"></span><span style="color: #e05a2b">ARMED</span></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":620}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

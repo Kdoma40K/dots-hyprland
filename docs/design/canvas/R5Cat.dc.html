@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LOAF-01 mascot</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 820px; box-sizing: border-box; padding: 44px 56px; background: #eeeeec; color: #26292c; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 26px">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #b9bcbf; padding-bottom: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #6e7378; letter-spacing: 2px">EL-07 R5 // AI MASCOT · ORIGINAL · 16×13 GRID</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 40px; line-height: 1">LOAF-01</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">::::: :::::</span><span style="background: #26292c; color: #eeeeec; font-family: 'Departure Mono', monospace; font-size: 12px; padding: 4px 10px">\\\ UNIT CAT \\\</span><span style="width: 18px; height: 6px; background: {{signal}}"></span></div>
+</div>
+
+<div style="display: flex; gap: 48px; align-items: center">
+
+<div style="position: relative; width: 420px; height: 420px; flex-shrink: 0; display: flex; align-items: center; justify-content: center">
+<div style="position: absolute; left: 30px; top: 30px; width: 360px; height: 360px; box-sizing: border-box; border-radius: 50%; border: 1px dashed #b9bcbf"></div>
+<div style="position: absolute; left: 0; top: 209px; width: 420px; height: 1px; background: #d3d5d7"></div>
+<div style="position: absolute; left: 209px; top: 0; width: 1px; height: 420px; background: #d3d5d7"></div>
+<div style="position: absolute; left: 328px; top: 36px; width: 1px; height: 40px; background: #7d8287; transform: rotate(40deg); transform-origin: bottom left"></div>
+<div style="position: absolute; left: 350px; top: 28px; width: 14px; height: 14px; box-sizing: border-box; border-radius: 50%; border: 1px solid #26292c; background: #eeeeec"></div>
+<span style="position: absolute; left: 368px; top: 46px; font-family: 'Departure Mono', monospace; font-size: 10px; color: #6e7378; white-space: nowrap">ANT · RX</span>
+<div style="position: relative; display: grid; grid-template-columns: repeat(16, 18px); grid-auto-rows: 18px" role="img" aria-label="LOAF-01, a chubby loaf-shaped grey cat with a small antenna on its head">
+<sc-for list="{{hero}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for>
+</div>
+<span style="position: absolute; left: 22px; bottom: 26px; font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">FIG. 01 · SIDE: NONE · LOAF MODE</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 22px; flex-grow: 1; min-width: 0">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{states}}" as="s" hint-placeholder-count="4">
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; align-items: center">
+<div style="display: grid; grid-template-columns: repeat(16, 7px); grid-auto-rows: 7px" aria-hidden="true"><sc-for list="{{s.cells}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">{{s.name}}</span>
+<span style="font-size: 11px; color: #555a5e; text-align: center; line-height: 1.5">{{s.when}}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">IN ISLAND · NEEDS YOUR OK</span>
+<div style="align-self: flex-start; height: 40px; background: #26292c; color: #eeeeec; border-radius: 999px; padding: 0 16px 0 12px; display: flex; align-items: center; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: grid; grid-template-columns: repeat(16, 2px); grid-auto-rows: 2px" aria-hidden="true"><sc-for list="{{needsDark}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span>LOAF · APPROVE EDIT?</span><span style="color: {{signal}}">[Y/N]</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">IN MISSION BRIEF · HEADER</span>
+<div style="background: #26292c; color: #eeeeec; border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 12px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: grid; grid-template-columns: repeat(16, 2px); grid-auto-rows: 2px" aria-hidden="true"><sc-for list="{{thinkDark}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span>MISSION 0142</span><span style="color: #a3a3a3">· LOAF IS THINKING</span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"signal":{"editor":"color","default":"#e4452f","options":["#e4452f","#cb5453","#5caf8a","#d24d46"]},"trace":{"editor":"color","default":"#5b8fa8","options":["#5b8fa8","#845b84","#4fa1a5","#76605d"]},"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+const signal = this.props.signal ?? '#e4452f';
+const trace = this.props.trace ?? '#5b8fa8';
+const rows = [
+'.......A........',
+'..B....S....B...',
+'.BBB.......BBB..',
+'.BKBB.....BBKB..',
+'.BBBBBBBBBBBBB..',
+'BBBBBBBBBBBBBBB.',
+'BBBBBBBBBBBBBBB.',
+'BBBBBBBMBBBBBBB.',
+'BBBBBBMMMBBBBBB.',
+'BBBBBBBBBBBBBBB.',
+'BBBBBBBBBBBBBBBT',
+'BBBBBBBBBBBBBBTT',
+'.BWWBBBBBBBWWBT.'
+];
+const sprite = (pal, eyes, eyeColor, antenna) => {
+const cells = [];
+for (let r = 0; r < rows.length; r++) {
+for (let c = 0; c < 16; c++) {
+const ch = rows[r][c];
+let bg = 'transparent';
+if (ch === 'B' || ch === 'T') bg = pal.body;
+else if (ch === 'K') bg = pal.ear;
+else if (ch === 'M' || ch === 'W') bg = pal.cream;
+else if (ch === 'S') bg = pal.stem;
+else if (ch === 'A') bg = antenna;
+if (eyes.some((e) => e[0] === r && e[1] === c)) bg = eyeColor;
+cells.push({ bg: bg });
+}
+}
+return cells;
+};
+const lightPal = { body: '#3b3f43', ear: '#8f9498', cream: '#eeeeec', stem: '#7d8287' };
+const darkPal = { body: '#c9cbcc', ear: '#7d8287', cream: '#26292c', stem: '#a3a3a3' };
+const idleEyes = [[5, 4], [6, 4], [5, 10], [6, 10]];
+const thinkEyes = [[4, 5], [5, 5], [4, 11], [5, 11]];
+const needsEyes = [[5, 3], [5, 4], [6, 3], [6, 4], [5, 10], [5, 11], [6, 10], [6, 11]];
+const doneEyes = [[6, 3], [5, 4], [6, 5], [6, 9], [5, 10], [6, 11]];
+const idle = sprite(lightPal, idleEyes, '#eeeeec', '#9fa3a7');
+return {
+signal: signal,
+hero: idle,
+needsDark: sprite(darkPal, needsEyes, signal, signal),
+thinkDark: sprite(darkPal, thinkEyes, '#26292c', trace),
+states: [
+{ name: 'IDLE', when: 'Loafing. Slow blink every few seconds.', cells: idle },
+{ name: 'THINKING', when: 'Eyes up, antenna in TRACE. Tail flicks.', cells: sprite(lightPal, thinkEyes, '#eeeeec', trace) },
+{ name: 'NEEDS YOU', when: 'Big eyes and antenna in SIGNAL. Waits.', cells: sprite(lightPal, needsEyes, signal, signal) },
+{ name: 'DONE', when: 'Happy squint for 3 s, then back to idle.', cells: sprite(lightPal, doneEyes, '#eeeeec', '#eeeeec') }
+]
+};
+}
+}
+</script>
+</body>
+</html>

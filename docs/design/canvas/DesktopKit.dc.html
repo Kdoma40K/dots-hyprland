@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Desktop kit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; position: relative; overflow: hidden; font-family: 'IBM Plex Mono', monospace; color: {{ink}}; background: #000000">
+<img src="{{wall}}" alt="" style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover">
+
+<div style="position: absolute; left: 24px; top: 16px; height: 40px; display: flex; align-items: center; gap: 16px; padding: 0 18px; border-radius: 999px; background: {{glass}}; backdrop-filter: blur(14px); font-family: 'Departure Mono', monospace; font-size: 15px"><span style="color: {{signal}}">▼ 01</span><span style="color: {{dim}}">02</span><span style="color: {{dim}}">03</span><span style="color: {{dim}}">04</span></div>
+
+<div style="position: absolute; left: 640px; top: 37px; width: 52px; height: 1px; background: {{hair}}"></div>
+<div style="position: absolute; left: 665px; top: 12px; width: 1px; height: 52px; background: {{hair}}"></div>
+<div style="position: absolute; left: 1228px; top: 37px; width: 52px; height: 1px; background: {{hair}}"></div>
+<div style="position: absolute; left: 1253px; top: 12px; width: 1px; height: 52px; background: {{hair}}"></div>
+
+<sc-if value="{{greebles}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 700px; top: 24px; width: 560px; height: 46px; background: {{hous}}; border-radius: 23px 0 0 23px; clip-path: polygon(0 0, 100% 0, calc(100% - 34px) 100%, 0 100%)"></div>
+<span style="position: absolute; left: 1222px; top: 66px; width: 16px; height: 5px; background: {{signal}}"></span>
+<div style="position: absolute; left: 574px; top: 30px; width: 44px; height: 14px; background-image: radial-gradient({{ink}} 1.6px, transparent 1.8px); background-size: 9px 7px"></div>
+<sc-if value="{{panelClosed}}" hint-placeholder-val="{{ true }}"><div style="position: absolute; left: 1090px; top: 66px; display: flex; gap: 6px"><span style="width: 20px; height: 3px; background: {{ink}}"></span><span style="width: 20px; height: 3px; background: {{rule}}"></span><span style="width: 20px; height: 3px; background: {{ink}}"></span></div></sc-if>
+<div style="position: absolute; left: 1296px; top: 18px; display: flex; align-items: flex-end">
+<div style="width: 40px; height: 1px; background: {{ink}}; margin-bottom: 22px"></div>
+<div style="display: flex; flex-direction: column">
+<span style="background: {{tagTop}}; color: {{tagInk}}; font-family: 'Departure Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 5px 5px 0 0">SYS · CPU</span>
+<span style="background: {{tagBg}}; color: {{tagInk}}; font-family: 'Departure Mono', monospace; font-size: 13px; padding: 4px 10px">\\\ 012% \\\</span>
+<span style="height: 5px; background: repeating-linear-gradient(90deg, {{signal}} 0 4px, transparent 4px 6px)"></span>
+</div>
+</div>
+</sc-if>
+
+<div style="position: absolute; left: 713px; top: 14px; display: flex; align-items: stretch; height: 46px">
+<div style="width: 340px; position: relative; border-radius: 23px 0 0 23px; overflow: hidden; background: {{surface}}">
+<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(180deg, {{fadeTop}}, transparent 70%)"></div>
+<img src="/_blob/fc634282ef00648181062769f2c0c144" alt="" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35">
+<div style="position: relative; height: 46px; display: flex; align-items: center; gap: 12px; padding: 0 18px">
+<sc-if value="{{vizBars}}" hint-placeholder-val="{{ true }}"><span style="display: flex; gap: 2px; align-items: flex-end; height: 18px"><sc-for list="{{mini}}" as="b" hint-placeholder-count="8"><span style="width: 3px; height: {{b.h}}; background: {{trace}}"></span></sc-for></span></sc-if>
+<sc-if value="{{vizLadder}}" hint-placeholder-val="{{ false }}"><span style="display: flex; gap: 2px; align-items: flex-end"><sc-for list="{{miniLadder}}" as="col" hint-placeholder-count="10"><span style="display: flex; flex-direction: column; gap: 1px"><sc-for list="{{col.cells}}" as="c" hint-placeholder-count="5"><span style="width: 4px; height: 2px; background: {{c.bg}}"></span></sc-for></span></sc-for></span></sc-if>
+<sc-if value="{{vizScope}}" hint-placeholder-val="{{ false }}"><svg width="64" height="20" viewBox="0 0 64 20" fill="none" aria-hidden="true"><path d="M0 10 H64" stroke="{{rule}}" stroke-width="1"/><polyline points="{{miniScope}}" stroke="{{trace}}" stroke-width="1.5"/></svg></sc-if>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px; white-space: nowrap">DEEP DEEPER</span><span style="font-size: 12px; color: {{dim}}; white-space: nowrap">EastNewSound</span>
+</div>
+</div>
+<div style="width: 23px; background: {{signal}}; border-radius: 0 23px 23px 0"></div>
+<div style="width: 6px"></div>
+<div style="width: 128px; border-radius: 12px; background: {{surface2}}; display: flex; align-items: center; justify-content: center; gap: 8px; position: relative; overflow: hidden">
+<img src="/_blob/fc634282ef00648181062769f2c0c144" alt="" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.25">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 20px"><span style="position: absolute; left: 0; top: 0; color: {{ghost}}">88:88</span><span style="position: relative">07:45</span></span><span style="position: relative; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">28·10</span>
+</div>
+</div>
+
+<div style="position: absolute; right: 24px; top: 16px; height: 40px; display: flex; align-items: center; gap: 16px; padding: 0 18px; border-radius: 999px; background: {{glass}}; backdrop-filter: blur(14px); font-family: 'Departure Mono', monospace; font-size: 14px"><span><span style="color: {{dim}}">NET</span> OK</span><span><span style="color: {{dim}}">VOL</span> 70</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{trace}}"></span>PIP IDLE</span></div>
+
+<sc-if value="{{showApps}}" hint-placeholder-val="{{ true }}">
+<div style="position: absolute; left: 713px; top: 70px; width: 497px; box-sizing: border-box; border-radius: 20px; background: {{glass}}; backdrop-filter: blur(18px); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 14px">
+<div style="height: 38px; border: 1px solid {{rule}}; border-radius: 999px; display: flex; align-items: center; gap: 10px; padding: 0 14px"><span style="color: {{signal}}">&gt;</span><span>fre</span><span style="width: 8px; height: 16px; background: {{ink}}"></span></div>
+<sc-for list="{{apps}}" as="a" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 28px minmax(0, 1fr) 130px; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 8px; background: {{a.bg}}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="{{a.icon}}"/></svg>
+<span>{{a.name}}</span><span style="color: {{dim}}; text-align: right; font-size: 12px">{{a.meta}}</span>
+</div>
+</sc-for>
+<div style="display: flex; gap: 14px; color: {{dim}}; font-size: 11px; border-top: 1px solid {{rule}}; padding-top: 8px"><span>ENTER LAUNCH</span><span>[G] GO TO</span><span>[K] KILL</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{showNet}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 910px; top: 70px; width: 300px; box-sizing: border-box; border-radius: 20px; background: {{glass}}; backdrop-filter: blur(18px); padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: flex; justify-content: space-between"><span>NET // NETWORK</span><span style="color: {{dim}}; font-size: 11px">SUPER+N</span></div>
+<div style="display: flex; justify-content: space-between"><span><span style="color: {{signal}}">▸</span> KUNU-5G</span><span style="color: {{dim}}">▂▄▆█</span></div>
+<div style="display: flex; justify-content: space-between; color: {{dim}}"><span>  NEIGHBOR-2.4</span><span>▂▄__</span></div>
+<div style="height: 1px; background: {{rule}}"></div>
+<div style="display: flex; justify-content: space-between"><span>HEADPHONES</span><span><span style="color: {{signal}}">[■]</span> 82%</span></div>
+<div style="display: flex; justify-content: space-between; color: {{dim}}"><span>CONTROLLER</span><span>[ ] PAIR</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{showMedia}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 713px; top: 70px; width: 363px; box-sizing: border-box; border-radius: 20px; background: {{glass}}; backdrop-filter: blur(18px); padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{dim}}"><span>AUD-01 // NOW PLAYING</span><span>3:01 / 4:24</span></div>
+<sc-if value="{{vizBars}}" hint-placeholder-val="{{ true }}"><div style="display: flex; gap: 3px; align-items: flex-end; height: 48px"><sc-for list="{{big}}" as="b" hint-placeholder-count="36"><span style="flex-grow: 1; height: {{b.h}}; background: {{b.c}}; border-radius: 1px"></span></sc-for></div></sc-if>
+<sc-if value="{{vizLadder}}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: 3px; align-items: flex-end"><sc-for list="{{bigLadder}}" as="col" hint-placeholder-count="24"><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><sc-for list="{{col.cells}}" as="c" hint-placeholder-count="8"><span style="height: 4px; background: {{c.bg}}"></span></sc-for></div></sc-for></div></sc-if>
+<sc-if value="{{vizScope}}" hint-placeholder-val="{{ false }}"><div style="position: relative; height: 64px; border: 1px solid {{rule}}; border-radius: 6px; background-image: linear-gradient({{grid}} 1px, transparent 1px), linear-gradient(90deg, {{grid}} 1px, transparent 1px); background-size: 100% 16px, 32px 100%; overflow: hidden"><svg width="325" height="64" viewBox="0 0 325 64" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><polyline points="{{scopeGhost}}" stroke="{{rule}}" stroke-width="1"/><polyline points="{{scopePts}}" stroke="{{trace}}" stroke-width="1.6"/><path d="M 221 0 V 64" stroke="{{signal}}" stroke-width="1" stroke-dasharray="2 3"/></svg><span style="position: absolute; left: 6px; top: 3px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}">CH1 · 44.1K</span><span style="position: absolute; right: 6px; bottom: 3px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}">T▸ 3:01</span></div></sc-if>
+<div style="height: 2px; background: {{rule}}"><div style="width: 68%; height: 2px; background: {{ink}}"></div></div>
+<div style="display: flex; justify-content: center; gap: 26px; font-family: 'Departure Mono', monospace; font-size: 15px"><span>|◀</span><span style="color: {{signal}}">▮▮</span><span>▶|</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{showSettings}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 616px; top: 86px; width: 720px; height: 560px; background: {{hous}}; border-radius: 24px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%)"></div>
+<div style="position: absolute; left: 600px; top: 70px; width: 720px; height: 560px; box-sizing: border-box; border-radius: 24px; background: {{glass}}; border: 1px solid {{rule}}; display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid {{rule}}; font-family: 'Departure Mono', monospace; font-size: 14px"><span>SYS // SETTINGS</span><span style="display: flex; gap: 12px; align-items: center"><span style="font-size: 11px; color: {{dim}}">CFG · illogical-impulse/config.json</span><span style="background: {{tagBg}}; color: {{tagInk}}; font-size: 11px; padding: 3px 8px">ESC</span></span></div>
+<div style="display: flex; flex-grow: 1; min-height: 0">
+<div style="width: 170px; flex-shrink: 0; border-right: 1px solid {{rule}}; padding: 14px 0; display: flex; flex-direction: column; gap: 2px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<sc-for list="{{navItems}}" as="n" hint-placeholder-count="8"><span style="padding: 8px 18px; display: flex; gap: 10px; background: {{n.bg}}; color: {{n.fg}}"><span style="color: {{n.mark}}">{{n.m}}</span>{{n.t}}</span></sc-for>
+<div style="margin-top: auto; padding: 0 18px; display: flex; align-items: center; gap: 8px">
+<div style="display: grid; grid-template-columns: repeat(16, 2px); grid-auto-rows: 2px" aria-hidden="true"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span style="font-size: 11px; color: {{dim}}">LOAF · IDLE</span>
+</div>
+</div>
+<div style="flex-grow: 1; min-width: 0; padding: 18px 22px; display: flex; flex-direction: column; gap: 15px; font-size: 13px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'Departure Mono', monospace"><span style="font-size: 15px">THEME // COLOR</span><span style="font-size: 11px; color: {{dim}}">::::: 08 ITEMS</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Color source</span><span style="display: flex; border: 1px solid {{rule}}; border-radius: 6px; overflow: hidden; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="padding: 6px 12px; background: {{ink}}; color: {{onInk}}">WALLPAPER</span><span style="padding: 6px 12px; border-left: 1px solid {{rule}}; color: {{dim}}">PINNED</span><span style="padding: 6px 12px; border-left: 1px solid {{rule}}; color: {{dim}}">MONO</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div style="border: 1px solid {{rule}}; border-radius: 12px; padding: 10px; display: flex; gap: 10px; align-items: center"><span style="width: 34px; height: 34px; border-radius: 8px; background: {{signal}}; flex-shrink: 0"></span><span style="display: flex; flex-direction: column; gap: 2px; font-family: 'Departure Mono', monospace"><span style="font-size: 12px">SIGNAL</span><span style="font-size: 11px; color: {{dim}}">{{signal}}</span></span></div>
+<div style="border: 1px solid {{rule}}; border-radius: 12px; padding: 10px; display: flex; gap: 10px; align-items: center"><span style="width: 34px; height: 34px; border-radius: 8px; background: {{trace}}; flex-shrink: 0"></span><span style="display: flex; flex-direction: column; gap: 2px; font-family: 'Departure Mono', monospace"><span style="font-size: 12px">TRACE</span><span style="font-size: 11px; color: {{dim}}">{{trace}}</span></span></div>
+<div style="border: 1px solid {{rule}}; border-radius: 12px; padding: 10px; display: flex; gap: 10px; align-items: center"><span style="width: 34px; height: 34px; border-radius: 8px; background: {{surface2}}; border: 1px solid {{rule}}; box-sizing: border-box; flex-shrink: 0"></span><span style="display: flex; flex-direction: column; gap: 2px; font-family: 'Departure Mono', monospace"><span style="font-size: 12px">TINT</span><span style="font-size: 11px; color: {{dim}}">{{surface2}}</span></span></div>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">FROM: {{wallName}} · AUTO-{{modeUp}}</span>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Mode</span><span style="display: flex; border: 1px solid {{rule}}; border-radius: 6px; overflow: hidden; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="padding: 6px 12px; background: {{ink}}; color: {{onInk}}">AUTO</span><span style="padding: 6px 12px; border-left: 1px solid {{rule}}; color: {{dim}}">LIGHT</span><span style="padding: 6px 12px; border-left: 1px solid {{rule}}; color: {{dim}}">DARK</span></span></div>
+<div style="display: flex; justify-content: space-between"><span>Keep strong wallpaper hues</span><span style="font-family: 'Departure Mono', monospace"><span style="color: {{signal}}">[■]</span> ENGAGED</span></div>
+<div style="display: flex; justify-content: space-between"><span>OLED drift</span><span style="font-family: 'Departure Mono', monospace"><span style="color: {{signal}}">[■]</span> 2 PX / 5 MIN</span></div>
+<div style="display: flex; justify-content: space-between"><span>LOAF in island</span><span style="font-family: 'Departure Mono', monospace"><span style="color: {{signal}}">[■]</span> ENGAGED</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between"><span>Greeble density</span><span style="font-family: 'Departure Mono', monospace; color: {{dim}}">HIGH</span></div>
+<div style="height: 18px; position: relative; background: repeating-linear-gradient(90deg, {{dim}} 0 1px, transparent 1px 10px); background-size: 100% 7px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid {{dim}}"><span style="position: absolute; left: 75%; top: 0; width: 6px; height: 12px; background: {{signal}}"></span></div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}"><span>OFF</span><span>LOW</span><span>MED</span><span>HIGH</span></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>UI scale</span><span style="display: flex; align-items: center; gap: 10px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">4K · 27 IN</span><span style="border: 1px solid {{rule}}; border-radius: 4px; padding: 2px 8px; font-family: 'Departure Mono', monospace">−</span><span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 20px"><span style="position: absolute; left: 0; top: 0; color: {{ghost}}">8.88</span><span style="position: relative">1.50</span></span><span style="border: 1px solid {{rule}}; border-radius: 4px; padding: 2px 8px; font-family: 'Departure Mono', monospace">+</span></span></div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{extras}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; right: 16px; top: 92px; width: 360px; height: 474px; background: {{hous}}; border-radius: 22px; clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px)"></div>
+<div style="position: absolute; right: 28px; top: 80px; width: 360px; box-sizing: border-box; border-radius: 20px; background: {{glass}}; border: 1px solid {{rule}}; padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<div style="display: flex; justify-content: space-between"><span style="font-size: 14px">TLM // TELEMETRY</span><span><span style="color: {{trace}}">●</span> LIVE</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px">
+<sc-for list="{{tlm}}" as="t" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: {{dim}}">{{t.k}}</span>
+<span style="display: flex; align-items: baseline; gap: 4px"><span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 28px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: {{ghost}}">888</span><span style="position: relative">{{t.v}}</span></span><span style="font-size: 11px; color: {{dim}}">{{t.u}}</span></span>
+<div style="height: 3px; background: {{rule}}"><div style="width: {{t.w}}; height: 3px; background: {{t.c}}"></div></div>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between"><span style="color: {{dim}}">NET ↓ 2.4 MB/S</span><span style="color: {{dim}}">↑ 0.3</span></div>
+<div style="position: relative; height: 42px; border: 1px solid {{rule}}; border-radius: 6px; background-image: linear-gradient({{grid}} 1px, transparent 1px), linear-gradient(90deg, {{grid}} 1px, transparent 1px); background-size: 100% 14px, 30px 100%; overflow: hidden"><svg width="322" height="42" viewBox="0 0 322 42" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><polyline points="{{netPts}}" stroke="{{trace}}" stroke-width="1.5"/></svg></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="color: {{dim}}">WS // MAP</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<div style="height: 46px; border: 1px solid {{signal}}; border-radius: 6px; padding: 4px; box-sizing: border-box; display: flex; gap: 3px"><span style="flex-grow: 2; background: {{rule}}; border-radius: 2px"></span><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 3px"><span style="flex-grow: 1; background: {{rule}}; border-radius: 2px"></span><span style="flex-grow: 1; background: {{rule}}; border-radius: 2px"></span></span></div>
+<div style="height: 46px; border: 1px solid {{rule}}; border-radius: 6px; padding: 4px; box-sizing: border-box; display: flex"><span style="flex-grow: 1; background: {{rule}}; border-radius: 2px"></span></div>
+<div style="height: 46px; border: 1px solid {{rule}}; border-radius: 6px; padding: 4px; box-sizing: border-box; display: flex; gap: 3px"><span style="flex-grow: 1; background: {{rule}}; border-radius: 2px"></span><span style="flex-grow: 1; background: {{rule}}; border-radius: 2px"></span></div>
+<div style="height: 46px; border: 1px dashed {{rule}}; border-radius: 6px"></div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid {{rule}}; padding-top: 10px; color: {{dim}}"><span style="width: 44px; height: 12px; background-image: radial-gradient({{dim}} 1.4px, transparent 1.6px); background-size: 9px 6px"></span><span>UP 04:12:33 · KRNL 7.0</span></div>
+</div>
+<div style="position: absolute; right: 28px; top: 586px; width: 360px; border-radius: 10px; overflow: hidden; display: flex; background: {{slipBg}}; color: #111111">
+<div style="flex-grow: 1; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #555555"><span>FROM: LAUNCH LIBRARY</span><span>N° 0034</span></div>
+<span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px; line-height: 1">T-02:14:33</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px">[MISSION NAME] · [PROVIDER]</span>
+</div>
+<div style="width: 30px; border-left: 2px dashed #b7b0a5; background: {{signal}}"></div>
+</div>
+<div style="position: absolute; right: 28px; top: 696px; width: 360px; box-sizing: border-box; border-radius: 20px; background: {{glass}}; border: 1px solid {{rule}}; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<div style="display: flex; justify-content: space-between"><span style="font-size: 14px">LCH // LAUNCH BAY</span><span style="color: {{dim}}">SUPER+1..5</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{bay}}" as="b" hint-placeholder-count="3">
+<a href="#" style="border: 1px solid {{b.border}}; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 6px; color: {{ink}}; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="{{b.icon}}"/></svg>
+<span>{{b.name}}</span><span style="font-size: 10px; color: {{dim}}">{{b.meta}}</span>
+</a>
+</sc-for>
+</div>
+<span style="color: {{dim}}">GAMES // RECENT</span>
+<sc-for list="{{games}}" as="g" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 70px 54px; align-items: center; gap: 8px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9h12a4 4 0 0 1 0 8c-2 0-3-2-6-2s-4 2-6 2a4 4 0 0 1 0-8zM8 11v4M6 13h4M16 12h.01M18 14h.01"/></svg>
+<span>{{g.name}}</span><span style="color: {{dim}}; text-align: right">{{g.hrs}}</span><span style="color: {{signal}}; text-align: right">▸ PLAY</span>
+</div>
+</sc-for>
+</div>
+<div style="position: absolute; right: 28px; bottom: 74px; display: flex; align-items: center; gap: 10px">
+<span style="background: {{glass}}; border: 1px solid {{rule}}; border-radius: 999px; padding: 6px 12px; font-family: 'Departure Mono', monospace; font-size: 12px">LOAF · IDLE · <span style="color: {{dim}}">SUPER+C</span></span>
+<div style="display: grid; grid-template-columns: repeat(16, 4px); grid-auto-rows: 4px" aria-hidden="true"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+</div>
+<div style="position: absolute; left: 600px; width: 800px; bottom: 22px; height: 34px">
+<div style="position: absolute; left: 0; right: 0; top: 0; height: 14px; background: repeating-linear-gradient(90deg, {{dim}} 0 1px, transparent 1px 8.33px), repeating-linear-gradient(90deg, {{ink}} 0 1px, transparent 1px 133.33px); background-size: 100% 6px, 100% 14px; background-repeat: no-repeat; background-position: bottom, bottom; border-bottom: 1px solid {{dim}}"></div>
+<span style="position: absolute; left: 32.3%; top: -4px; width: 2px; height: 18px; background: {{signal}}"></span>
+<span style="position: absolute; left: 32.3%; top: 18px; margin-left: 6px; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{signal}}">07:45</span>
+<span style="position: absolute; left: 0; top: 18px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}">00</span>
+<span style="position: absolute; left: 50%; top: 18px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}">12</span>
+<span style="position: absolute; right: 0; top: 18px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}">24</span>
+</div>
+</sc-if>
+
+<sc-if value="{{greeblesOrbit}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: {{housLeft}}; top: 822px; width: 520px; height: 240px; background: {{hous}}; border-radius: 24px; clip-path: {{housClip}}"></div>
+<span style="position: absolute; left: {{chipX}}; top: 816px; width: 16px; height: 5px; background: {{signal}}"></span>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<path d="{{arcD}}" stroke="{{arcInk}}" stroke-width="1"/>
+<path d="{{tickD}}" stroke="{{arcInk}}" stroke-width="1"/>
+<path d="{{arcInnerD}}" stroke="{{arcInk}}" stroke-width="1" stroke-dasharray="2 6"/>
+<path d="{{pinD}}" stroke="{{arcInk}}" stroke-width="1"/>
+<path d="{{cursorD}}" stroke="{{signal}}" stroke-width="3"/>
+</svg>
+<span style="position: absolute; left: {{curLX}}; top: {{curLY}}; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{signal}}">NOW</span>
+<sc-for list="{{arcLabels}}" as="l" hint-placeholder-count="6"><span style="position: absolute; left: {{l.x}}; top: {{l.y}}; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{arcInk}}">{{l.t}}</span></sc-for>
+<div style="position: absolute; left: {{pinX}}; top: {{pinY}}; width: 14px; height: 14px; box-sizing: border-box; border-radius: 50%; border: 1px solid {{ink}}; background: {{surface}}"></div>
+<span style="position: absolute; left: {{pinLabelX}}; top: {{pinLabelY}}; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{arcInk}}; white-space: nowrap">ISS-N4 · 2431</span>
+<div style="position: absolute; left: {{boxX}}; top: {{boxY}}; display: flex; align-items: center"><span style="border: 2px solid {{signal}}; background: {{surface}}; padding: 3px 7px; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 18px; color: {{ink}}">301</span><span style="width: 20px; height: 16px; background: {{tagBg}}"></span></div>
+<div style="position: absolute; left: 6px; top: 0; bottom: 0; width: 20px; display: flex; align-items: center; justify-content: center"><span style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Departure Mono', monospace; font-size: 11px; color: {{arcInk}}; white-space: nowrap; letter-spacing: 2px">NSP-01 // MISSION LOG // SOL 301</span></div>
+</sc-if>
+
+<div style="position: absolute; bottom: 32px; left: {{orbitLeft}}; visibility: {{orbitVis}}; width: 500px; height: 250px; box-sizing: border-box; border-radius: 24px; background: {{glass}}; backdrop-filter: blur(16px); display: flex; align-items: center; gap: 18px; padding: 0 22px">
+<div style="width: 210px; height: 210px; position: relative; flex-shrink: 0">
+<sc-for list="{{rings}}" as="r" hint-placeholder-count="5"><div style="position: absolute; left: {{r.off}}; top: {{r.off}}; width: {{r.d}}; height: {{r.d}}; box-sizing: border-box; border-radius: 50%; border: 1px solid {{rule}}"></div></sc-for>
+<div style="position: absolute; left: 96px; top: 96px; width: 18px; height: 18px; border-radius: 50%; background: {{ink}}"></div>
+<sc-for list="{{planets}}" as="p" hint-placeholder-count="5"><div style="position: absolute; left: {{p.x}}; top: {{p.y}}; width: {{p.s}}; height: {{p.s}}; border-radius: 50%; background: {{p.c}}"></div></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 11px; color: {{dim}}">MISSION ELAPSED</span>
+<span style="font-size: 34px; line-height: 1">T+ 00:43</span>
+<span style="font-size: 12px">WED 28 OCT · DAY 301</span>
+<span style="font-size: 12px; color: {{dim}}"><span style="color: {{trace}}">■</span> ISS OVER [REGION]</span>
+<span style="font-size: 12px; color: {{dim}}"><span style="color: {{signal}}">●</span> EARTH · YOU</span>
+</div>
+</div>
+
+<div style="position: absolute; right: 24px; bottom: 24px; display: flex; gap: 6px; align-items: center; padding: 8px 12px; border-radius: 999px; background: {{glass}}; backdrop-filter: blur(14px); font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">
+<span>{{label}}</span><span style="width: 14px; height: 14px; border-radius: 3px; background: {{signal}}"></span><span style="width: 14px; height: 14px; border-radius: 3px; background: {{trace}}"></span><span style="width: 14px; height: 14px; border-radius: 3px; background: {{surface}}; border: 1px solid {{rule}}"></span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"wall":{"editor":"text","default":"/_blob/03d66609ac7b8704a8304494ae343a93"},"mode":{"editor":"enum","options":["dark","light"],"default":"dark"},"signal":{"editor":"color","default":"#dc5f4f"},"trace":{"editor":"color","default":"#baa19d"},"tint":{"editor":"color","default":"#130d11"},"tint2":{"editor":"color","default":"#1f181c"},"panel":{"editor":"enum","options":["apps","net","media","none"],"default":"apps"},"side":{"editor":"enum","options":["left","right"],"default":"left"},"label":{"editor":"text","default":"DARK · AUTO"},"greebles":{"editor":"boolean","default":false},"extras":{"editor":"boolean","default":false},"orbit":{"editor":"boolean","default":true},"viz":{"editor":"enum","options":["bars","ladder","scope"],"default":"bars"},"wallName":{"editor":"text","default":"wallpaper.jpg"},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const p = this.props;
+const mode = p.mode ?? 'dark';
+const light = mode === 'light';
+const tint = p.tint ?? '#130d11';
+const tint2 = p.tint2 ?? '#1f181c';
+const signal = p.signal ?? '#dc5f4f';
+const trace = p.trace ?? '#baa19d';
+const rgba = (hex, a) => {
+const h = hex.replace('#', '');
+return 'rgba(' + parseInt(h.substr(0, 2), 16) + ',' + parseInt(h.substr(2, 2), 16) + ',' + parseInt(h.substr(4, 2), 16) + ',' + a + ')';
+};
+const ink = light ? '#111111' : '#ececec';
+const dim = light ? '#555555' : '#a3a3a3';
+const panel = p.panel ?? 'apps';
+const greebles = p.greebles === true || p.greebles === 'true';
+const mix = (h1, h2, t) => {
+const a = h1.replace('#', ''), b = h2.replace('#', '');
+let out = '#';
+for (let i = 0; i < 3; i++) {
+const v = Math.round(parseInt(a.substr(i * 2, 2), 16) * (1 - t) + parseInt(b.substr(i * 2, 2), 16) * t);
+out += ('0' + v.toString(16)).slice(-2);
+}
+return out;
+};
+const sideV = p.side ?? 'left';
+const m = sideV === 'left' ? 1 : -1;
+const L = sideV === 'left' ? 32 : 1388;
+const ocx = L + 127, ocy = 923, R = 330;
+const P = (deg, r) => {
+const a = deg * Math.PI / 180;
+return [ocx + m * r * Math.cos(a), ocy + r * Math.sin(a)];
+};
+const f = (v) => v.toFixed(1);
+const sweep = m === 1 ? 1 : 0;
+const a1 = P(-100, R), a2 = P(-22, R);
+const arcD = 'M ' + f(a1[0]) + ' ' + f(a1[1]) + ' A ' + R + ' ' + R + ' 0 0 ' + sweep + ' ' + f(a2[0]) + ' ' + f(a2[1]);
+const Ri = R - 22;
+const b1 = P(-96, Ri), b2 = P(-45, Ri);
+const arcInnerD = 'M ' + f(b1[0]) + ' ' + f(b1[1]) + ' A ' + Ri + ' ' + Ri + ' 0 0 ' + sweep + ' ' + f(b2[0]) + ' ' + f(b2[1]);
+let tickD = '';
+const arcLabels = [];
+for (let h = 0; h <= 24; h++) {
+const d = -100 + h * 78 / 24;
+const major = h % 6 === 0;
+const s = P(d, R), e = P(d, R + (major ? 14 : 7));
+tickD += 'M ' + f(s[0]) + ' ' + f(s[1]) + ' L ' + f(e[0]) + ' ' + f(e[1]) + ' ';
+if (major) {
+const l = P(d, R + 28);
+arcLabels.push({ x: (l[0] - 9).toFixed(0) + 'px', y: (l[1] - 7).toFixed(0) + 'px', t: ('0' + h).slice(-2) });
+}
+}
+const cd = -100 + 7.75 * 78 / 24;
+const ca = P(cd, R - 8), cb = P(cd, R + 22), cl = P(cd, R + 44);
+const cursorD = 'M ' + f(ca[0]) + ' ' + f(ca[1]) + ' L ' + f(cb[0]) + ' ' + f(cb[1]);
+const pa = P(-62, R + 14), pb = P(-62, R + 80), pc = P(-62, R + 87);
+const pinD = 'M ' + f(pa[0]) + ' ' + f(pa[1]) + ' L ' + f(pb[0]) + ' ' + f(pb[1]);
+const st = P(-100, R);
+const gInk = light ? 'rgba(17,17,17,0.55)' : 'rgba(236,236,236,0.55)';
+const viz = p.viz ?? 'bars';
+const extras = p.extras === true || p.extras === 'true';
+const showOrbit = !(p.orbit === false || p.orbit === 'false');
+const faint = rgba(ink, 0.12);
+const amps = [];
+for (let i = 0; i < 24; i++) amps.push(0.25 + 0.7 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)));
+const ladderCol = (v, n) => {
+const lit = Math.max(1, Math.round(v * n));
+const peak = Math.min(n - 1, lit);
+const cells = [];
+for (let k = n - 1; k >= 0; k--) cells.push({ bg: k < lit ? trace : (k === peak ? signal : faint) });
+return { cells: cells };
+};
+const bigLadder = amps.map((v) => ladderCol(v, 8));
+const miniLadder = amps.slice(2, 12).map((v) => ladderCol(v, 5));
+const wave = (x, ph) => 32 + 20 * Math.sin(x * 0.05 + ph) * Math.cos(x * 0.013) + 6 * Math.sin(x * 0.31 + ph * 2);
+let scopePts = '', scopeGhost = '';
+for (let x = 0; x <= 325; x += 3) {
+scopePts += x + ',' + wave(x, 0).toFixed(1) + ' ';
+scopeGhost += x + ',' + wave(x, 0.9).toFixed(1) + ' ';
+}
+let miniScope = '';
+for (let x = 0; x <= 64; x += 2) miniScope += x + ',' + (10 + 7 * Math.sin(x * 0.3) * Math.cos(x * 0.07)).toFixed(1) + ' ';
+let netPts = '';
+for (let x = 0; x <= 322; x += 7) netPts += x + ',' + (30 - 14 * Math.abs(Math.sin(x * 0.04)) - 6 * Math.abs(Math.sin(x * 0.17))).toFixed(1) + ' ';
+const loafRows = ['.......A........', '..B....S....B...', '.BBB.......BBB..', '.BKBB.....BBKB..', '.BBBBBBBBBBBBB..', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBMBBBBBBB.', 'BBBBBBMMMBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBBT', 'BBBBBBBBBBBBBBTT', '.BWWBBBBBBBWWBT.'];
+const lp = light ? { body: '#3b3f43', ear: '#8f9498', cream: '#eeeeec', stem: '#7d8287' } : { body: '#c9cbcc', ear: '#7d8287', cream: '#26292c', stem: '#a3a3a3' };
+const loafEyes = [[5, 4], [6, 4], [5, 10], [6, 10]];
+const loaf = [];
+for (let r = 0; r < loafRows.length; r++) {
+for (let c = 0; c < 16; c++) {
+const ch = loafRows[r][c];
+let bg = 'transparent';
+if (ch === 'B' || ch === 'T') bg = lp.body;
+else if (ch === 'K') bg = lp.ear;
+else if (ch === 'M' || ch === 'W') bg = lp.cream;
+else if (ch === 'S') bg = lp.stem;
+else if (ch === 'A') bg = trace;
+if (loafEyes.some((e) => e[0] === r && e[1] === c)) bg = lp.cream;
+loaf.push({ bg: bg });
+}
+}
+const navNames = ['QUICK', 'THEME', 'ISLAND', 'BAR', 'ORBIT', 'AI · LOAF', 'KEYS', 'ABOUT'];
+const navItems = navNames.map((t) => ({ t: t, m: t === 'THEME' ? '▸' : '·', mark: t === 'THEME' ? signal : dim, bg: t === 'THEME' ? rgba(ink, 0.08) : 'transparent', fg: t === 'THEME' ? ink : dim }));
+const tlm = [
+{ k: 'CPU', v: '012', u: '%', w: '12%', c: ink },
+{ k: 'GPU', v: '041', u: '°C', w: '41%', c: ink },
+{ k: 'MEM', v: '041', u: '%', w: '41%', c: ink },
+{ k: 'DISK', v: '062', u: '%', w: '62%', c: signal }
+];
+const mini = [40, 80, 55, 100, 30, 70, 90, 45].map((v) => ({ h: v + '%' }));
+const big = [];
+for (let i = 0; i < 36; i++) {
+const v = Math.round(18 + 80 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)));
+big.push({ h: v + '%', c: i < 24 ? trace : rgba(ink, 0.18) });
+}
+const ringR = [24, 44, 62, 82, 100];
+const ang = [30, 210, 320, 120, 250];
+const sizes = [5, 6, 8, 12, 10];
+const rings = ringR.map((r) => ({ off: (105 - r) + 'px', d: (2 * r) + 'px' }));
+const planets = ringR.map((r, i) => {
+const a = ang[i] * Math.PI / 180;
+const s = sizes[i];
+return { x: (105 + r * Math.cos(a) - s / 2) + 'px', y: (105 + r * Math.sin(a) - s / 2) + 'px', s: s + 'px', c: i === 2 ? signal : (i === 4 ? trace : rgba(ink, 0.55)) };
+});
+const icons = {
+browser: 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18',
+terminal: 'M3 5h18v14H3zM7 10l3 2-3 2M12 15h5',
+cube: 'M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12L4 7.5M12 12v9',
+calc: 'M6 3h12v18H6zM9 7h6M9 12h1M14 12h1M9 16h1M14 16h1',
+music: 'M9 18a2 2 0 1 1-2-2h2V5l10-2v13a2 2 0 1 1-2-2h2'
+};
+const apps = [
+{ name: 'FreeCAD', meta: 'RUN · 1.2 GB', icon: icons.cube, bg: rgba(ink, 0.08) },
+{ name: 'Free42 Calculator', meta: '—', icon: icons.calc, bg: 'transparent' },
+{ name: 'Vivaldi', meta: 'WS 01 · 2.1 GB', icon: icons.browser, bg: 'transparent' },
+{ name: 'foot', meta: 'WS 02 · 40 MB', icon: icons.terminal, bg: 'transparent' },
+{ name: 'Music', meta: 'PLAYING', icon: icons.music, bg: 'transparent' }
+];
+return {
+wall: p.wall ?? '/_blob/03d66609ac7b8704a8304494ae343a93',
+ink: ink, dim: dim, signal: signal, trace: trace,
+surface: tint, surface2: tint2,
+glass: rgba(tint, greebles ? 0.94 : (light ? 0.82 : 0.84)),
+greebles: greebles,
+greeblesOrbit: greebles && panel !== 'settings' && showOrbit, orbitVis: showOrbit ? 'visible' : 'hidden', panelClosed: panel === 'none',
+cursorD: cursorD, curLX: (cl[0] - 12).toFixed(0) + 'px', curLY: (cl[1] - 7).toFixed(0) + 'px',
+bay: [
+{ name: 'YOUTUBE', meta: '[1] RESUME', border: signal, icon: 'M3 6h18v12H3zM10 9l5 3-5 3z' },
+{ name: 'NETFLIX', meta: '[2] S02E04', border: rgba(ink, 0.16), icon: 'M4 4h16v16H4zM8 4v16M16 4v16M4 9h4M4 15h4M16 9h4M16 15h4' },
+{ name: 'STEAM', meta: '[3] LIBRARY', border: rgba(ink, 0.16), icon: 'M6 9h12a4 4 0 0 1 0 8c-2 0-3-2-6-2s-4 2-6 2a4 4 0 0 1 0-8zM8 11v4M6 13h4M16 12h.01M18 14h.01' }
+],
+games: [{ name: 'CYBERPUNK 2077', hrs: '[HRS]' }, { name: 'BLACK MYTH: WUKONG', hrs: '[HRS]' }],
+vizBars: viz === 'bars', vizLadder: viz === 'ladder', vizScope: viz === 'scope',
+bigLadder: bigLadder, miniLadder: miniLadder, scopePts: scopePts, scopeGhost: scopeGhost, miniScope: miniScope, netPts: netPts,
+grid: rgba(ink, 0.07), onInk: light ? '#f5f5f3' : '#111111',
+showSettings: panel === 'settings', extras: extras, loaf: loaf, navItems: navItems, tlm: tlm,
+slipBg: light ? '#f7f7f5' : '#ececea',
+wallName: p.wallName ?? 'wallpaper.jpg', modeUp: light ? 'LIGHT' : 'DARK',
+hous: light ? mix(tint2, '#000000', 0.26) : mix(tint2, '#ececec', 0.14),
+arcInk: gInk,
+tagBg: light ? '#26292c' : '#ececec',
+tagInk: light ? '#eeeeec' : '#111111',
+tagTop: light ? '#3a3e42' : '#c4c4c4',
+ghost: greebles ? rgba(ink, 0.12) : 'transparent',
+arcD: arcD, arcInnerD: arcInnerD, tickD: tickD, arcLabels: arcLabels, pinD: pinD,
+pinX: (pc[0] - 7).toFixed(0) + 'px', pinY: (pc[1] - 7).toFixed(0) + 'px',
+pinLabelX: (m === 1 ? pc[0] + 12 : pc[0] - 112).toFixed(0) + 'px', pinLabelY: (pc[1] - 7).toFixed(0) + 'px',
+boxX: (m === 1 ? st[0] - 30 : st[0] - 40).toFixed(0) + 'px', boxY: (st[1] - 44).toFixed(0) + 'px',
+housLeft: (m === 1 ? L + 16 : L - 36) + 'px',
+housClip: m === 1 ? 'polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 0 100%)' : 'polygon(56px 0, 100% 0, 100% 100%, 0 100%, 0 56px)',
+chipX: (m === 1 ? L + 16 + 520 - 56 - 22 : L - 36 + 62) + 'px',
+fadeTop: rgba(light ? '#ffffff' : '#ffffff', light ? 0.5 : 0.07),
+rule: rgba(ink, 0.16), hair: rgba(ink, light ? 0.45 : 0.5),
+mini: mini, big: big, rings: rings, planets: planets, apps: apps,
+showApps: panel === 'apps', showNet: panel === 'net', showMedia: panel === 'media',
+orbitLeft: (p.side ?? 'left') === 'left' ? '32px' : '1388px',
+label: p.label ?? 'DARK · AUTO'
+};
+}
+}
+</script>
+</body>
+</html>

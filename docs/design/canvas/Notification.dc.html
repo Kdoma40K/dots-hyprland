@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notification variants</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Roboto+Flex:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 620px; box-sizing: border-box; padding: 40px 64px; background: #16232b; color: #e5d1c5; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b; letter-spacing: 2px">EL-04 // NOTIFICATION · POPUP + SIDEBAR LIST</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">NOW · M3 CARD</div>
+<div style="background: #2b2930; border-radius: 20px; padding: 14px; display: flex; gap: 12px; font-family: 'Roboto Flex', sans-serif; color: #e6e0e9">
+<div style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: #4f378b"></div>
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span style="font-weight: 500">Upscale?</span><span style="color: #cac4d0; font-size: 12px">Yesterday</span></div>
+<span style="font-size: 13px; color: #cac4d0; line-height: 1.4">Image resolution (2588x752) is lower than screen resolution (1920x1080)</span>
+<div style="display: flex; gap: 6px; margin-top: 6px"><span style="flex-grow: 1; text-align: center; background: #1d1b20; border-radius: 999px; padding: 6px; font-size: 13px">Dismiss</span><span style="flex-grow: 1; text-align: center; background: #1d1b20; border-radius: 999px; padding: 6px; font-size: 13px">Copy</span></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">A · LOG ENTRY</div>
+<div style="position: relative; background: #1b2b34; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; border-left: 1px solid #e5d1c5; border-top: 1px solid #e5d1c5"></div>
+<div style="position: absolute; right: 0; top: 0; width: 10px; height: 10px; border-right: 1px solid #e5d1c5; border-top: 1px solid #e5d1c5"></div>
+<div style="position: absolute; left: 0; bottom: 0; width: 10px; height: 10px; border-left: 1px solid #e5d1c5; border-bottom: 1px solid #e5d1c5"></div>
+<div style="position: absolute; right: 0; bottom: 0; width: 10px; height: 10px; border-right: 1px solid #e5d1c5; border-bottom: 1px solid #e5d1c5"></div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b"><span>MSG-0032 // SYSTEM</span><span>T-18H</span></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 15px">UPSCALE?</span>
+<span style="font-size: 13px; line-height: 1.5">Image 2588×752 is below screen 1920×1080.</span>
+<div style="display: flex; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="border: 1px solid #6b7378; border-radius: 2px; padding: 5px 10px">DISMISS</span><span style="border: 1px solid #6b7378; border-radius: 2px; padding: 5px 10px">COPY</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">B · ALERT SLIP (PAPER)</div>
+<div style="background: #ece6dc; color: #1b2b34; border-radius: 4px; display: flex; overflow: hidden">
+<div style="flex-grow: 1; padding: 14px; display: flex; flex-direction: column; gap: 8px; min-width: 0">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #4d575c"><span>FROM: SYSTEM</span><span>N° 0032</span></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 22px; line-height: 1">UPSCALE?</span>
+<span style="font-size: 12px; line-height: 1.5">Image 2588×752 is below screen 1920×1080.</span>
+<div style="display: flex; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="background: #1b2b34; color: #ece6dc; padding: 5px 10px">DISMISS</span><span style="border: 1px solid #1b2b34; padding: 4px 10px">COPY</span></div>
+</div>
+<div style="width: 44px; border-left: 2px dashed #b7b0a5; background: #e05a2b; display: flex; align-items: center; justify-content: center">
+<div style="width: 22px; height: 100px; background: repeating-linear-gradient(0deg, #10181d 0 2px, transparent 2px 4px, #10181d 4px 5px, transparent 5px 8px, #10181d 8px 11px, transparent 11px 13px)"></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">C · PRIORITY HEADER</div>
+<div style="background: #1b2b34; border: 1px solid #6b7378; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; justify-content: space-between; background: #24343e; padding: 8px 12px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px"><span style="width: 28px; height: 10px; background: repeating-linear-gradient(-45deg, #e05a2b 0 4px, transparent 4px 8px)"></span>SYSTEM</span><span style="color: #8d969b">18H AGO</span></div>
+<div style="padding: 14px 12px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 15px">UPSCALE?</span>
+<span style="font-size: 13px; line-height: 1.5">Image 2588×752 is below screen 1920×1080.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #6b7378; font-family: 'Departure Mono', monospace; font-size: 12px; text-align: center"><span style="padding: 8px; border-right: 1px solid #6b7378">DISMISS</span><span style="padding: 8px">COPY</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":620}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Motion and load states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+@keyframes np-sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes np-scan{0%{left:0}100%{left:calc(100% - 6px)}}
+@keyframes np-wave{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-6px);opacity:1}}
+@keyframes np-flick{0%,49%{opacity:1}50%,100%{opacity:.15}}
+@keyframes np-draw{0%{stroke-dashoffset:220}40%,100%{stroke-dashoffset:0}}
+@keyframes np-reveal{0%,35%{opacity:0;transform:translateY(-8px)}55%,100%{opacity:1;transform:none}}
+@keyframes np-slip{0%{transform:translateX(120%)}15%,80%{transform:translateX(0)}100%{transform:translateX(120%)}}
+@keyframes np-scroll{from{transform:translateX(0)}to{transform:translateX(-84px)}}
+@keyframes np-drift{0%{transform:translate(0,0)}25%{transform:translate(6px,0)}50%{transform:translate(6px,6px)}75%{transform:translate(0,6px)}100%{transform:translate(0,0)}}
+@keyframes np-fill{0%{width:0}85%{width:100%}100%{width:100%}}
+@keyframes np-pulse{0%,100%{opacity:.3}50%{opacity:1}}
+</style>
+</helmet>
+<div style="width: 1360px; height: 1120px; box-sizing: border-box; padding: 44px 56px; background: #eeeeec; color: #26292c; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 22px">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #b9bcbf; padding-bottom: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #6e7378; letter-spacing: 2px">MOT-09 // LOAD + TRANSITION STATES · ALL LOOPING</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 40px; line-height: 1">MOTION SHEET</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">EASE: DECEL · NO BOUNCE · 120–320 MS</span><span style="width: 18px; height: 6px; background: #bc3830"></span></div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; flex-grow: 1">
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-01 LCD COUNT-UP</span>
+<div style="height: 130px; display: flex; align-items: center; justify-content: center; gap: 10px">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 64px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #dcdedf">888</span><span style="position: relative">{{count}}</span></span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px; color: #6e7378">%</span>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Any load with a known size: boot, wallpaper re-theme, app spool. Ghost segments sit behind.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-02 ARC SWEEP</span>
+<div style="height: 130px; display: flex; align-items: center; justify-content: center; gap: 16px">
+<div style="position: relative; width: 96px; height: 96px">
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><circle cx="48" cy="48" r="40" stroke="#b9bcbf" stroke-width="1" stroke-dasharray="2 5"/></svg>
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; animation: np-sweep 1.4s linear infinite"><path d="M48 8 A40 40 0 0 1 88 48" stroke="#bc3830" stroke-width="3"/></svg>
+<div style="position: absolute; left: 42px; top: 42px; width: 12px; height: 12px; border-radius: 50%; background: #26292c"></div>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; display: flex; flex-direction: column; gap: 4px"><span>ACQUIRING</span><span style="color: #6e7378">ISS · LL2</span></span>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Unknown duration: network fetches for the orbit, ISS and launch data.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-03 TICK SCANNER</span>
+<div style="height: 130px; display: flex; flex-direction: column; justify-content: center; gap: 8px">
+<div style="position: relative; height: 22px; background: repeating-linear-gradient(90deg, #7d8287 0 1px, transparent 1px 8px); background-size: 100% 8px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid #7d8287"><span style="position: absolute; top: 0; width: 6px; height: 14px; background: #bc3830; animation: np-scan 1.1s cubic-bezier(.4,0,.2,1) infinite alternate"></span></div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378"><span>SEARCH</span><span>yazi · ~/</span></div>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Searching: launcher, file finder, Wi-Fi scan. Lives in the panel's top rule.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-04 DOT WAVE</span>
+<div style="height: 130px; display: flex; align-items: center; justify-content: center; gap: 10px">
+<span style="width: 10px; height: 10px; background: #26292c; animation: np-wave 1s ease-in-out infinite"></span>
+<span style="width: 10px; height: 10px; background: #26292c; animation: np-wave 1s ease-in-out .12s infinite"></span>
+<span style="width: 10px; height: 10px; background: #26292c; animation: np-wave 1s ease-in-out .24s infinite"></span>
+<span style="width: 10px; height: 10px; background: #26292c; animation: np-wave 1s ease-in-out .36s infinite"></span>
+<span style="width: 10px; height: 10px; background: #bc3830; animation: np-wave 1s ease-in-out .48s infinite"></span>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">LOAF is typing. Square pips, not round dots, so it stays instrument-like.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-05 NO SIGNAL</span>
+<div style="height: 130px; display: flex; align-items: center; justify-content: center">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 54px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #dcdedf">88:88</span><span style="position: relative; animation: np-flick 1s steps(1) infinite">--:--</span></span>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Data missing or stale: dashes blink at 1 Hz, like an unset alarm clock.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-06 POP-OUT REVEAL</span>
+<div style="height: 130px; position: relative">
+<div style="position: absolute; left: 10px; top: 8px; width: 120px; height: 28px; border-radius: 999px; background: #26292c"></div>
+<svg width="260" height="130" viewBox="0 0 260 130" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><path d="M70 36 V70 H150" stroke="#bc3830" stroke-width="1.4" stroke-dasharray="220" style="animation: np-draw 2.4s cubic-bezier(.2,.8,.2,1) infinite"/></svg>
+<div style="position: absolute; left: 150px; top: 52px; width: 104px; height: 64px; box-sizing: border-box; border-radius: 12px; background: #ffffff; border: 1px solid #d3d5d7; padding: 8px; font-family: 'Departure Mono', monospace; font-size: 11px; animation: np-reveal 2.4s cubic-bezier(.2,.8,.2,1) infinite">NET //<br><span style="color: #bc3830">▸</span> KUNU-5G</div>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Island grows, leader line draws, then the panel lands. 260 ms total.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-07 SLIP IN / OUT</span>
+<div style="height: 130px; display: flex; align-items: center">
+<div style="width: 100%; border-radius: 8px; overflow: hidden; display: flex; background: #ffffff; border: 1px solid #d3d5d7; animation: np-slip 4s cubic-bezier(.2,.8,.2,1) infinite">
+<div style="flex-grow: 1; padding: 8px 10px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Departure Mono', monospace; font-size: 10px; color: #6e7378">FROM: POWER · N° 0033</span><span style="font-family: 'Departure Mono', monospace; font-size: 14px">UPDATES READY</span></div>
+<div style="width: 20px; border-left: 2px dashed #b7b0a5; background: #bc3830"></div>
+</div>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Urgent slips slide in from the edge, hold 4 s, then tuck back into the log.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-08 SCOPE LIVE</span>
+<div style="height: 130px; display: flex; align-items: center">
+<div style="position: relative; width: 100%; height: 80px; border: 1px solid #d3d5d7; border-radius: 8px; background-image: linear-gradient(rgba(38,41,44,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(38,41,44,0.07) 1px, transparent 1px); background-size: 100% 20px, 28px 100%; overflow: hidden">
+<svg width="420" height="80" viewBox="0 0 420 80" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; animation: np-scroll 1.2s linear infinite"><polyline points="{{scopeLoop}}" stroke="#76605d" stroke-width="1.8"/></svg>
+</div>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">The visualizer scrolls; paused audio flattens to a line in 200 ms.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-09 LOAF CYCLE</span>
+<div style="height: 130px; display: flex; align-items: center; justify-content: center; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(16, 6px); grid-auto-rows: 6px" role="img" aria-label="LOAF-01 cycling through its states"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">{{loafName}}</span>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Idle blink, thinking, needs you, done. Antenna carries the mood color.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-10 OLED DRIFT</span>
+<div style="height: 130px; display: flex; align-items: center; justify-content: center">
+<div style="display: flex; align-items: center; gap: 10px; animation: np-drift 6s steps(4) infinite">
+<span style="background: #26292c; color: #eeeeec; font-family: 'Departure Mono', monospace; font-size: 13px; padding: 4px 10px">\\\ 012% \\\</span>
+<span style="width: 40px; height: 12px; background-image: radial-gradient(#26292c 1.5px, transparent 1.7px); background-size: 8px 6px"></span>
+</div>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Static decor steps 2 px every few minutes. Shown here at 3× speed and size.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-11 HOLD TO CONFIRM</span>
+<div style="height: 130px; display: flex; flex-direction: column; justify-content: center; gap: 10px">
+<div style="border: 1px solid #bc3830; border-radius: 6px; padding: 12px; font-family: 'Departure Mono', monospace; font-size: 15px; position: relative; overflow: hidden"><span style="position: absolute; left: 0; top: 0; bottom: 0; background: rgba(188,56,48,0.14); animation: np-fill 1.8s linear infinite"></span><span style="position: relative">[O] POWER OFF</span></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">HOLD 1.2 S · RELEASE CANCELS</span>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">Destructive actions fill while held. Letting go drains it back to zero.</span>
+</div>
+
+<div style="background: #f7f7f5; border: 1px solid #d3d5d7; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">M-12 BOOT LOG</span>
+<div style="height: 130px; display: flex; flex-direction: column; gap: 3px; font-family: 'Departure Mono', monospace; font-size: 11px; overflow: hidden">
+<sc-for list="{{bootLines}}" as="b" hint-placeholder-count="6"><span><span style="color: {{b.c}}">{{b.s}}</span> {{b.t}}</span></sc-for>
+</div>
+<span style="font-size: 11px; color: #555a5e; line-height: 1.5">First 3 s after login. Each service reports in as it comes up.</span>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":1120}}'>
+class Component extends DCLogic {
+componentDidMount() {
+this.timer = setInterval(() => this.setState({ t: ((this.state && this.state.t) || 0) + 1 }), 80);
+}
+componentWillUnmount() {
+clearInterval(this.timer);
+}
+renderVals() {
+const t = (this.state && this.state.t) || 0;
+const count = ('00' + Math.min(100, t % 70 * 2)).slice(-3);
+let scopeLoop = '';
+for (let x = 0; x <= 420; x += 3) scopeLoop += x + ',' + (40 + 22 * Math.sin(x * 2 * Math.PI / 84) * (0.6 + 0.4 * Math.cos(x * 2 * Math.PI / 420))).toFixed(1) + ' ';
+const rows = ['.......A........', '..B....S....B...', '.BBB.......BBB..', '.BKBB.....BBKB..', '.BBBBBBBBBBBBB..', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBMBBBBBBB.', 'BBBBBBMMMBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBBT', 'BBBBBBBBBBBBBBTT', '.BWWBBBBBBBWWBT.'];
+const phase = Math.floor(t / 30) % 4;
+const blink = phase === 0 && t % 30 > 26;
+const eyeSets = [[[5, 4], [6, 4], [5, 10], [6, 10]], [[4, 5], [5, 5], [4, 11], [5, 11]], [[5, 3], [5, 4], [6, 3], [6, 4], [5, 10], [5, 11], [6, 10], [6, 11]], [[6, 3], [5, 4], [6, 5], [6, 9], [5, 10], [6, 11]]];
+const antenna = ['#9fa3a7', (t % 6 < 3) ? '#76605d' : '#c9bcbb', '#bc3830', '#eeeeec'][phase];
+const eyeColor = phase === 2 ? '#bc3830' : '#eeeeec';
+const eyes = blink ? [] : eyeSets[phase];
+const loaf = [];
+for (let r = 0; r < rows.length; r++) {
+for (let c = 0; c < 16; c++) {
+const ch = rows[r][c];
+let bg = 'transparent';
+if (ch === 'B' || ch === 'T') bg = '#3b3f43';
+else if (ch === 'K') bg = '#8f9498';
+else if (ch === 'M' || ch === 'W') bg = '#eeeeec';
+else if (ch === 'S') bg = '#7d8287';
+else if (ch === 'A') bg = antenna;
+if (eyes.some((e) => e[0] === r && e[1] === c)) bg = eyeColor;
+loaf.push({ bg: bg });
+}
+}
+const allLines = [
+{ s: '[ OK ]', t: 'quickshell · ii', c: '#2f6b52' },
+{ s: '[ OK ]', t: 'palette · SIG #bc3830', c: '#2f6b52' },
+{ s: '[ OK ]', t: 'island · 6 states', c: '#2f6b52' },
+{ s: '[ .. ]', t: 'orbit · fetching ISS', c: '#6e7378' },
+{ s: '[ OK ]', t: 'launch bay · 5 slots', c: '#2f6b52' },
+{ s: '[ OK ]', t: 'loaf · online', c: '#bc3830' }
+];
+const shown = Math.min(allLines.length, Math.floor((t % 60) / 6));
+return { count: count, scopeLoop: scopeLoop, loaf: loaf, loafName: ['IDLE', 'THINKING', 'NEEDS YOU', 'DONE'][phase], bootLines: allLines.slice(0, shown) };
+}
+}
+</script>
+</body>
+</html>

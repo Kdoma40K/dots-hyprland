@@ -1,0 +1,570 @@
+{
+ "v": 3,
+ "attachments": {},
+ "boards": {
+  "AiPanel.dc.html": {
+   "h": 1040,
+   "page": "rev01",
+   "title": "07 \u00b7 AI / Claude Code panel",
+   "w": 1360,
+   "x": 1440,
+   "y": 0
+  },
+  "Bar.dc.html": {
+   "h": 640,
+   "page": "rev01",
+   "title": "06 \u00b7 Top bar",
+   "w": 1360,
+   "x": 1440,
+   "y": 2580
+  },
+  "Buttons.dc.html": {
+   "h": 560,
+   "page": "rev01",
+   "title": "02 \u00b7 Buttons, segmented, chips",
+   "w": 1360,
+   "x": 1440,
+   "y": 1160
+  },
+  "Clock.dc.html": {
+   "h": 640,
+   "page": "rev01",
+   "title": "05 \u00b7 Desktop clock",
+   "w": 1360,
+   "x": 0,
+   "y": 2580
+  },
+  "Main.dc.html": {
+   "h": 1040,
+   "page": "rev01",
+   "title": "00 \u00b7 Foundations",
+   "w": 1360,
+   "x": 0,
+   "y": 0
+  },
+  "Notification.dc.html": {
+   "h": 620,
+   "page": "rev01",
+   "title": "04 \u00b7 Notification",
+   "w": 1360,
+   "x": 1440,
+   "y": 1840
+  },
+  "QuickTiles.dc.html": {
+   "h": 620,
+   "page": "rev01",
+   "title": "03 \u00b7 Quick tiles + slider",
+   "w": 1360,
+   "x": 0,
+   "y": 1840
+  },
+  "R2Foundations.dc.html": {
+   "h": 1040,
+   "page": "rev02",
+   "title": "R2-00 \u00b7 Mono foundations + adaptive accent",
+   "w": 1360,
+   "x": 0,
+   "y": 0
+  },
+  "R2Island.dc.html": {
+   "h": 1160,
+   "page": "rev02",
+   "title": "R2-01 \u00b7 Bar rail + island (Panacea pill, reborn)",
+   "w": 1360,
+   "x": 1440,
+   "y": 0
+  },
+  "R2Kit.dc.html": {
+   "h": 1180,
+   "page": "rev02",
+   "title": "R2-02 \u00b7 Your picks, restyled mono",
+   "w": 1360,
+   "x": 0,
+   "y": 1160
+  },
+  "R3Foundations.dc.html": {
+   "h": 1100,
+   "page": "rev03",
+   "title": "R3-00 \u00b7 Three adaptive colors, shape, motion",
+   "w": 1360,
+   "x": 0,
+   "y": 0
+  },
+  "R3Island.dc.html": {
+   "h": 1240,
+   "page": "rev03",
+   "title": "R3-01 \u00b7 Rounded island, off-center pop-outs, files, apps, audio",
+   "w": 1360,
+   "x": 1440,
+   "y": 0
+  },
+  "R3Mascot.dc.html": {
+   "h": 760,
+   "page": "rev03",
+   "title": "R3-03 \u00b7 AI mascot: PIP-01",
+   "w": 1360,
+   "x": 1440,
+   "y": 1360
+  },
+  "R3Orbit.dc.html": {
+   "h": 940,
+   "page": "rev03",
+   "title": "R3-02 \u00b7 Live orbit widget (ISS, planets, launches)",
+   "w": 1360,
+   "x": 0,
+   "y": 1220
+  },
+  "Toggles.dc.html": {
+   "h": 560,
+   "page": "rev01",
+   "title": "01 \u00b7 Toggle switch",
+   "w": 1360,
+   "x": 0,
+   "y": 1160
+  },
+  "R4Pipeline.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1360,
+   "h": 1180,
+   "title": "R4-00 \u00b7 Wallpaper \u2192 theme pipeline (real extraction)",
+   "page": "rev04"
+  },
+  "DesktopKit.dc.html": {
+   "x": 1440,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "R4 \u00b7 DesktopKit (shared component)",
+   "page": "rev04"
+  },
+  "W1.dc.html": {
+   "x": 0,
+   "y": 1300,
+   "w": 1920,
+   "h": 1080,
+   "title": "W1 \u00b7 Canyon \u00b7 light",
+   "page": "rev04"
+  },
+  "W2.dc.html": {
+   "x": 2000,
+   "y": 1300,
+   "w": 1920,
+   "h": 1080,
+   "title": "W2 \u00b7 Red field \u00b7 light",
+   "page": "rev04"
+  },
+  "W3.dc.html": {
+   "x": 0,
+   "y": 2500,
+   "w": 1920,
+   "h": 1080,
+   "title": "W3 \u00b7 Green slope \u00b7 dark",
+   "page": "rev04"
+  },
+  "W4.dc.html": {
+   "x": 2000,
+   "y": 2500,
+   "w": 1920,
+   "h": 1080,
+   "title": "W4 \u00b7 Shapes on black \u00b7 dark",
+   "page": "rev04"
+  },
+  "W5.dc.html": {
+   "x": 0,
+   "y": 3700,
+   "w": 1920,
+   "h": 1080,
+   "title": "W5 \u00b7 Blossom sunset \u00b7 dark",
+   "page": "rev04"
+  },
+  "W6.dc.html": {
+   "x": 2000,
+   "y": 3700,
+   "w": 1920,
+   "h": 1080,
+   "title": "W6 \u00b7 Shapes on grey \u00b7 light",
+   "page": "rev04"
+  },
+  "R5Greebles.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1360,
+   "h": 1200,
+   "title": "R5-00 \u00b7 Greeble kit (non-functional accents)",
+   "page": "rev05"
+  },
+  "R5Cat.dc.html": {
+   "x": 1440,
+   "y": 0,
+   "w": 1360,
+   "h": 820,
+   "title": "R5-01 \u00b7 Mascot: LOAF-01 (original cat)",
+   "page": "rev05"
+  },
+  "W6g.dc.html": {
+   "x": 0,
+   "y": 1320,
+   "w": 1920,
+   "h": 1080,
+   "title": "W6 + greebles \u00b7 light",
+   "page": "rev05"
+  },
+  "W5g.dc.html": {
+   "x": 2000,
+   "y": 1320,
+   "w": 1920,
+   "h": 1080,
+   "title": "W5 + greebles \u00b7 dark",
+   "page": "rev05"
+  },
+  "R6Viz.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1360,
+   "h": 900,
+   "title": "R6-00 \u00b7 Visualizer study",
+   "page": "rev06"
+  },
+  "LockKit.dc.html": {
+   "x": 1440,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "R6 \u00b7 LockKit (shared component)",
+   "page": "rev06"
+  },
+  "Lock1.dc.html": {
+   "x": 0,
+   "y": 1220,
+   "w": 1920,
+   "h": 1080,
+   "title": "Lockscreen \u00b7 light (paper)",
+   "page": "rev06"
+  },
+  "Lock2.dc.html": {
+   "x": 2000,
+   "y": 1220,
+   "w": 1920,
+   "h": 1080,
+   "title": "Lockscreen \u00b7 dark (W5)",
+   "page": "rev06"
+  },
+  "W6x.dc.html": {
+   "x": 0,
+   "y": 2420,
+   "w": 1920,
+   "h": 1080,
+   "title": "W6 \u00b7 fleshed out (telemetry, time rail, LOAF)",
+   "page": "rev06"
+  },
+  "W5s.dc.html": {
+   "x": 2000,
+   "y": 2420,
+   "w": 1920,
+   "h": 1080,
+   "title": "W5 \u00b7 island open on settings",
+   "page": "rev06"
+  },
+  "Lock3.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "Lockscreen \u00b7 concentric dial (Quickshell lock)",
+   "page": "rev07"
+  },
+  "Login1.dc.html": {
+   "x": 2000,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "Login \u00b7 SDDM variant",
+   "page": "rev07"
+  },
+  "LoafMode.dc.html": {
+   "x": 0,
+   "y": 1200,
+   "w": 1920,
+   "h": 1080,
+   "title": "LOAF mode \u00b7 SUPER+D docked panel",
+   "page": "rev07"
+  },
+  "W6L.dc.html": {
+   "x": 2000,
+   "y": 1200,
+   "w": 1920,
+   "h": 1080,
+   "title": "W6 \u00b7 launch bay + data-bearing greebles",
+   "page": "rev07"
+  },
+  "W5o.dc.html": {
+   "x": 0,
+   "y": 2400,
+   "w": 1920,
+   "h": 1080,
+   "title": "W5 \u00b7 settings open, no overlaps",
+   "page": "rev07"
+  },
+  "P1.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "P1 \u00b7 MISSION CONTROL \u00b7 dense instruments",
+   "page": "rev08"
+  },
+  "P2.dc.html": {
+   "x": 2000,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "P2 \u00b7 CMF HERO \u00b7 the clock is the desktop",
+   "page": "rev08"
+  },
+  "P3.dc.html": {
+   "x": 0,
+   "y": 1200,
+   "w": 1920,
+   "h": 1080,
+   "title": "P3 \u00b7 OBSERVATORY \u00b7 the solar system is the desktop",
+   "page": "rev08"
+  },
+  "P4.dc.html": {
+   "x": 2000,
+   "y": 1200,
+   "w": 1920,
+   "h": 1080,
+   "title": "P4 \u00b7 CO-PILOT \u00b7 LOAF always docked",
+   "page": "rev08"
+  },
+  "R9Proto.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1920,
+   "h": 1080,
+   "title": "R9 \u00b7 Interactive prototype \u00b7 P1 daily + P3 orbit expand + P4 LOAF dock",
+   "page": "rev09",
+   "is_interactive": true
+  },
+  "R9Motion.dc.html": {
+   "x": 2000,
+   "y": 0,
+   "w": 1360,
+   "h": 1120,
+   "title": "R9 \u00b7 Motion sheet \u00b7 load + transition states",
+   "page": "rev09"
+  },
+  "R12Radar.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1360,
+   "h": 1040,
+   "title": "PKG-02 \u00b7 Arch update radar \u00b7 slot states + pop-out",
+   "page": "rev12"
+  },
+  "R12DSN.dc.html": {
+   "x": 1440,
+   "y": 0,
+   "w": 1360,
+   "h": 1040,
+   "title": "DSN-03 \u00b7 Deep Space Network \u00b7 slot + pop-out",
+   "page": "rev12"
+  },
+  "R12Desk.dc.html": {
+   "x": 0,
+   "y": 1160,
+   "w": 1920,
+   "h": 1080,
+   "title": "In place \u00b7 rotating slot on P1 (scroll or arrows)",
+   "page": "rev12",
+   "is_interactive": true
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-10-28T06:40:00Z",
+  "v": 1
+ },
+ "designSystems": [],
+ "launch": {
+  "page": "rev12",
+  "view": "canvas"
+ },
+ "notes": {
+  "title": {
+   "kind": "title1",
+   "maxW": 2800,
+   "page": "rev01",
+   "text": "NASA-PUNK // COMPONENT WORKSHOP \u00b7 REV 0.1",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "title2": {
+   "kind": "title1",
+   "maxW": 2800,
+   "page": "rev02",
+   "text": "NASA-PUNK // REV 0.2 \u00b7 MONO + ISLAND",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "title3": {
+   "kind": "title1",
+   "maxW": 2800,
+   "page": "rev03",
+   "text": "NASA-PUNK // REV 0.3 \u00b7 TRIO, ORBIT, PIP",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "title4": {
+   "kind": "title1",
+   "maxW": 3900,
+   "page": "rev04",
+   "text": "NASA-PUNK // REV 0.4 \u00b7 REAL WALLPAPERS, LIGHT + DARK",
+   "x": 0,
+   "y": -300
+  },
+  "title5": {
+   "kind": "title1",
+   "maxW": 3900,
+   "page": "rev05",
+   "text": "NASA-PUNK // REV 0.5 \u00b7 GREEBLES, BACK TO TECHNO CMF",
+   "x": 0,
+   "y": -300
+  },
+  "title6": {
+   "kind": "title1",
+   "maxW": 3900,
+   "page": "rev06",
+   "text": "NASA-PUNK // REV 0.6 \u00b7 LOCKSCREEN, VISUALIZER, SETTINGS",
+   "x": 0,
+   "y": -300
+  },
+  "title7": {
+   "kind": "title1",
+   "maxW": 3900,
+   "page": "rev07",
+   "text": "NASA-PUNK // REV 0.7 \u00b7 LOGIN, LOAF MODE, LAUNCH BAY",
+   "x": 0,
+   "y": -300
+  },
+  "title8": {
+   "kind": "title1",
+   "maxW": 3900,
+   "page": "rev08",
+   "text": "NASA-PUNK // REV 0.8 \u00b7 FOUR FULL DESKTOPS",
+   "x": 0,
+   "y": -300
+  },
+  "title9": {
+   "kind": "title1",
+   "maxW": 3360,
+   "page": "rev09",
+   "text": "NASA-PUNK // REV 0.9 \u00b7 MOTION + INTERACTION",
+   "x": 0,
+   "y": -300
+  },
+  "title12": {
+   "kind": "title1",
+   "maxW": 2800,
+   "page": "rev12",
+   "text": "NASA-PUNK // REV 1.2 \u00b7 UPDATE RADAR + DSN",
+   "x": 0,
+   "y": -300
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "AiPanel.dc.html",
+  "Toggles.dc.html",
+  "Buttons.dc.html",
+  "QuickTiles.dc.html",
+  "Notification.dc.html",
+  "Clock.dc.html",
+  "Bar.dc.html",
+  "R2Foundations.dc.html",
+  "R2Island.dc.html",
+  "R2Kit.dc.html",
+  "R3Foundations.dc.html",
+  "R3Island.dc.html",
+  "R3Orbit.dc.html",
+  "R3Mascot.dc.html",
+  "R4Pipeline.dc.html",
+  "DesktopKit.dc.html",
+  "W1.dc.html",
+  "W2.dc.html",
+  "W3.dc.html",
+  "W4.dc.html",
+  "W5.dc.html",
+  "W6.dc.html",
+  "R5Greebles.dc.html",
+  "R5Cat.dc.html",
+  "W6g.dc.html",
+  "W5g.dc.html",
+  "R6Viz.dc.html",
+  "LockKit.dc.html",
+  "Lock1.dc.html",
+  "Lock2.dc.html",
+  "W6x.dc.html",
+  "W5s.dc.html",
+  "Lock3.dc.html",
+  "Login1.dc.html",
+  "LoafMode.dc.html",
+  "W6L.dc.html",
+  "W5o.dc.html",
+  "P1.dc.html",
+  "P2.dc.html",
+  "P3.dc.html",
+  "P4.dc.html",
+  "R9Proto.dc.html",
+  "R9Motion.dc.html",
+  "R12Radar.dc.html",
+  "R12DSN.dc.html",
+  "R12Desk.dc.html"
+ ],
+ "pages": [
+  {
+   "id": "rev12",
+   "name": "Rev 1.2 \u00b7 Widgets"
+  },
+  {
+   "id": "rev09",
+   "name": "Rev 0.9 \u00b7 Motion + prototype"
+  },
+  {
+   "id": "rev08",
+   "name": "Rev 0.8 \u00b7 Proposals"
+  },
+  {
+   "id": "rev07",
+   "name": "Rev 0.7"
+  },
+  {
+   "id": "rev06",
+   "name": "Rev 0.6"
+  },
+  {
+   "id": "rev05",
+   "name": "Rev 0.5"
+  },
+  {
+   "id": "rev04",
+   "name": "Rev 0.4"
+  },
+  {
+   "id": "rev03",
+   "name": "Rev 0.3"
+  },
+  {
+   "id": "rev02",
+   "name": "Rev 0.2"
+  },
+  {
+   "id": "rev01",
+   "name": "Rev 0.1"
+  }
+ ],
+ "title": "NASA-punk Component Workshop"
+}

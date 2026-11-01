@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI panel variants</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Roboto+Flex:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/de569b76c65b016160d7d75c03e876e3) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 1040px; box-sizing: border-box; padding: 40px 64px; background: #16232b; color: #e5d1c5; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b; letter-spacing: 2px">EL-07 // LEFT SIDEBAR · AI / CLAUDE CODE</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">NOW · END-4 MATERIAL</div>
+<div style="flex-grow: 1; background: #1d1b20; border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px; font-family: 'Roboto Flex', sans-serif; color: #e6e0e9">
+<div style="display: flex; gap: 6px; justify-content: center"><span style="background: #4a4458; border-radius: 999px; padding: 8px 14px; font-size: 14px">Intelligence</span><span style="padding: 8px 14px; font-size: 14px; color: #cac4d0">Anime</span></div>
+<div style="background: #4a4458; border-radius: 16px; padding: 10px 14px; font-size: 14px">end</div>
+<div style="font-size: 14px; color: #cac4d0; padding: 0 6px">compiler vs linker?</div>
+<div style="background: #2b2930; border-radius: 16px; padding: 10px 14px; font-size: 14px">Gemini 2.5 Flash</div>
+<div style="font-size: 14px; line-height: 1.5; padding: 0 6px">A compiler turns source into object files. A linker stitches object files and libraries into one executable.</div>
+<div style="flex-grow: 1"></div>
+<div style="background: #2b2930; border-radius: 999px; padding: 12px 16px; font-size: 13px; color: #938f99">Message the model… "/" for commands</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">A · UPLINK LOG (NATIVE PANEL)</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-bottom: 1px solid #6b7378"><span style="font-family: 'Departure Mono', monospace; font-size: 15px">CLAUDE // UPLINK</span><span style="display: flex; align-items: center; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #9fbfae"><span style="width: 7px; height: 7px; border-radius: 50%; background: #9fbfae"></span>LINK</span></div>
+<div style="padding: 8px 14px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b; border-bottom: 1px solid #2d3f4a">SES-0142 · ~/workspace/dots · OPUS</div>
+<div style="padding: 14px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #e05a2b">&gt; KUNU · 23:41</span><span style="font-size: 13px; line-height: 1.5">make the clock use DSEG7</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #9fbfae">&lt; CLAUDE · 23:41</span><span style="font-size: 13px; line-height: 1.5">Clock font is set in Config.qml. Patching the numbers family.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; border: 1px solid #2d3f4a; border-radius: 4px; padding: 10px">
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="font-family: 'Departure Mono', monospace">READ  Config.qml</span><span style="color: #9fbfae">OK</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="font-family: 'Departure Mono', monospace">EDIT  fonts.numbers</span><span style="color: #9fbfae">OK</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="font-family: 'Departure Mono', monospace">EXEC  qs reload</span><span style="color: #e05a2b">ASK</span></div>
+</div>
+<div style="display: flex; gap: 8px"><button style="flex-grow: 1; background: #e8642f; color: #10181d; border: none; border-radius: 4px; padding: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">APPROVE</button><button style="flex-grow: 1; background: transparent; color: #e5d1c5; border: 1px solid #6b7378; border-radius: 4px; padding: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">DENY</button></div>
+</div>
+<div style="border-top: 1px solid #6b7378; padding: 12px 14px; display: flex; gap: 8px; align-items: center"><span style="font-family: 'Departure Mono', monospace; font-size: 14px; color: #e05a2b">CMD&gt;</span><span style="font-size: 13px; color: #8d969b">type a task…</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">B · TERMINAL BAY (EMBEDDED CLI)</div>
+<div style="flex-grow: 1; background: #1b2b34; position: relative; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="position: absolute; left: 0; top: 0; width: 14px; height: 14px; border-left: 1px solid #e5d1c5; border-top: 1px solid #e5d1c5"></div>
+<div style="position: absolute; right: 0; top: 0; width: 14px; height: 14px; border-right: 1px solid #e5d1c5; border-top: 1px solid #e5d1c5"></div>
+<div style="position: absolute; left: 0; bottom: 0; width: 14px; height: 14px; border-left: 1px solid #e5d1c5; border-bottom: 1px solid #e5d1c5"></div>
+<div style="position: absolute; right: 0; bottom: 0; width: 14px; height: 14px; border-right: 1px solid #e5d1c5; border-bottom: 1px solid #e5d1c5"></div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b"><span>BAY-01 · FOOT</span><span>CTX 34%</span></div>
+<div style="height: 6px; background: #24343e"><div style="width: 34%; height: 6px; background: #e05a2b"></div></div>
+<div style="flex-grow: 1; background: #10181d; border-radius: 4px; padding: 12px; font-size: 12px; line-height: 1.7; display: flex; flex-direction: column">
+<span style="color: #8d969b">~/workspace/dots $ claude</span>
+<span style="color: #e05a2b">&gt; tighten the bar spacing</span>
+<span>● Reading Bar.qml</span>
+<span>● Update spacing 8 → 4</span>
+<span style="color: #9fbfae">  ✓ 1 file changed</span>
+<span style="color: #8d969b">─────────────────────</span>
+<span>&gt; <span style="background: #e5d1c5; color: #10181d"> </span></span>
+</div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="color: #9fbfae">SYS OK</span><span style="color: #8d969b">SUPER+C TOGGLE</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">C · MISSION BRIEF (TASK VIEW)</div>
+<div style="flex-grow: 1; background: #ece6dc; color: #1b2b34; border-radius: 6px; display: flex; flex-direction: column; overflow: hidden">
+<div style="background: #e05a2b; color: #10181d; padding: 12px 14px; display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 13px"><span>MISSION 0142</span><span>CLAUDE CODE</span></div>
+<div style="padding: 16px 14px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px dashed #6b7378">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #4d575c">OBJECTIVE</span>
+<span style="font-size: 15px; font-weight: 600; line-height: 1.4">Swap clock to DSEG7, add tick ruler</span>
+</div>
+<div style="padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; flex-grow: 1">
+<div style="display: flex; gap: 10px"><span style="font-family: 'Departure Mono', monospace; color: #2f6b52">[■]</span><span>Locate clock widget</span></div>
+<div style="display: flex; gap: 10px"><span style="font-family: 'Departure Mono', monospace; color: #2f6b52">[■]</span><span>Patch fonts.numbers</span></div>
+<div style="display: flex; gap: 10px"><span style="font-family: 'Departure Mono', monospace; color: #b8441c">[▸]</span><span style="font-weight: 600">Build TickRuler.qml</span></div>
+<div style="display: flex; gap: 10px; color: #4d575c"><span style="font-family: 'Departure Mono', monospace">[ ]</span><span>Reload shell, screenshot</span></div>
+</div>
+<div style="padding: 12px 14px; border-top: 1px dashed #6b7378; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #4d575c"><span>PROGRESS</span><span>2 / 4</span></div>
+<div style="height: 8px; background: repeating-linear-gradient(90deg, #1b2b34 0 18px, transparent 18px 22px); width: 50%"></div>
+<div style="height: 28px; background: repeating-linear-gradient(90deg, #1b2b34 0 2px, transparent 2px 4px, #1b2b34 4px 5px, transparent 5px 8px, #1b2b34 8px 11px, transparent 11px 13px)"></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":1040}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

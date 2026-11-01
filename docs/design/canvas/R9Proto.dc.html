@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Interactive desktop prototype</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+button{cursor:pointer}
+@keyframes np-pop{from{opacity:0;transform:translateY(-10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes np-draw{from{stroke-dashoffset:120}to{stroke-dashoffset:0}}
+@keyframes np-fade{from{opacity:0}to{opacity:1}}
+@keyframes np-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes np-scroll{from{transform:translateX(0)}to{transform:translateX(-84px)}}
+@keyframes np-scan{0%{left:0}100%{left:calc(100% - 6px)}}
+@keyframes np-wave{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-4px);opacity:1}}
+@keyframes np-sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; position: relative; overflow: hidden; color: #111111; font-family: 'IBM Plex Mono', monospace; background: #b9b9b9">
+<img src="/_blob/dafd61a0857a64b20011e4c32f4dcf7e" alt="" style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover">
+
+<div style="position: absolute; left: 24px; top: 16px; height: 40px; display: flex; align-items: center; gap: 16px; padding: 0 18px; border-radius: 999px; background: rgba(245,236,235,0.94); font-family: 'Departure Mono', monospace; font-size: 15px"><span style="color: #bc3830">▼ 01</span><span style="color: #555555">02</span><span style="color: #555555">03</span></div>
+
+<div style="position: absolute; left: 700px; top: 24px; width: 560px; height: 46px; background: #aca5a4; border-radius: 23px 0 0 23px; clip-path: polygon(0 0, 100% 0, calc(100% - 34px) 100%, 0 100%)"></div>
+<div style="position: absolute; left: 713px; top: 14px; display: flex; align-items: stretch; height: 46px">
+<button onClick="{{openMedia}}" aria-label="Open media" style="width: 340px; border: none; border-radius: 23px 0 0 23px; background: {{mediaBg}}; color: #111111; display: flex; align-items: center; gap: 12px; padding: 0 18px; transition: background 160ms ease-out">
+<span style="position: relative; width: 64px; height: 20px; overflow: hidden; flex-shrink: 0"><svg width="148" height="20" viewBox="0 0 148 20" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; animation: np-scroll 1.2s linear infinite"><polyline points="{{miniScope}}" stroke="#76605d" stroke-width="1.5"/></svg></span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px; white-space: nowrap">DEEP DEEPER</span><span style="font-size: 12px; color: #555555; white-space: nowrap">EastNewSound</span>
+</button>
+<span style="width: 23px; background: #bc3830; border-radius: 0 23px 23px 0"></span>
+<span style="width: 6px"></span>
+<button onClick="{{openSys}}" aria-label="Open quick settings" style="width: 128px; border: none; border-radius: 12px; background: {{sysBg}}; color: #111111; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 160ms ease-out">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 20px"><span style="position: absolute; left: 0; top: 0; color: rgba(17,17,17,0.1)">88:88</span><span style="position: relative">{{clock}}</span></span>
+</button>
+</div>
+<div style="position: absolute; left: 1296px; top: 18px; display: flex; align-items: flex-end">
+<div style="width: 40px; height: 1px; background: #111111; margin-bottom: 22px"></div>
+<div style="display: flex; flex-direction: column"><span style="background: #3a3e42; color: #eeeeec; font-family: 'Departure Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 5px 5px 0 0">SYS · CPU</span><span style="background: #26292c; color: #eeeeec; font-family: 'Departure Mono', monospace; font-size: 13px; padding: 4px 10px">\\\ {{cpu}}% \\\</span><span style="height: 5px; background: repeating-linear-gradient(90deg, #bc3830 0 4px, transparent 4px 6px)"></span></div>
+</div>
+
+<div style="position: absolute; right: 24px; top: 16px; height: 40px; display: flex; align-items: center; gap: 6px; padding: 0 8px; border-radius: 999px; background: rgba(245,236,235,0.94); font-family: 'Departure Mono', monospace; font-size: 13px">
+<button onClick="{{openNet}}" style="border: none; background: {{netBg}}; border-radius: 999px; padding: 6px 12px; font-family: 'Departure Mono', monospace; font-size: 13px; color: #111111">NET OK</button>
+<button onClick="{{openPwr}}" style="border: none; background: {{pwrBg}}; border-radius: 999px; padding: 6px 12px; font-family: 'Departure Mono', monospace; font-size: 13px; color: #111111">PWR</button>
+<button onClick="{{toggleLoaf}}" style="border: 1px solid {{loafBorder}}; background: {{loafBtnBg}}; border-radius: 999px; padding: 5px 12px; font-family: 'Departure Mono', monospace; font-size: 13px; color: #111111; display: flex; align-items: center; gap: 6px"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{loafDot}}"></span>LOAF · SUPER+D</button>
+</div>
+
+<sc-if value="{{showMedia}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 713px; top: 70px; width: 363px; box-sizing: border-box; border-radius: 20px; background: rgba(245,236,235,0.96); border: 1px solid rgba(17,17,17,0.14); padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; animation: np-pop 260ms cubic-bezier(.2,.8,.2,1)">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px; color: #555555"><span>AUD-01 // {{playLabel}}</span><span>3:01 / 4:24</span></div>
+<div style="position: relative; height: 64px; border: 1px solid rgba(17,17,17,0.14); border-radius: 6px; background-image: linear-gradient(rgba(17,17,17,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,0.07) 1px, transparent 1px); background-size: 100% 16px, 32px 100%; overflow: hidden">
+<svg width="420" height="64" viewBox="0 0 420 64" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; animation: np-scroll 1.2s linear infinite; animation-play-state: {{playState}}"><polyline points="{{bigScope}}" stroke="#76605d" stroke-width="1.6"/></svg>
+</div>
+<div style="height: 2px; background: rgba(17,17,17,0.14)"><div style="width: 68%; height: 2px; background: #111111"></div></div>
+<div style="display: flex; justify-content: center; gap: 22px; font-family: 'Departure Mono', monospace; font-size: 15px"><button style="border: none; background: transparent; font-family: inherit; font-size: inherit; color: #111111">|◀</button><button onClick="{{togglePlay}}" style="border: none; background: transparent; font-family: inherit; font-size: inherit; color: #bc3830">{{playIcon}}</button><button style="border: none; background: transparent; font-family: inherit; font-size: inherit; color: #111111">▶|</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{showSys}}" hint-placeholder-val="{{ false }}">
+<svg width="1920" height="200" viewBox="0 0 1920 200" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><path d="M 1117 60 V 96 H 1060" stroke="#bc3830" stroke-width="1.2" stroke-dasharray="120" style="animation: np-draw 220ms cubic-bezier(.2,.8,.2,1)"/></svg>
+<div style="position: absolute; left: 700px; top: 84px; width: 360px; box-sizing: border-box; border-radius: 20px; background: rgba(245,236,235,0.96); border: 1px solid rgba(17,17,17,0.14); padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; font-size: 13px; animation: np-pop 260ms cubic-bezier(.2,.8,.2,1)">
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">SYS // QUICK</span>
+<sc-for list="{{toggles}}" as="g" hint-placeholder-count="3">
+<button onClick="{{g.flip}}" style="border: none; background: transparent; padding: 0; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111"><span>{{g.name}}</span><span style="font-family: 'Departure Mono', monospace"><span style="color: {{g.mark}}">{{g.box}}</span> {{g.word}}</span></button>
+</sc-for>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="color: #555555">BRT</span><span>{{brt}}</span></div>
+<input type="range" min="0" max="100" value="{{brt}}" onInput="{{setBrt}}" aria-label="Brightness" style="width: 100%; accent-color: #bc3830">
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{showNet}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; right: 24px; top: 70px; width: 320px; box-sizing: border-box; border-radius: 20px; background: rgba(245,236,235,0.96); border: 1px solid rgba(17,17,17,0.14); padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px; animation: np-pop 260ms cubic-bezier(.2,.8,.2,1)">
+<div style="display: flex; justify-content: space-between"><span>NET // NETWORK</span><span style="color: #555555; font-size: 11px">SUPER+N</span></div>
+<div style="position: relative; height: 10px; border-bottom: 1px solid #555555; background: repeating-linear-gradient(90deg, #555555 0 1px, transparent 1px 8px); background-size: 100% 5px; background-repeat: no-repeat; background-position: bottom"><span style="position: absolute; top: 0; width: 6px; height: 8px; background: #bc3830; animation: np-scan 1.1s cubic-bezier(.4,0,.2,1) infinite alternate"></span></div>
+<span style="font-size: 11px; color: #555555">SCANNING · 3 FOUND</span>
+<div style="display: flex; justify-content: space-between"><span><span style="color: #bc3830">▸</span> KUNU-5G</span><span style="color: #555555">▂▄▆█ LINK</span></div>
+<div style="display: flex; justify-content: space-between; color: #555555"><span>&#160; NEIGHBOR-2.4</span><span>▂▄__</span></div>
+<div style="height: 1px; background: rgba(17,17,17,0.14)"></div>
+<div style="display: flex; justify-content: space-between"><span>HEADPHONES</span><span><span style="color: #bc3830">[■]</span> 82%</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{showPwr}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; right: 24px; top: 70px; width: 360px; box-sizing: border-box; border-radius: 20px; background: rgba(245,236,235,0.96); border: 1px solid rgba(17,17,17,0.14); padding: 16px; display: flex; flex-direction: column; gap: 12px; font-family: 'Departure Mono', monospace; animation: np-pop 260ms cubic-bezier(.2,.8,.2,1)">
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>PWR // SESSION</span><span style="color: #555555; font-size: 11px">UP 04:12:33</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<button style="background: #ffffff; border: 1px solid rgba(17,17,17,0.16); border-radius: 10px; padding: 12px; font-family: 'Departure Mono', monospace; font-size: 13px; color: #111111; text-align: left">[L]<br>LOCK</button>
+<button style="background: #ffffff; border: 1px solid rgba(17,17,17,0.16); border-radius: 10px; padding: 12px; font-family: 'Departure Mono', monospace; font-size: 13px; color: #111111; text-align: left">[S]<br>SLEEP</button>
+<button style="background: #ffffff; border: 1px solid rgba(17,17,17,0.16); border-radius: 10px; padding: 12px; font-family: 'Departure Mono', monospace; font-size: 13px; color: #111111; text-align: left">[R]<br>REBOOT</button>
+</div>
+<button onMouseDown="{{holdStart}}" onMouseUp="{{holdEnd}}" onMouseLeave="{{holdEnd}}" style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #bc3830; border-radius: 10px; padding: 14px; font-family: 'Departure Mono', monospace; font-size: 15px; color: #111111; text-align: left"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{holdW}}; background: rgba(188,56,48,0.18)"></span><span style="position: relative">{{holdLabel}}</span></button>
+<span style="font-size: 11px; color: #555555">PRESS AND HOLD · RELEASE CANCELS</span>
+</div>
+</sc-if>
+
+<div style="position: absolute; right: 28px; top: 80px; width: 360px; display: flex; flex-direction: column; gap: 14px; transition: transform 320ms cubic-bezier(.2,.8,.2,1), opacity 220ms ease-out; transform: {{colShift}}; opacity: {{colOpacity}}">
+<div style="border-radius: 20px; background: rgba(245,236,235,0.94); border: 1px solid rgba(17,17,17,0.14); padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<div style="display: flex; justify-content: space-between"><span style="font-size: 14px">TLM // TELEMETRY</span><span><span style="color: #76605d">●</span> LIVE</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px">
+<sc-for list="{{tlm}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #555555">{{m.k}}</span><span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: rgba(17,17,17,0.08)">888</span><span style="position: relative">{{m.v}}</span></span><div style="height: 3px; background: rgba(17,17,17,0.14)"><div style="width: {{m.w}}; height: 3px; background: #111111; transition: width 300ms ease-out"></div></div></div>
+</sc-for>
+</div>
+</div>
+<div style="border-radius: 20px; background: rgba(245,236,235,0.94); border: 1px solid rgba(17,17,17,0.14); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<div style="display: flex; justify-content: space-between"><span style="font-size: 14px">LCH // LAUNCH BAY</span><span style="color: #555555">CLICK A TILE</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{apps}}" as="a" hint-placeholder-count="3">
+<button onClick="{{a.go}}" style="position: relative; overflow: hidden; border: 1px solid {{a.border}}; background: {{a.bg}}; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; color: #111111; font-family: 'Departure Mono', monospace; font-size: 12px; text-align: left">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="{{a.icon}}"/></svg>
+<span>{{a.name}}</span><span style="font-size: 10px; color: {{a.metaC}}">{{a.meta}}</span>
+<span style="position: absolute; left: 0; bottom: 0; height: 3px; width: {{a.prog}}; background: #bc3830"></span>
+</button>
+</sc-for>
+</div>
+<span style="color: #555555">GAMES // RECENT</span>
+<sc-for list="{{games}}" as="g" hint-placeholder-count="2">
+<button onClick="{{g.go}}" style="border: none; background: transparent; padding: 4px 0; display: grid; grid-template-columns: 24px minmax(0, 1fr) 96px; align-items: center; gap: 8px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #111111; text-align: left">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9h12a4 4 0 0 1 0 8c-2 0-3-2-6-2s-4 2-6 2a4 4 0 0 1 0-8zM8 11v4M6 13h4M16 12h.01M18 14h.01"/></svg>
+<span>{{g.name}}</span><span style="text-align: right; color: {{g.c}}">{{g.state}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<button onClick="{{openObs}}" aria-label="Expand orbit into observatory" style="position: absolute; left: 32px; bottom: 32px; width: 500px; height: 250px; box-sizing: border-box; border: 1px solid rgba(17,17,17,0.14); border-radius: 24px; background: rgba(245,236,235,0.94); display: flex; align-items: center; gap: 18px; padding: 0 22px; color: #111111; text-align: left">
+<div style="width: 210px; height: 210px; position: relative; flex-shrink: 0">
+<sc-for list="{{ringsSmall}}" as="r" hint-placeholder-count="5"><div style="position: absolute; left: {{r.off}}; top: {{r.off}}; width: {{r.d}}; height: {{r.d}}; box-sizing: border-box; border-radius: 50%; border: 1px solid rgba(17,17,17,0.16); animation: np-orbit {{r.dur}} linear infinite"><span style="position: absolute; left: {{r.px}}; top: -4px; width: {{r.s}}; height: {{r.s}}; border-radius: 50%; background: {{r.c}}"></span></div></sc-for>
+<div style="position: absolute; left: 96px; top: 96px; width: 18px; height: 18px; border-radius: 50%; background: #111111"></div>
+</div>
+<span style="display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace"><span style="font-size: 11px; color: #555555">MISSION ELAPSED</span><span style="font-size: 32px; line-height: 1">T+ {{clock}}</span><span style="font-size: 12px">DAY 304 · <span style="color: #bc3830">● YOU</span></span><span style="font-size: 11px; color: #555555">CLICK ▸ OBSERVATORY</span></span>
+</button>
+
+<div style="position: absolute; left: 1424px; top: 80px; width: 480px; height: 984px; transition: transform 320ms cubic-bezier(.2,.8,.2,1); transform: {{dockShift}}">
+<div style="position: absolute; left: 12px; top: 12px; width: 476px; height: 976px; background: #aca5a4; border-radius: 22px; clip-path: polygon(46px 0, 100% 0, 100% 100%, 0 100%, 0 46px)"></div>
+<div style="position: absolute; left: 0; top: 0; width: 480px; height: 984px; box-sizing: border-box; border-radius: 20px; background: rgba(245,236,235,0.97); border: 1px solid rgba(17,17,17,0.14); display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; gap: 16px; align-items: center; padding: 18px 20px; border-bottom: 1px solid rgba(17,17,17,0.12)">
+<div style="display: grid; grid-template-columns: repeat(16, 6px); grid-auto-rows: 6px; flex-shrink: 0" role="img" aria-label="LOAF-01"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<div style="display: flex; flex-direction: column; gap: 6px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 22px">LOAF-01</span>
+<span style="font-size: 12px; color: #555555"><span style="color: {{moodC}}">●</span> {{mood}} · CLAUDE CODE</span>
+<span style="font-size: 11px; color: #555555">~/workspace/dots-hyprland</span>
+</div>
+</div>
+<div style="flex-grow: 1; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; font-size: 13px; overflow: hidden">
+<sc-for list="{{msgs}}" as="m" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 4px; animation: np-fade 200ms ease-out"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: {{m.c}}">{{m.who}}</span><span style="line-height: 1.5">{{m.text}}</span></div>
+</sc-for>
+<sc-if value="{{busy}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 6px; align-items: center"><span style="width: 8px; height: 8px; background: #111111; animation: np-wave 1s ease-in-out infinite"></span><span style="width: 8px; height: 8px; background: #111111; animation: np-wave 1s ease-in-out .12s infinite"></span><span style="width: 8px; height: 8px; background: #111111; animation: np-wave 1s ease-in-out .24s infinite"></span><span style="width: 8px; height: 8px; background: #bc3830; animation: np-wave 1s ease-in-out .36s infinite"></span></div>
+</sc-if>
+</div>
+<div style="padding: 0 20px 18px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px; border: 1px solid rgba(17,17,17,0.2); border-radius: 10px; padding: 10px 12px; font-family: 'Departure Mono', monospace; font-size: 14px">
+<label for="loafcmd" style="color: #bc3830">CMD&gt;</label>
+<input id="loafcmd" type="text" value="{{draft}}" onInput="{{setDraft}}" onKeyDown="{{keySend}}" placeholder="ask LOAF something" style="flex-grow: 1; min-width: 0; background: transparent; border: none; color: #111111; font-family: 'Departure Mono', monospace; font-size: 14px; outline: none">
+<button onClick="{{send}}" style="border: none; background: #111111; color: #f5f5f3; border-radius: 6px; padding: 6px 10px; font-family: 'Departure Mono', monospace; font-size: 12px">SEND</button>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 10px; color: #555555">ENTER SENDS · SUPER+D HIDES</span>
+</div>
+</div>
+</div>
+
+<div style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: {{obsPointer}}; opacity: {{obsOpacity}}; transition: opacity 280ms ease-out">
+<div style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(10,10,10,0.9)"></div>
+<div style="position: absolute; left: 520px; top: 80px; width: 880px; height: 880px">
+<sc-for list="{{ringsBig}}" as="r" hint-placeholder-count="6"><div style="position: absolute; left: {{r.off}}; top: {{r.off}}; width: {{r.d}}; height: {{r.d}}; box-sizing: border-box; border-radius: 50%; border: 1px solid {{r.line}}; animation: np-orbit {{r.dur}} linear infinite"><span style="position: absolute; left: {{r.px}}; top: {{r.py}}; width: {{r.s}}; height: {{r.s}}; border-radius: 50%; background: {{r.c}}"></span></div></sc-for>
+<div style="position: absolute; left: 422px; top: 422px; width: 36px; height: 36px; border-radius: 50%; background: #ececec"></div>
+</div>
+<div style="position: absolute; left: 80px; top: 120px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; color: #ececec">
+<span style="font-size: 12px; color: #a3a3a3">OBS // OBSERVATORY · ORBIT EXPANDED</span>
+<span style="font-size: 56px; line-height: 1">T+ {{clock}}</span>
+<span style="font-size: 13px; color: #a3a3a3">SAME DATA AS THE WIDGET, FULL SCREEN, ON ITS OWN DARK VEIL</span>
+<span style="font-size: 13px; color: #a3a3a3">ALSO THE IDLE SCREENSAVER AFTER 10 MIN</span>
+</div>
+<button onClick="{{closeObs}}" style="position: absolute; right: 60px; top: 60px; border: 1px solid rgba(236,236,236,0.3); background: transparent; color: #ececec; border-radius: 999px; padding: 10px 18px; font-family: 'Departure Mono', monospace; font-size: 13px">ESC · CLOSE</button>
+</div>
+
+<div style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #eeeeec; pointer-events: {{bootPointer}}; opacity: {{bootOpacity}}; transition: opacity 420ms ease-out; display: flex; align-items: center; justify-content: center">
+<div style="display: flex; gap: 60px; align-items: center">
+<div style="display: grid; grid-template-columns: repeat(16, 8px); grid-auto-rows: 8px" aria-hidden="true"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<div style="display: flex; flex-direction: column; gap: 14px; width: 520px; font-family: 'Departure Mono', monospace; color: #26292c">
+<span style="font-size: 13px; color: #6e7378">NSP-01 // BOOT · SESSION 0143</span>
+<span style="display: flex; align-items: baseline; gap: 10px"><span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 96px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #dcdedf">888</span><span style="position: relative">{{bootPct}}</span></span><span style="font-size: 18px; color: #6e7378">%</span></span>
+<div style="position: relative; height: 16px; background: repeating-linear-gradient(90deg, #7d8287 0 1px, transparent 1px 8px); background-size: 100% 6px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid #7d8287"><span style="position: absolute; left: 0; bottom: 0; height: 3px; width: {{bootW}}; background: #26292c"></span><span style="position: absolute; top: 0; left: {{bootW}}; width: 4px; height: 16px; background: #bc3830"></span></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; height: 120px"><sc-for list="{{bootLines}}" as="b" hint-placeholder-count="6"><span><span style="color: {{b.c}}">{{b.s}}</span> {{b.t}}</span></sc-for></div>
+<button onClick="{{skipBoot}}" style="align-self: flex-start; border: 1px solid #26292c; background: transparent; border-radius: 999px; padding: 6px 14px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #26292c">SKIP</button>
+</div>
+</div>
+</div>
+
+<div style="position: absolute; left: 640px; bottom: 18px; display: flex; gap: 10px; align-items: center; padding: 8px 14px; border-radius: 999px; background: rgba(17,17,17,0.82); color: #eeeeec; font-family: 'Departure Mono', monospace; font-size: 11px">
+<span>PROTOTYPE · CLICK THE ISLAND, NET, PWR, LOAF, ORBIT, TILES</span>
+<button onClick="{{replay}}" style="border: 1px solid rgba(238,238,236,0.4); background: transparent; color: #eeeeec; border-radius: 999px; padding: 3px 10px; font-family: 'Departure Mono', monospace; font-size: 11px">REPLAY BOOT</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { t: 0, bootAt: 0, booted: false, panel: 'none', loaf: false, obs: false, playing: true, launches: {}, holdAt: -1, brt: 69, tg: { night: true, dnd: false, flash: true }, draft: '', busyUntil: -1, pending: null, msgs: [{ who: '< LOAF', c: '#76605d', text: 'Online. Ask me to change anything on this desktop.' }] };
+}
+componentDidMount() {
+this.timer = setInterval(() => {
+this.setState((s) => {
+const next = { t: s.t + 1 };
+if (s.pending && s.t + 1 >= s.busyUntil) {
+next.msgs = s.msgs.concat([{ who: '< LOAF', c: '#76605d', text: s.pending }]).slice(-6);
+next.pending = null;
+}
+return next;
+});
+}, 80);
+}
+componentWillUnmount() {
+clearInterval(this.timer);
+}
+renderVals() {
+const s = this.state;
+const t = s.t;
+const set = (o) => this.setState(o);
+const bootT = t - s.bootAt;
+const booting = !s.booted && bootT < 46;
+const pct = Math.min(100, Math.round(bootT / 40 * 100));
+const lines = [
+{ s: '[ OK ]', t: 'quickshell · ii', c: '#2f6b52' },
+{ s: '[ OK ]', t: 'palette · SIG #bc3830 · TRC #76605d', c: '#2f6b52' },
+{ s: '[ OK ]', t: 'island · media / net / sys / pwr', c: '#2f6b52' },
+{ s: '[ .. ]', t: 'orbit · fetching ISS + launches', c: '#6e7378' },
+{ s: '[ OK ]', t: 'launch bay · 5 slots', c: '#2f6b52' },
+{ s: '[ OK ]', t: 'loaf · online', c: '#bc3830' }
+];
+const now = new Date();
+const clock = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+const wave = (x, amp, mid, per) => mid + amp * Math.sin(x * 2 * Math.PI / per) * (0.6 + 0.4 * Math.cos(x * 2 * Math.PI / (per * 5)));
+let miniScope = '', bigScope = '';
+for (let x = 0; x <= 148; x += 2) miniScope += x + ',' + wave(x, 7, 10, 42).toFixed(1) + ' ';
+for (let x = 0; x <= 420; x += 3) bigScope += x + ',' + (s.playing ? wave(x, 22, 32, 84) : 32).toFixed(1) + ' ';
+const panel = s.panel;
+const toggle = (name) => () => set({ panel: s.panel === name ? 'none' : name, holdAt: -1 });
+const busy = s.pending !== null;
+const mood = busy ? 'THINKING' : (t % 50 > 47 ? 'BLINK' : 'IDLE');
+const rows = ['.......A........', '..B....S....B...', '.BBB.......BBB..', '.BKBB.....BBKB..', '.BBBBBBBBBBBBB..', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBMBBBBBBB.', 'BBBBBBMMMBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBBT', 'BBBBBBBBBBBBBBTT', '.BWWBBBBBBBWWBT.'];
+const eyes = booting ? (bootT < 20 ? [] : [[5, 4], [6, 4], [5, 10], [6, 10]]) : (busy ? [[4, 5], [5, 5], [4, 11], [5, 11]] : (mood === 'BLINK' ? [] : [[5, 4], [6, 4], [5, 10], [6, 10]]));
+const ant = busy ? (t % 6 < 3 ? '#76605d' : '#d8cfce') : (booting ? (t % 4 < 2 ? '#bc3830' : '#eeeeec') : '#9fa3a7');
+const loaf = [];
+for (let r = 0; r < rows.length; r++) {
+for (let c = 0; c < 16; c++) {
+const ch = rows[r][c];
+let bg = 'transparent';
+if (ch === 'B' || ch === 'T') bg = '#3b3f43';
+else if (ch === 'K') bg = '#8f9498';
+else if (ch === 'M' || ch === 'W') bg = '#eeeeec';
+else if (ch === 'S') bg = '#7d8287';
+else if (ch === 'A') bg = ant;
+if (eyes.some((e) => e[0] === r && e[1] === c)) bg = '#eeeeec';
+loaf.push({ bg: bg });
+}
+}
+const send = () => {
+const text = (s.draft || '').trim();
+if (!text || busy) return;
+const reply = /theme|color|wallpaper/i.test(text) ? 'Re-ran the palette from the wallpaper. Approve the shell reload?' : (/game|cyberpunk|wukong/i.test(text) ? 'Pinned it to slot [4] in the launch bay.' : 'On it. I will show the diff before anything changes.');
+set({ draft: '', msgs: s.msgs.concat([{ who: '> KUNU', c: '#bc3830', text: text }]).slice(-6), pending: reply, busyUntil: t + 18 });
+};
+const appDefs = [
+{ key: 'yt', name: 'YOUTUBE', icon: 'M3 6h18v12H3zM10 9l5 3-5 3z' },
+{ key: 'nf', name: 'NETFLIX', icon: 'M4 4h16v16H4zM8 4v16M16 4v16M4 9h4M4 15h4M16 9h4M16 15h4' },
+{ key: 'st', name: 'STEAM', icon: 'M6 9h12a4 4 0 0 1 0 8c-2 0-3-2-6-2s-4 2-6 2a4 4 0 0 1 0-8zM8 11v4M6 13h4M16 12h.01M18 14h.01' }
+];
+const phaseOf = (key) => {
+const at = s.launches[key];
+if (at === undefined) return { p: 0, st: 'idle' };
+const el = t - at;
+return el < 28 ? { p: el / 28, st: 'spool' } : { p: 1, st: 'run' };
+};
+const launch = (key) => () => { const l = Object.assign({}, s.launches); l[key] = t; set({ launches: l }); };
+const apps = appDefs.map((a) => {
+const ph = phaseOf(a.key);
+return { name: a.name, icon: a.icon, go: launch(a.key), prog: ph.st === 'spool' ? Math.round(ph.p * 100) + '%' : '0%', meta: ph.st === 'idle' ? 'READY' : (ph.st === 'spool' ? 'SPOOLING ' + Math.round(ph.p * 100) + '%' : '● RUNNING'), metaC: ph.st === 'run' ? '#2f6b52' : (ph.st === 'spool' ? '#bc3830' : '#555555'), border: ph.st === 'idle' ? 'rgba(17,17,17,0.16)' : '#bc3830', bg: ph.st === 'run' ? 'rgba(17,17,17,0.05)' : 'transparent' };
+});
+const games = [{ key: 'cp', name: 'CYBERPUNK 2077' }, { key: 'bw', name: 'BLACK MYTH: WUKONG' }].map((g) => {
+const ph = phaseOf(g.key);
+return { name: g.name, go: launch(g.key), state: ph.st === 'idle' ? '▸ PLAY' : (ph.st === 'spool' ? 'SHADERS ' + Math.round(ph.p * 100) + '%' : '● IN GAME'), c: ph.st === 'run' ? '#2f6b52' : '#bc3830' };
+});
+const j = (base, amp, k) => Math.max(0, Math.min(99, Math.round(base + amp * Math.sin(t * 0.21 + k) + amp * 0.5 * Math.sin(t * 0.07 + k * 2))));
+const cpuV = j(12, 6, 1), gpuV = j(41, 3, 2), memV = j(41, 2, 3), dskV = 62;
+const tlm = [{ k: 'CPU %', v: ('00' + cpuV).slice(-3), w: cpuV + '%' }, { k: 'GPU °C', v: ('00' + gpuV).slice(-3), w: gpuV + '%' }, { k: 'MEM %', v: ('00' + memV).slice(-3), w: memV + '%' }, { k: 'DISK %', v: ('00' + dskV).slice(-3), w: dskV + '%' }];
+const holdP = s.holdAt < 0 ? 0 : Math.min(1, (t - s.holdAt) / 15);
+const tg = s.tg;
+const flip = (k) => () => { const n = Object.assign({}, tg); n[k] = !n[k]; set({ tg: n }); };
+const toggles = [['night', 'Night light'], ['dnd', 'Do not disturb'], ['flash', 'Anti-flashbang']].map((d) => ({ name: d[1], flip: flip(d[0]), box: tg[d[0]] ? '[■]' : '[ ]', word: tg[d[0]] ? 'ENGAGED' : 'STANDBY', mark: tg[d[0]] ? '#bc3830' : '#555555' }));
+const ringDefs = [[22, 5, '9s', 'rgba(17,17,17,0.5)'], [40, 6, '15s', 'rgba(17,17,17,0.5)'], [58, 8, '24s', '#bc3830'], [78, 7, '40s', 'rgba(17,17,17,0.5)'], [100, 11, '90s', '#76605d']];
+const ringsSmall = ringDefs.map((r) => ({ off: (105 - r[0]) + 'px', d: (2 * r[0]) + 'px', dur: r[2], c: r[3], s: r[1] + 'px', px: (r[0] - r[1] / 2) + 'px' }));
+const bigDefs = [[70, 6, '12s'], [112, 9, '20s'], [158, 12, '32s', true], [205, 9, '52s'], [300, 24, '120s'], [400, 20, '200s']];
+const ringsBig = bigDefs.map((r) => ({ off: (440 - r[0]) + 'px', d: (2 * r[0]) + 'px', dur: r[2], s: r[1] + 'px', px: (r[0] - r[1] / 2) + 'px', py: (-r[1] / 2) + 'px', c: r[3] ? '#bc3830' : '#c4c4c4', line: r[3] ? 'rgba(188,56,48,0.5)' : 'rgba(236,236,236,0.18)' }));
+return {
+clock: clock, cpu: ('00' + cpuV).slice(-3), miniScope: miniScope, bigScope: bigScope,
+openMedia: toggle('media'), openSys: toggle('sys'), openNet: toggle('net'), openPwr: toggle('pwr'),
+showMedia: panel === 'media', showSys: panel === 'sys', showNet: panel === 'net', showPwr: panel === 'pwr',
+mediaBg: panel === 'media' ? '#ffffff' : '#f5eceb', sysBg: panel === 'sys' ? '#ffffff' : '#e8dfde',
+netBg: panel === 'net' ? '#ffffff' : 'transparent', pwrBg: panel === 'pwr' ? '#ffffff' : 'transparent',
+playLabel: s.playing ? 'NOW PLAYING' : 'PAUSED', playState: s.playing ? 'running' : 'paused', playIcon: s.playing ? '▮▮' : '▶',
+togglePlay: () => set({ playing: !s.playing }),
+toggles: toggles, brt: s.brt, setBrt: (e) => set({ brt: Number(e.target.value) }),
+holdStart: () => set({ holdAt: t }), holdEnd: () => set({ holdAt: -1 }),
+holdW: Math.round(holdP * 100) + '%', holdLabel: holdP >= 1 ? 'SHUTDOWN ARMED · PROTOTYPE' : '[O] HOLD TO POWER OFF',
+toggleLoaf: () => set({ loaf: !s.loaf, panel: 'none' }),
+loafBorder: s.loaf ? '#bc3830' : 'transparent', loafBtnBg: s.loaf ? '#ffffff' : 'transparent', loafDot: busy ? '#76605d' : '#bc3830',
+dockShift: s.loaf ? 'translateX(0)' : 'translateX(520px)',
+colShift: s.loaf ? 'translateX(-520px)' : 'translateX(0)', colOpacity: s.loaf ? 0 : 1,
+tlm: tlm, apps: apps, games: games,
+openObs: () => set({ obs: true, panel: 'none' }), closeObs: () => set({ obs: false }),
+obsOpacity: s.obs ? 1 : 0, obsPointer: s.obs ? 'auto' : 'none',
+ringsSmall: ringsSmall, ringsBig: ringsBig,
+loaf: loaf, mood: mood === 'BLINK' ? 'IDLE' : mood, moodC: busy ? '#76605d' : '#2f6b52',
+msgs: s.msgs, busy: busy, draft: s.draft,
+setDraft: (e) => set({ draft: e.target.value }),
+keySend: (e) => { if (e.key === 'Enter') send(); },
+send: send,
+bootPct: ('00' + pct).slice(-3), bootW: pct + '%', bootLines: lines.slice(0, Math.min(6, Math.floor(bootT / 6))),
+bootOpacity: booting ? 1 : 0, bootPointer: booting ? 'auto' : 'none',
+skipBoot: () => set({ booted: true }), replay: () => set({ booted: false, bootAt: t })
+};
+}
+}
+</script>
+</body>
+</html>

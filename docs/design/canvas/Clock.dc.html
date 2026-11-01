@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Desktop clock variants</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Roboto+Flex:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/de569b76c65b016160d7d75c03e876e3) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 640px; box-sizing: border-box; padding: 40px 64px; background: #16232b; color: #e5d1c5; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b; letter-spacing: 2px">EL-05 // DESKTOP CLOCK WIDGET · ALSO LOCKSCREEN</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">NOW · M3 STACKED</div>
+<div style="flex-grow: 1; background: #2a2533; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Roboto Flex', sans-serif; color: #d0bcff">
+<span style="font-size: 104px; font-weight: 500; line-height: 0.95">23</span>
+<span style="font-size: 104px; font-weight: 500; line-height: 0.95">47</span>
+<span style="font-size: 20px; color: #e6e0e9; margin-top: 8px">Sat, 11/04</span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">A · LCD (TECHNO CMF)</div>
+<div style="flex-grow: 1; background: #1b2b34; border-radius: 6px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 0 22px; gap: 10px">
+<div style="position: absolute; left: -120px; top: 40px; width: 420px; height: 420px; border-radius: 50%; border: 1px dashed #3a4c57"></div>
+<div style="position: absolute; left: 22px; top: 22px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b">SYS-CLK · LOCAL</div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b; position: relative"><span>HH:MM</span><span style="border: 1px solid #e05a2b; color: #e05a2b; padding: 1px 6px">PM</span></div>
+<div style="position: relative; height: 72px">
+<span style="position: absolute; left: 0; top: 0; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 60px; color: #24343e; line-height: 1">88:88</span>
+<span style="position: absolute; left: 0; top: 0; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 60px; color: #e5d1c5; line-height: 1">23:47</span>
+</div>
+<div style="height: 14px; background: repeating-linear-gradient(90deg, #6b7378 0 1px, transparent 1px 8px); position: relative"><div style="position: absolute; left: 58%; top: -4px; width: 8px; height: 8px; background: #e05a2b"></div></div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 13px; position: relative"><span>TUE 27 OCT</span><span style="color: #8d969b">D-300</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">B · MISSION TIMER + ORBIT</div>
+<div style="flex-grow: 1; background: #1b2b34; border-radius: 6px; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px">
+<div style="width: 180px; height: 180px; border-radius: 50%; border: 1px solid #6b7378; position: relative; display: flex; align-items: center; justify-content: center">
+<div style="width: 110px; height: 110px; border-radius: 50%; border: 1px dashed #3a4c57"></div>
+<div style="position: absolute; left: 50%; top: 0; width: 1px; height: 100%; background: #24343e"></div>
+<div style="position: absolute; left: 0; top: 50%; width: 100%; height: 1px; background: #24343e"></div>
+<div style="position: absolute; right: 18px; top: 22px; width: 14px; height: 14px; border-radius: 50%; background: #e05a2b"></div>
+<div style="position: absolute; width: 26px; height: 26px; border-radius: 50%; background: #e5d1c5"></div>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 34px">T+ 23:47:12</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8d969b">ORBIT 300 / 365 · TUE 27 OCT</span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">C · BOARDING PASS</div>
+<div style="flex-grow: 1; background: #ece6dc; color: #1b2b34; border-radius: 4px; display: flex; flex-direction: column; overflow: hidden">
+<div style="background: #e05a2b; color: #10181d; padding: 8px 14px; display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span>LOCAL TIME</span><span>////////</span></div>
+<div style="padding: 10px 14px 0; display: flex; flex-direction: column">
+<span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 76px; line-height: 1">23</span>
+<span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 76px; line-height: 1; margin-top: 6px">47</span>
+</div>
+<div style="padding: 12px 14px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-family: 'Departure Mono', monospace; font-size: 11px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #4d575c">DATE</span><span style="font-size: 14px">27 OCT</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #4d575c">DAY</span><span style="font-size: 14px">TUE</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #4d575c">ZONE</span><span style="font-size: 14px">PDT</span></span>
+</div>
+<div style="flex-grow: 1"></div>
+<div style="border-top: 2px dashed #b7b0a5; padding: 10px 14px"><div style="height: 30px; background: repeating-linear-gradient(90deg, #1b2b34 0 2px, transparent 2px 4px, #1b2b34 4px 5px, transparent 5px 8px, #1b2b34 8px 11px, transparent 11px 13px)"></div></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":640}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

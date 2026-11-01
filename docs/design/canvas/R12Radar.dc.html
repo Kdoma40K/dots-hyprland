@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arch update radar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+@keyframes np-sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes np-scan{0%{left:0}100%{left:calc(100% - 6px)}}
+</style>
+</helmet>
+<div style="width: 1360px; height: 1040px; box-sizing: border-box; padding: 40px 52px; background: #eeeeec; color: #26292c; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #b9bcbf; padding-bottom: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #6e7378; letter-spacing: 2px">PKG-02 // ARCH UPDATE RADAR · SLOT + POP-OUT</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 40px; line-height: 1">UPDATE RADAR</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="color: #6e7378">checkupdates · yay -Qua · archlinux.org/feeds/news</span><span style="border: 1px solid #bc3830; color: #bc3830; padding: 3px 8px">SAMPLE DATA</span></div>
+</div>
+
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">01 // SLOT STATES · 360 × 96</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">A · NOMINAL</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #f7f5f4; border: 1px solid #d3d5d7; padding: 12px 16px; display: flex; align-items: center; gap: 16px">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 40px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #dcdedf">888</span><span style="position: relative; color: #9fa3a7">000</span></span>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px; font-family: 'Departure Mono', monospace; font-size: 12px"><span>PKG // SYS NOMINAL</span><span style="color: #6e7378">CHECKED 12 MIN AGO</span><span style="font-size: 11px"><span style="color: #2f6b52">[■]</span> UP TO DATE</span></div>
+</div></div>
+
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">B · CHECKING</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #f7f5f4; border: 1px solid #d3d5d7; padding: 12px 16px; display: flex; align-items: center; gap: 16px">
+<div style="position: relative; width: 52px; height: 52px; flex-shrink: 0"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><circle cx="26" cy="26" r="22" stroke="#b9bcbf" stroke-dasharray="2 4"/></svg><svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; animation: np-sweep 1.3s linear infinite"><path d="M26 4 A22 22 0 0 1 48 26" stroke="#bc3830" stroke-width="3"/></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span>PKG // SYNCING</span><span style="color: #6e7378">TEMP DB · NO ROOT</span>
+<div style="position: relative; height: 8px; border-bottom: 1px solid #7d8287; background: repeating-linear-gradient(90deg, #7d8287 0 1px, transparent 1px 7px); background-size: 100% 4px; background-repeat: no-repeat; background-position: bottom"><span style="position: absolute; top: 0; width: 6px; height: 7px; background: #bc3830; animation: np-scan 1s ease-in-out infinite alternate"></span></div></div>
+</div></div>
+
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">C · PENDING</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #f7f5f4; border: 1px solid #d3d5d7; padding: 12px 16px; display: flex; align-items: center; gap: 16px">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 40px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #dcdedf">888</span><span style="position: relative">014</span></span>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span>PKG // 14 PENDING</span><span style="color: #6e7378">REPO 11 · AUR 3 · 412 MB</span>
+<div style="display: flex; height: 6px; gap: 2px"><span style="flex-grow: 11; background: #26292c"></span><span style="flex-grow: 3; background: #76605d"></span></div></div>
+</div></div>
+
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">D · NEWS HOLD</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #ffffff; border: 1px solid #d3d5d7; overflow: hidden; display: flex">
+<div style="flex-grow: 1; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; background: #26292c; color: #eeeeec; padding: 5px 12px; font-family: 'Departure Mono', monospace; font-size: 11px"><span style="display: flex; align-items: center; gap: 8px"><span style="width: 22px; height: 8px; background: repeating-linear-gradient(-45deg, #ff5a1f 0 3px, transparent 3px 6px)"></span>READ BEFORE UPDATE</span><span>14 HELD</span></div>
+<div style="padding: 8px 12px; display: flex; flex-direction: column; gap: 4px; font-family: 'Departure Mono', monospace; font-size: 12px"><span>[ARCH NEWS TITLE]</span><span style="font-size: 11px; color: #6e7378">MANUAL INTERVENTION · [DATE]</span></div>
+</div>
+<div style="width: 22px; border-left: 2px dashed #b7b0a5; background: #ff5a1f"></div>
+</div></div>
+
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">E · UPDATING</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #f7f5f4; border: 1px solid #d3d5d7; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
+<span style="display: flex; align-items: baseline; gap: 4px"><span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 40px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #dcdedf">888</span><span style="position: relative">067</span></span><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">%</span></span>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span>PKG // INSTALLING</span><span style="color: #6e7378">9 / 14 · mesa</span>
+<div style="height: 6px; background: #dcdedf"><div style="width: 67%; height: 6px; background: #26292c"></div></div></div>
+</div></div>
+
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">F · REBOOT REQUIRED</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #f7f5f4; border: 1px solid #bc3830; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px; font-family: 'Departure Mono', monospace; font-size: 12px"><span>PKG // DONE · 14 / 14</span><span style="color: #6e7378">linux + nvidia UPDATED</span><span style="color: #bc3830">RUNNING KERNEL ≠ INSTALLED</span></div>
+<button style="background: #bc3830; color: #ffffff; border: none; border-radius: 8px; padding: 10px 12px; font-family: 'Departure Mono', monospace; font-size: 12px">[R] REBOOT</button>
+</div></div>
+
+</div>
+
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">02 // POP-OUT · CLICK THE SLOT</span>
+<div style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr); gap: 18px; flex-grow: 1">
+
+<div style="border-radius: 20px; background: #f7f5f4; border: 1px solid #d3d5d7; display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 1px solid #d3d5d7; font-family: 'Departure Mono', monospace">
+<span style="font-size: 15px">PKG // UPDATE RADAR</span>
+<span style="display: flex; border: 1px solid #b9bcbf; border-radius: 6px; overflow: hidden; font-size: 12px"><span style="padding: 5px 12px; background: #26292c; color: #eeeeec">ALL 14</span><span style="padding: 5px 12px; border-left: 1px solid #b9bcbf; color: #6e7378">REPO 11</span><span style="padding: 5px 12px; border-left: 1px solid #b9bcbf; color: #6e7378">AUR 3</span></span>
+</div>
+<div style="display: grid; grid-template-columns: 30px minmax(0, 1.4fr) minmax(0, 2fr) 70px 64px 70px; gap: 10px; padding: 8px 18px; font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378; border-bottom: 1px solid #e3e4e5"><span></span><span>PACKAGE</span><span>FROM → TO</span><span>SIZE</span><span>REPO</span><span>FLAG</span></div>
+<sc-for list="{{pkgs}}" as="p" hint-placeholder-count="7">
+<div style="display: grid; grid-template-columns: 30px minmax(0, 1.4fr) minmax(0, 2fr) 70px 64px 70px; gap: 10px; padding: 8px 18px; font-family: 'Departure Mono', monospace; font-size: 12px; border-bottom: 1px solid #ecedee; align-items: center">
+<span style="color: #bc3830">[■]</span><span>{{p.n}}</span><span style="color: #555a5e">{{p.v}}</span><span style="color: #555a5e">{{p.s}}</span><span>{{p.r}}</span><span style="color: {{p.fc}}">{{p.f}}</span>
+</div>
+</sc-for>
+<div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-top: 1px solid #d3d5d7">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">RUNS yay -Syu IN FOOT · YOU STAY IN CONTROL</span>
+<span style="display: flex; gap: 8px"><button style="background: transparent; border: 1px solid #26292c; border-radius: 8px; padding: 9px 12px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #26292c">[N] NEWS</button><button style="background: #26292c; color: #eeeeec; border: none; border-radius: 8px; padding: 9px 14px; font-family: 'Departure Mono', monospace; font-size: 12px">[U] UPDATE ALL</button></span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">NEWS // SINCE LAST UPDATE</span>
+<div style="border-radius: 10px; overflow: hidden; display: flex; background: #ffffff; border: 1px solid #d3d5d7">
+<div style="flex-grow: 1; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378"><span>ARCH NEWS · [DATE]</span><span>N° 01</span></div><span style="font-family: 'Departure Mono', monospace; font-size: 14px">[ARCH NEWS TITLE]</span><span style="font-size: 12px; color: #555a5e; line-height: 1.5">[First lines of the post: what to run before upgrading.]</span><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #bc3830">HOLDS UPDATE · [M] MARK READ</span></div>
+<div style="width: 22px; border-left: 2px dashed #b7b0a5; background: #ff5a1f"></div>
+</div>
+<div style="border-radius: 10px; background: #f7f5f4; border: 1px solid #d3d5d7; overflow: hidden">
+<div style="display: flex; justify-content: space-between; background: #e6e7e8; padding: 6px 12px; font-family: 'Departure Mono', monospace; font-size: 11px"><span>ARCH NEWS · [DATE]</span><span style="color: #6e7378">INFO</span></div>
+<div style="padding: 9px 12px; font-family: 'Departure Mono', monospace; font-size: 13px">[ARCH NEWS TITLE]</div>
+</div>
+<div style="margin-top: auto; border-top: 2px solid #26292c; padding-top: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #555a5e; line-height: 1.5">
+<span><span style="font-family: 'Departure Mono', monospace; color: #26292c">CHECK</span> every 2 h and on wake; never updates by itself.</span>
+<span><span style="font-family: 'Departure Mono', monospace; color: #26292c">HOLD</span> unread news newer than your last update disables [U].</span>
+<span><span style="font-family: 'Departure Mono', monospace; color: #26292c">FLAGS</span> kernel or nvidia → reboot state; -git AUR → rebuild note.</span>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":1040}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+pkgs: [
+{ n: 'linux', v: '7.0.4.arch1-1 → 7.0.5.arch1-1', s: '138 MB', r: 'CORE', f: 'REBOOT', fc: '#bc3830' },
+{ n: 'nvidia-utils', v: '610.12-1 → 610.18-1', s: '96 MB', r: 'EXTRA', f: 'REBOOT', fc: '#bc3830' },
+{ n: 'mesa', v: '1:26.0.1-1 → 1:26.0.2-1', s: '41 MB', r: 'EXTRA', f: '—', fc: '#6e7378' },
+{ n: 'hyprland', v: '0.55.1-1 → 0.55.2-1', s: '9 MB', r: 'EXTRA', f: 'RELOAD', fc: '#76605d' },
+{ n: 'pipewire', v: '1:1.6.2-1 → 1:1.6.3-1', s: '6 MB', r: 'EXTRA', f: '—', fc: '#6e7378' },
+{ n: 'quickshell-git', v: 'r812 → r830', s: 'BUILD', r: 'AUR', f: 'REBUILD', fc: '#76605d' },
+{ n: '+ 8 MORE', v: '', s: '122 MB', r: '', f: '', fc: '#6e7378' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

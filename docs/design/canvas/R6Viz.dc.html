@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Visualizer study</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 900px; box-sizing: border-box; padding: 44px 56px; background: #eeeeec; color: #26292c; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 22px">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #b9bcbf; padding-bottom: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #6e7378; letter-spacing: 2px">AUD-01 R6 // VISUALIZER · ISLAND PANEL + BAR-HIDDEN PILL</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 40px; line-height: 1">INSTRUMENT, NOT EQ</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #6e7378">::::: :::::</span><span style="background: #26292c; color: #eeeeec; font-family: 'Departure Mono', monospace; font-size: 12px; padding: 4px 10px">\\\ 3 OPTIONS \\\</span></div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">A · OSCILLOSCOPE</span>
+<div style="background: #141618; color: #ececec; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #a3a3a3"><span>AUD-01 // NOW PLAYING</span><span>3:01 / 4:24</span></div>
+<div style="position: relative; height: 120px; border: 1px solid rgba(236,236,236,0.16); border-radius: 8px; background-image: linear-gradient(rgba(236,236,236,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(236,236,236,0.07) 1px, transparent 1px); background-size: 100% 20px, 34px 100%; overflow: hidden">
+<svg width="372" height="120" viewBox="0 0 372 120" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><path d="M0 60 H372" stroke="rgba(236,236,236,0.22)" stroke-width="1"/><polyline points="{{scopeGhost}}" stroke="rgba(236,236,236,0.18)" stroke-width="1"/><polyline points="{{scopePts}}" stroke="{{trace}}" stroke-width="1.8"/><path d="M 250 0 V 120" stroke="{{signal}}" stroke-width="1" stroke-dasharray="2 3"/></svg>
+<span style="position: absolute; left: 8px; top: 4px; font-family: 'Departure Mono', monospace; font-size: 10px; color: #a3a3a3">CH1 · 2V/DIV</span>
+<span style="position: absolute; right: 8px; top: 4px; font-family: 'Departure Mono', monospace; font-size: 10px; color: #a3a3a3">44.1 KHZ</span>
+<span style="position: absolute; left: 254px; bottom: 4px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{signal}}">T▸</span>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">DEEP DEEPER <span style="color: #a3a3a3; font-size: 11px">EastNewSound</span></span>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">BAR-HIDDEN PILL</span>
+<div style="align-self: flex-start; height: 26px; background: #141618; border-radius: 999px; padding: 0 12px; display: flex; align-items: center"><svg width="64" height="20" viewBox="0 0 64 20" fill="none" aria-hidden="true"><path d="M0 10 H64" stroke="rgba(236,236,236,0.2)" stroke-width="1"/><polyline points="{{miniScope}}" stroke="{{trace}}" stroke-width="1.5"/></svg></div>
+<span style="font-size: 12px; color: #555a5e; line-height: 1.5">The waveform on a graticule, with a ghost of the last frame and a playhead trigger. Most "lab bench".</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">B · LED LADDER</span>
+<div style="background: #141618; color: #ececec; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #a3a3a3"><span>AUD-01 // NOW PLAYING</span><span>3:01 / 4:24</span></div>
+<div style="display: flex; gap: 8px; height: 120px">
+<div style="display: flex; flex-direction: column; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 9px; color: #8c8c8c; padding: 2px 0"><span>-0</span><span>-6</span><span>-12</span><span>-24</span><span>-∞</span></div>
+<div style="flex-grow: 1; display: flex; gap: 3px; align-items: flex-end"><sc-for list="{{ladder}}" as="col" hint-placeholder-count="24"><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><sc-for list="{{col.cells}}" as="c" hint-placeholder-count="12"><span style="height: 8px; background: {{c.bg}}"></span></sc-for></div></sc-for></div>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">DEEP DEEPER <span style="color: #a3a3a3; font-size: 11px">EastNewSound</span></span>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">BAR-HIDDEN PILL</span>
+<div style="align-self: flex-start; height: 26px; background: #141618; border-radius: 999px; padding: 0 12px; display: flex; align-items: center"><span style="display: flex; gap: 2px; align-items: flex-end"><sc-for list="{{miniLadder}}" as="col" hint-placeholder-count="10"><span style="display: flex; flex-direction: column; gap: 1px"><sc-for list="{{col.cells}}" as="c" hint-placeholder-count="5"><span style="width: 4px; height: 2px; background: {{c.bg}}"></span></sc-for></span></sc-for></span></div>
+<span style="font-size: 12px; color: #555a5e; line-height: 1.5">Segmented meter with a dB scale and a peak-hold cell in SIGNAL. Reads best when tiny.</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">C · ARC SPECTRUM</span>
+<div style="background: #141618; color: #ececec; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #a3a3a3"><span>AUD-01 // NOW PLAYING</span><span>3:01 / 4:24</span></div>
+<div style="position: relative; height: 120px">
+<svg width="372" height="120" viewBox="0 0 372 120" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><path d="{{arcBase}}" stroke="rgba(236,236,236,0.3)" stroke-width="1"/><path d="{{arcTicks}}" stroke="rgba(236,236,236,0.3)" stroke-width="1"/><path d="{{arcBars}}" stroke="{{trace}}" stroke-width="3"/><path d="{{arcPeak}}" stroke="{{signal}}" stroke-width="3"/></svg>
+<span style="position: absolute; left: 160px; top: 92px; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 18px">3:01</span>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">DEEP DEEPER <span style="color: #a3a3a3; font-size: 11px">EastNewSound</span></span>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #6e7378">BAR-HIDDEN PILL</span>
+<div style="align-self: flex-start; height: 26px; background: #141618; border-radius: 999px; padding: 0 12px; display: flex; align-items: center"><svg width="44" height="20" viewBox="0 0 44 20" fill="none" aria-hidden="true"><path d="{{miniArc}}" stroke="{{trace}}" stroke-width="2"/></svg></div>
+<span style="font-size: 12px; color: #555a5e; line-height: 1.5">Bands drawn as rays off a scaled arc, the same shape as the orbit's arc. Best on the lockscreen.</span>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"signal":{"editor":"color","default":"#d36662","options":["#d36662","#bc3830","#5caf8a","#e4452f"]},"trace":{"editor":"color","default":"#729b9c","options":["#729b9c","#76605d","#4fa1a5","#8fb3c4"]},"$preview":{"width":1360,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+const signal = this.props.signal ?? '#d36662';
+const trace = this.props.trace ?? '#729b9c';
+const faint = 'rgba(236,236,236,0.12)';
+const amps = [];
+for (let i = 0; i < 24; i++) amps.push(0.25 + 0.7 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)));
+const ladderCol = (v, n) => {
+const lit = Math.max(1, Math.round(v * n));
+const peak = Math.min(n - 1, lit);
+const cells = [];
+for (let k = n - 1; k >= 0; k--) cells.push({ bg: k < lit ? trace : (k === peak ? signal : faint) });
+return { cells: cells };
+};
+const wave = (x, ph) => 60 + 36 * Math.sin(x * 0.045 + ph) * Math.cos(x * 0.012) + 9 * Math.sin(x * 0.29 + ph * 2);
+let scopePts = '', scopeGhost = '';
+for (let x = 0; x <= 372; x += 3) {
+scopePts += x + ',' + wave(x, 0).toFixed(1) + ' ';
+scopeGhost += x + ',' + wave(x, 0.9).toFixed(1) + ' ';
+}
+let miniScope = '';
+for (let x = 0; x <= 64; x += 2) miniScope += x + ',' + (10 + 7 * Math.sin(x * 0.3) * Math.cos(x * 0.07)).toFixed(1) + ' ';
+const cx = 186, cy = 112, r0 = 72;
+const P = (deg, r) => [cx + r * Math.cos(deg * Math.PI / 180), cy + r * Math.sin(deg * Math.PI / 180)];
+const f = (v) => v.toFixed(1);
+const s0 = P(180, r0), s1 = P(360, r0);
+const arcBase = 'M ' + f(s0[0]) + ' ' + f(s0[1]) + ' A ' + r0 + ' ' + r0 + ' 0 0 1 ' + f(s1[0]) + ' ' + f(s1[1]);
+let arcTicks = '', arcBars = '', arcPeak = '';
+for (let d = 180; d <= 360; d += 10) {
+const a = P(d, r0 - 4), b = P(d, r0 - 10);
+arcTicks += 'M ' + f(a[0]) + ' ' + f(a[1]) + ' L ' + f(b[0]) + ' ' + f(b[1]) + ' ';
+}
+const n = 30;
+for (let i = 0; i < n; i++) {
+const d = 186 + i * (168 / (n - 1));
+const v = 0.2 + 0.8 * Math.abs(Math.sin(i * 0.5) * Math.cos(i * 0.17));
+const a = P(d, r0 + 4), b = P(d, r0 + 4 + v * 34), pk = P(d, r0 + 8 + v * 34), pk2 = P(d, r0 + 11 + v * 34);
+arcBars += 'M ' + f(a[0]) + ' ' + f(a[1]) + ' L ' + f(b[0]) + ' ' + f(b[1]) + ' ';
+if (i % 5 === 2) arcPeak += 'M ' + f(pk[0]) + ' ' + f(pk[1]) + ' L ' + f(pk2[0]) + ' ' + f(pk2[1]) + ' ';
+}
+const mcx = 22, mcy = 19;
+let miniArc = '';
+for (let i = 0; i < 9; i++) {
+const d = 195 + i * 18.75;
+const v = 0.3 + 0.7 * Math.abs(Math.sin(i * 0.7));
+const a = [mcx + 8 * Math.cos(d * Math.PI / 180), mcy + 8 * Math.sin(d * Math.PI / 180)];
+const b = [mcx + (9 + v * 8) * Math.cos(d * Math.PI / 180), mcy + (9 + v * 8) * Math.sin(d * Math.PI / 180)];
+miniArc += 'M ' + f(a[0]) + ' ' + f(a[1]) + ' L ' + f(b[0]) + ' ' + f(b[1]) + ' ';
+}
+return {
+signal: signal, trace: trace,
+scopePts: scopePts, scopeGhost: scopeGhost, miniScope: miniScope,
+ladder: amps.map((v) => ladderCol(v, 12)), miniLadder: amps.slice(2, 12).map((v) => ladderCol(v, 5)),
+arcBase: arcBase, arcTicks: arcTicks, arcBars: arcBars, arcPeak: arcPeak, miniArc: miniArc
+};
+}
+}
+</script>
+</body>
+</html>

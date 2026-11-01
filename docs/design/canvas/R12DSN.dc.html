@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deep Space Network board</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+@keyframes np-pulse{0%,100%{opacity:.25}50%{opacity:1}}
+</style>
+</helmet>
+<div style="width: 1360px; height: 1040px; box-sizing: border-box; padding: 40px 52px; background: #111315; color: #ececec; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 18px">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #33373a; padding-bottom: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">DSN-03 // DEEP SPACE NETWORK · SLOT + POP-OUT</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 40px; line-height: 1">WHO'S TALKING</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="color: #8c8c8c">eyes.nasa.gov/dsn/data/dsn.xml · EVERY 5 S</span><span style="border: 1px solid {{sig}}; color: {{sig}}; padding: 3px 8px">SAMPLE DATA</span></div>
+</div>
+
+<div style="display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 22px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">01 // SLOT · 360 × 96</span>
+<div style="height: 96px; box-sizing: border-box; border-radius: 16px; background: #1b1e20; border: 1px solid #33373a; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace">
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span>DSN // 6 LINKS</span><span style="color: #8c8c8c">GDS 2 · MAD 2 · CAN 2</span></div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="color: {{sig}}; font-size: 14px; animation: np-pulse 1.4s ease-in-out infinite">▼</span><span style="font-size: 15px">VOYAGER 1</span><span style="font-size: 11px; color: #8c8c8c">DSS-14 · X-BAND</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #8c8c8c"><span>RTLT ~[47] H</span><span>[160] B/S</span><span>FARTHEST LINK</span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">EARTH // COMPLEX LONGITUDES · SUN</span>
+<div style="position: relative; height: 96px; box-sizing: border-box; border-radius: 16px; background: #1b1e20; border: 1px solid #33373a; overflow: hidden">
+<div style="position: absolute; left: 0; top: 0; bottom: 0; width: {{nightW}}; left: {{nightL}}; background: rgba(0,0,0,0.45)"></div>
+<div style="position: absolute; left: 20px; right: 20px; top: 54px; height: 14px; background: repeating-linear-gradient(90deg, #5a5f63 0 1px, transparent 1px 2.5%); background-size: 100% 6px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid #5a5f63"></div>
+<sc-for list="{{sites}}" as="s" hint-placeholder-count="3">
+<div style="position: absolute; left: {{s.x}}; top: 18px; display: flex; flex-direction: column; align-items: center; gap: 4px; transform: translateX(-50%)">
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px">{{s.code}}</span>
+<span style="width: 2px; height: 22px; background: {{sig}}"></span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 10px; color: #8c8c8c; margin-top: 12px">{{s.lon}}</span>
+</div>
+</sc-for>
+<span style="position: absolute; left: {{sunX}}; top: 10px; width: 10px; height: 10px; border-radius: 50%; background: #ececec; transform: translateX(-50%)"></span>
+</div>
+</div>
+</div>
+
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">02 // POP-OUT · THREE COMPLEXES, EVERY DISH</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{complexes}}" as="c" hint-placeholder-count="3">
+<div style="border-radius: 18px; background: #1b1e20; border: 1px solid #33373a; display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 12px 16px; border-bottom: 1px solid #33373a; font-family: 'Departure Mono', monospace"><span style="font-size: 15px">{{c.name}}</span><span style="font-size: 11px; color: #8c8c8c">{{c.place}} · {{c.time}}</span></div>
+<sc-for list="{{c.dishes}}" as="d" hint-placeholder-count="2">
+<div style="padding: 12px 16px; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; border-bottom: 1px solid #26292c">
+<svg width="56" height="48" viewBox="0 0 56 48" fill="none" aria-hidden="true"><g transform="{{d.rot}}"><path d="M10 28 Q28 8 46 28" stroke="{{d.ink}}" stroke-width="2"/><path d="M28 18 L28 6" stroke="{{d.ink}}" stroke-width="1.5"/><circle cx="28" cy="5" r="2" fill="{{d.ink}}"/></g><path d="M28 30 L20 44 H36 Z" stroke="{{d.ink}}" stroke-width="1.5"/></svg>
+<div style="display: flex; flex-direction: column; gap: 5px; font-family: 'Departure Mono', monospace; min-width: 0">
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span>{{d.name}}</span><span style="color: #8c8c8c">AZ {{d.az}} · EL {{d.el}}</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 14px"><span style="color: {{d.upC}}">▲</span><span style="color: {{d.downC}}">▼</span><span style="color: {{d.nameC}}">{{d.target}}</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #8c8c8c"><span>{{d.band}}</span><span>{{d.rate}}</span><span>{{d.rtlt}}</span></div>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+
+<div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; flex-grow: 1">
+<div style="border-radius: 18px; background: #1b1e20; border: 1px solid #33373a; padding: 16px 18px; display: flex; gap: 24px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 11px; color: #8c8c8c">03 // SELECTED LINK</span>
+<span style="font-size: 26px">VOYAGER 1</span>
+<span style="font-size: 12px; color: #8c8c8c">VIA DSS-14 · GOLDSTONE · 70 M</span>
+<span style="font-size: 12px"><span style="color: {{sig}}">▼</span> DOWNLINK ONLY · X-BAND</span>
+</div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 11px; color: #8c8c8c">ROUND-TRIP LIGHT TIME</span>
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 44px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: #2a2e31">88:88:88</span><span style="position: relative">[47:00:00]</span></span>
+<span style="font-size: 12px; color: #8c8c8c">THE BITS ON SCREEN LEFT THE CRAFT ~[23.5] H AGO</span>
+<div style="display: flex; gap: 18px; font-size: 12px"><span><span style="color: #8c8c8c">RANGE</span> [RANGE] KM</span><span><span style="color: #8c8c8c">PWR</span> [-158] dBm</span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #ececec; padding-top: 10px; font-size: 11px; color: #a3a3a3; line-height: 1.55">
+<span><span style="font-family: 'Departure Mono', monospace; color: #ececec">▲ ▼</span> lit = active up / down signal; dim = carrier off.</span>
+<span><span style="font-family: 'Departure Mono', monospace; color: #ececec">DISH</span> glyph tilts to the real elevation angle.</span>
+<span><span style="font-family: 'Departure Mono', monospace; color: #ececec">SLOT</span> always shows the farthest active link.</span>
+<span><span style="font-family: 'Departure Mono', monospace; color: #ececec">NAMES</span> from config.xml spacecraftMap, not the raw codes.</span>
+<span><span style="font-family: 'Departure Mono', monospace; color: #ececec">IDLE</span> dishes with no target fade to 40%.</span>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sig":{"editor":"color","default":"#d36662","options":["#d36662","#bc3830","#5caf8a","#dc5f4f"]},"$preview":{"width":1360,"height":1040}}'>
+class Component extends DCLogic {
+renderVals() {
+const sig = this.props.sig ?? '#d36662';
+const trc = '#8fb3c4';
+const dish = (name, az, el, target, up, down, band, rate, rtlt) => {
+const idle = !target;
+return {
+name: name, az: az, el: el, target: target || 'IDLE · STOW', band: band || '—', rate: rate || '', rtlt: rtlt || '',
+rot: 'rotate(' + (-(90 - Number(el)) * 0.6).toFixed(0) + ' 28 28)',
+ink: idle ? '#5a5f63' : '#ececec', nameC: idle ? '#5a5f63' : '#ececec',
+upC: up ? trc : '#3a3e42', downC: down ? sig : '#3a3e42'
+};
+};
+const lonX = (lon) => ((lon + 180) / 360 * 100).toFixed(1) + '%';
+return {
+sig: sig,
+sites: [{ code: 'GDS', lon: '116.9° W', x: lonX(-116.9) }, { code: 'MAD', lon: '4.2° W', x: lonX(-4.2) }, { code: 'CAN', lon: '149.0° E', x: lonX(149.0) }],
+sunX: lonX(-110), nightL: '58%', nightW: '42%',
+complexes: [
+{ name: 'GOLDSTONE', place: 'USA', time: '22:21', dishes: [dish('DSS-14 · 70 M', '172', '38', 'VOYAGER 1', false, true, 'X-BAND', '[160] B/S', 'RTLT [47] H'), dish('DSS-24 · 34 M', '205', '61', 'JWST', true, true, 'S / KA', '[28] MB/S', 'RTLT [10] S')] },
+{ name: 'MADRID', place: 'ESP', time: '06:21', dishes: [dish('DSS-63 · 70 M', '090', '12', '', false, false), dish('DSS-56 · 34 M', '131', '44', 'MRO', true, true, 'X-BAND', '[2.6] MB/S', 'RTLT [22] MIN')] },
+{ name: 'CANBERRA', place: 'AUS', time: '16:21', dishes: [dish('DSS-43 · 70 M', '038', '27', 'VOYAGER 2', true, true, 'S / X', '[160] B/S', 'RTLT [39] H'), dish('DSS-35 · 34 M', '300', '55', 'LRO', false, true, 'X-BAND', '[100] KB/S', 'RTLT [2.6] S')] }
+]
+};
+}
+}
+</script>
+</body>
+</html>

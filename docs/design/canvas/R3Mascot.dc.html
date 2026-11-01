@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PIP-01 mascot</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Doto:wght@800&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 760px; box-sizing: border-box; padding: 40px 64px; background: #000000; color: #ececec; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 24px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">EL-07 R3 // AI MASCOT · ORIGINAL PIXEL PROBE · 15×14 GRID</div>
+<div style="display: flex; gap: 56px; align-items: center">
+
+<div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start">
+<div style="display: grid; grid-template-columns: repeat(15, 20px); grid-auto-rows: 20px" role="img" aria-label="PIP-01, a small round probe with a dark visor and one antenna">
+<sc-for list="{{hero}}" as="c" hint-placeholder-count="210"><span style="background: {{c.bg}}"></span></sc-for>
+</div>
+<span style="font-family: 'Doto', monospace; font-weight: 800; font-size: 44px; line-height: 1">PIP-01</span>
+<span style="font-size: 13px; color: #c4c4c4; line-height: 1.6; max-width: 300px">A pocket probe: round hull, dark visor, one antenna that carries its mood. Eyes do the talking.</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 28px; flex-grow: 1">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+<sc-for list="{{states}}" as="s" hint-placeholder-count="4">
+<div style="background: #0e0e0e; border: 1px solid #262626; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px; align-items: center">
+<div style="display: grid; grid-template-columns: repeat(15, 8px); grid-auto-rows: 8px" aria-hidden="true">
+<sc-for list="{{s.cells}}" as="c" hint-placeholder-count="210"><span style="background: {{c.bg}}"></span></sc-for>
+</div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">{{s.name}}</span>
+<span style="font-size: 11px; color: #8c8c8c; text-align: center; line-height: 1.5">{{s.when}}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">IN CONTEXT · MISSION BRIEF HEADER</span>
+<div style="background: #0a0a0a; border: 1px solid #262626; border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 12px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: grid; grid-template-columns: repeat(15, 2px); grid-auto-rows: 2px" aria-hidden="true"><sc-for list="{{thinking}}" as="c" hint-placeholder-count="210"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span>MISSION 0142</span><span style="color: #8c8c8c">· PIP IS THINKING</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">IN CONTEXT · ISLAND, NEEDS YOUR OK</span>
+<div style="align-self: flex-start; height: 36px; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 999px; padding: 0 16px; display: flex; align-items: center; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: grid; grid-template-columns: repeat(15, 1.4px); grid-auto-rows: 1.4px" aria-hidden="true"><sc-for list="{{needs}}" as="c" hint-placeholder-count="210"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span>PIP · APPROVE EDIT?</span><span style="color: {{signal}}">[Y/N]</span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"signal":{"editor":"color","default":"#d71921","options":["#d71921","#8fb565","#b39be6","#e05a2b"]},"trace":{"editor":"color","default":"#8fb3c4","options":["#8fb3c4","#c9b77a","#7fc2c6","#9a9a9a"]},"$preview":{"width":1360,"height":760}}'>
+class Component extends DCLogic {
+renderVals() {
+const signal = this.props.signal ?? '#d71921';
+const trace = this.props.trace ?? '#8fb3c4';
+const rows = [
+'.......A.......',
+'.......S.......',
+'.....WWWWW.....',
+'...WWWWWWWWW...',
+'..WWDDDDDDDWW..',
+'..WDDDDDDDDDW..',
+'.WWDDDDDDDDDWW.',
+'.WWDDDDDDDDDWW.',
+'..WDDDDDDDDDW..',
+'..WWDDDDDDDWW..',
+'...WWWWWWWWW...',
+'....WW...WW....',
+'....SS...SS....',
+'....FF...FF....'
+];
+const sprite = (eyes, eyeColor, antenna, flame) => {
+const cells = [];
+for (let r = 0; r < rows.length; r++) {
+for (let c = 0; c < 15; c++) {
+const ch = rows[r][c];
+let bg = 'transparent';
+if (ch === 'W') bg = '#ececec';
+else if (ch === 'D') bg = '#141414';
+else if (ch === 'S') bg = '#8c8c8c';
+else if (ch === 'A') bg = antenna;
+else if (ch === 'F') bg = flame;
+if (eyes.some((e) => e[0] === r && e[1] === c)) bg = eyeColor;
+cells.push({ bg: bg });
+}
+}
+return cells;
+};
+const idle = sprite([[6, 5], [7, 5], [6, 9], [7, 9]], '#ececec', '#3a3a3a', 'transparent');
+const think = sprite([[5, 6], [6, 6], [5, 10], [6, 10]], '#ececec', trace, trace);
+const needs = sprite([[5, 5], [6, 5], [7, 5], [5, 9], [6, 9], [7, 9]], signal, signal, 'transparent');
+const done = sprite([[7, 4], [6, 5], [7, 6], [7, 8], [6, 9], [7, 10]], '#ececec', '#ececec', 'transparent');
+return {
+signal: signal,
+hero: idle,
+thinking: think,
+needs: needs,
+states: [
+{ name: 'IDLE', when: 'Waiting. Blinks every few seconds.', cells: idle },
+{ name: 'THINKING', when: 'Working. Eyes up, antenna and thrusters in TRACE.', cells: think },
+{ name: 'NEEDS YOU', when: 'Approval or a question. Antenna and eyes in SIGNAL.', cells: needs },
+{ name: 'DONE', when: 'Task finished. Happy squint for 3 s, then idle.', cells: done }
+]
+};
+}
+}
+</script>
+</body>
+</html>

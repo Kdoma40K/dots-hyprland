@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lockscreen kit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; position: relative; overflow: hidden; background: {{bg}}; color: {{ink}}; font-family: 'IBM Plex Mono', monospace">
+
+<sc-if value="{{hasWall}}" hint-placeholder-val="{{ false }}">
+<img src="{{wall}}" alt="" style="position: absolute; left: -60px; top: -60px; width: 2040px; height: 1200px; object-fit: cover; filter: blur(28px)">
+<div style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: {{veil}}"></div>
+</sc-if>
+<div style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background-image: radial-gradient({{dotGrid}} 1px, transparent 1.2px); background-size: 24px 24px"></div>
+<img src="/_blob/fc634282ef00648181062769f2c0c144" alt="" style="position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; opacity: 0.18">
+
+<span style="position: absolute; left: 34px; top: 26px; font-family: 'Departure Mono', monospace; font-size: 18px; color: {{dim}}">+</span>
+<span style="position: absolute; right: 34px; top: 26px; font-family: 'Departure Mono', monospace; font-size: 18px; color: {{dim}}">+</span>
+<span style="position: absolute; left: 34px; bottom: 26px; font-family: 'Departure Mono', monospace; font-size: 18px; color: {{dim}}">+</span>
+<span style="position: absolute; right: 34px; bottom: 26px; font-family: 'Departure Mono', monospace; font-size: 18px; color: {{dim}}">+</span>
+
+<div style="position: absolute; left: 70px; top: 48px; display: flex; align-items: center; gap: 14px; font-family: 'Departure Mono', monospace">
+<span style="background: {{tagBg}}; color: {{tagInk}}; font-size: 14px; padding: 5px 10px">NSP-01</span>
+<span style="font-size: 12px; color: {{dim}}">{{topTag}}</span>
+<span style="width: 44px; height: 12px; background-image: radial-gradient({{ink}} 1.5px, transparent 1.7px); background-size: 9px 6px"></span>
+</div>
+<div style="position: absolute; right: 70px; top: 50px; display: flex; align-items: center; gap: 18px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<span><span style="color: {{dim}}">NET</span> OK</span><span><span style="color: {{dim}}">VOL</span> 70</span><span><span style="color: {{dim}}">KBD</span> US</span><span style="width: 14px; height: 6px; background: {{signal}}"></span>
+</div>
+
+<div style="position: absolute; left: 16px; top: 0; height: 1080px; width: 20px; display: flex; align-items: center; justify-content: center"><span style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}; letter-spacing: 2px; white-space: nowrap">NSP-01 // LOCKSCREEN // SOL 301 // REV 0.6</span></div>
+<div style="position: absolute; right: 0; top: 430px; width: 30px; height: 220px; background: {{tagBg}}; display: flex; align-items: center; justify-content: center"><span style="writing-mode: vertical-rl; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{tagInk}}; letter-spacing: 3px">SECURE</span></div>
+
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<path d="{{arcD}}" stroke="{{arcInk}}" stroke-width="1"/>
+<path d="{{tickD}}" stroke="{{arcInk}}" stroke-width="1"/>
+<path d="{{arcInnerD}}" stroke="{{arcInk}}" stroke-width="1" stroke-dasharray="2 6"/>
+<path d="{{pinD}}" stroke="{{arcInk}}" stroke-width="1"/>
+<path d="{{cursorD}}" stroke="{{signal}}" stroke-width="3"/>
+<path d="M 320 596 L 430 596" stroke="{{ink}}" stroke-width="1"/>
+</svg>
+<sc-for list="{{arcLabels}}" as="l" hint-placeholder-count="7"><span style="position: absolute; left: {{l.x}}; top: {{l.y}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{arcInk}}">{{l.t}}</span></sc-for>
+<span style="position: absolute; left: {{curLX}}; top: {{curLY}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{signal}}">NOW</span>
+<div style="position: absolute; left: {{pinX}}; top: {{pinY}}; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; border: 1px solid {{ink}}; background: {{bg}}"></div>
+<span style="position: absolute; left: {{pinLX}}; top: {{pinLY}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{arcInk}}; white-space: nowrap">ISS-N4 · NEXT PASS [TIME]</span>
+<div style="position: absolute; left: {{boxX}}; top: {{boxY}}; display: flex; align-items: center"><span style="border: 2px solid {{signal}}; background: {{surface}}; padding: 4px 9px; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 22px">301</span><span style="width: 26px; height: 20px; background: {{tagBg}}"></span></div>
+
+<div style="position: absolute; left: 170px; top: 548px; display: flex; flex-direction: column">
+<span style="background: {{tagTop}}; color: {{tagInk}}; font-family: 'Departure Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 5px 5px 0 0">LOCK · ARMED</span>
+<span style="background: {{tagBg}}; color: {{tagInk}}; font-family: 'Departure Mono', monospace; font-size: 15px; padding: 5px 12px">\\\ 093% \\\</span>
+<span style="height: 5px; background: repeating-linear-gradient(90deg, {{signal}} 0 4px, transparent 4px 6px)"></span>
+</div>
+
+<div style="position: absolute; left: 460px; top: 420px; width: 800px; height: 330px; background: {{hous}}; border-radius: 34px; clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%)"></div>
+<span style="position: absolute; left: 1156px; top: 414px; width: 20px; height: 6px; background: {{signal}}"></span>
+
+<div style="position: absolute; left: 430px; top: 390px; width: 800px; height: 300px; box-sizing: border-box; border-radius: 30px; background: {{surface}}; border: 1px solid {{rule}}">
+<div style="position: absolute; left: 40px; top: 30px; display: flex; gap: 14px"><span style="width: 40px; height: 12px; background-image: radial-gradient({{ink}} 1.5px, transparent 1.7px); background-size: 8px 6px"></span><span style="width: 40px; height: 12px; background-image: radial-gradient({{ink}} 1.5px, transparent 1.7px); background-size: 8px 6px"></span></div>
+<div style="position: absolute; right: 44px; top: 34px; display: flex; gap: 8px"><span style="width: 30px; height: 4px; background: {{ink}}"></span><span style="width: 30px; height: 4px; background: {{rule}}"></span><span style="width: 30px; height: 4px; background: {{ink}}"></span></div>
+<div style="position: absolute; left: 40px; top: 84px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">{{row1}}</span><span style="display: flex; align-items: flex-start; gap: 4px"><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 24px">{{row1v}}</span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 11px; color: {{dim}}">{{row1s}}</span></span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">{{row2}}</span><span style="display: flex; align-items: flex-start; gap: 4px"><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 24px">03:33</span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 11px; color: {{dim}}">{{row2s}}</span></span></div>
+</div>
+<div style="position: absolute; left: 190px; top: 66px; display: flex; align-items: flex-start; gap: 14px">
+<span style="position: relative; display: inline-block; font-family: 'DSEG7', monospace; font-weight: 700; font-size: 136px; line-height: 1"><span style="position: absolute; left: 0; top: 0; color: {{ghost}}">88:88</span><span style="position: relative">07:45</span></span>
+<span style="display: flex; flex-direction: column; gap: 8px; padding-top: 6px"><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 34px">32</span><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: {{dim}}">PDT</span><span style="width: 10px; height: 10px; background: {{signal}}"></span></span>
+</div>
+<div style="position: absolute; left: 40px; right: 40px; bottom: 30px; display: flex; align-items: center; gap: 22px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 17px; white-space: nowrap">WED 28 OCT 2026</span>
+<span style="font-size: 12px; color: {{dim}}; white-space: nowrap">DAY 301 / 365</span>
+<div style="flex-grow: 1; height: 14px; position: relative; background: repeating-linear-gradient(90deg, {{dim}} 0 1px, transparent 1px 7px); background-size: 100% 6px; background-repeat: no-repeat; background-position: bottom; border-bottom: 1px solid {{dim}}"><span style="position: absolute; left: 0; bottom: 0; width: 82%; height: 3px; background: {{ink}}"></span><span style="position: absolute; left: 82%; top: 0; width: 4px; height: 14px; background: {{signal}}"></span></div>
+</div>
+</div>
+
+<div style="position: absolute; left: 770px; top: 740px; width: 120px; height: 120px; box-sizing: border-box; border-radius: 50%; border: 1px dashed {{dim}}; display: flex; align-items: center; justify-content: center">
+<div style="position: absolute; left: -22px; top: 59px; width: 164px; height: 1px; background: {{rule}}"></div>
+<div style="position: absolute; left: 59px; top: -22px; width: 1px; height: 164px; background: {{rule}}"></div>
+<div style="position: relative; width: 50px; height: 50px; box-sizing: border-box; border-radius: 50%; border: 8px solid {{signal}}; background: {{surface}}"></div>
+</div>
+<div style="position: absolute; left: 920px; top: 770px; display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace">
+<sc-if value="{{isLogin}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px">USER <span style="border: 1px solid {{rule}}; border-radius: 4px; padding: 2px 8px; margin-left: 6px">KUNU ▾</span></span></sc-if>
+<span style="font-size: 13px">ENTER PASSPHRASE</span>
+<div style="display: flex; gap: 6px"><sc-for list="{{pips}}" as="p" hint-placeholder-count="10"><span style="width: 14px; height: 14px; box-sizing: border-box; border: 1px solid {{p.b}}; background: {{p.f}}"></span></sc-for></div>
+<span style="font-size: 11px; color: {{dim}}">{{enterHint}}</span>
+</div>
+<div style="position: absolute; left: 610px; top: 766px; display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="display: grid; grid-template-columns: repeat(16, 5px); grid-auto-rows: 5px" role="img" aria-label="LOAF-01 the cat mascot, guarding"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">{{loafLabel}}</span>
+</div>
+
+<div style="position: absolute; left: 1460px; top: 250px; width: 400px; display: flex; flex-direction: column; gap: 16px">
+<div style="background: {{surface}}; border: 1px solid {{rule}}; border-radius: 20px; padding: 16px; display: flex; gap: 16px; align-items: center">
+<div style="width: 150px; height: 150px; position: relative; flex-shrink: 0">
+<sc-for list="{{rings}}" as="r" hint-placeholder-count="5"><div style="position: absolute; left: {{r.off}}; top: {{r.off}}; width: {{r.d}}; height: {{r.d}}; box-sizing: border-box; border-radius: 50%; border: 1px solid {{rule}}"></div></sc-for>
+<div style="position: absolute; left: 68px; top: 68px; width: 14px; height: 14px; border-radius: 50%; background: {{ink}}"></div>
+<sc-for list="{{planets}}" as="p" hint-placeholder-count="5"><div style="position: absolute; left: {{p.x}}; top: {{p.y}}; width: {{p.s}}; height: {{p.s}}; border-radius: 50%; background: {{p.c}}"></div></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; font-family: 'Departure Mono', monospace">
+<span style="font-size: 11px; color: {{dim}}">SOL // TOP VIEW</span>
+<span style="font-size: 26px; line-height: 1">T+ 04:12</span>
+<span style="font-size: 12px"><span style="color: {{signal}}">●</span> EARTH · YOU</span>
+<span style="font-size: 12px"><span style="color: {{trace}}">■</span> ISS OVER [REGION]</span>
+</div>
+</div>
+
+<sc-if value="{{isLock}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span>WHILE AWAY // 03</span><span style="color: {{dim}}">UNLOCK TO OPEN</span></div>
+<div style="border-radius: 10px; overflow: hidden; display: flex; background: {{slipBg}}; color: #111111">
+<div style="flex-grow: 1; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 11px; color: #555555"><span>FROM: LAUNCH LIBRARY</span><span>N° 0034</span></div>
+<span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px; line-height: 1">T-02:14:33</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px">[MISSION NAME] · [PROVIDER]</span>
+</div>
+<div style="width: 30px; border-left: 2px dashed #b7b0a5; background: {{signal}}"></div>
+</div>
+<div style="background: {{surface}}; border: 1px solid {{rule}}; border-radius: 10px; overflow: hidden">
+<div style="display: flex; justify-content: space-between; background: {{rule}}; padding: 6px 12px; font-family: 'Departure Mono', monospace; font-size: 11px"><span>CLAUDE · MISSION 0142</span><span style="color: {{dim}}">12M</span></div>
+<div style="padding: 9px 12px; font-family: 'Departure Mono', monospace; font-size: 13px"><span style="color: {{trace}}">[■]</span> 4 / 4 DONE · NEEDS REVIEW</div>
+</div>
+<div style="background: {{surface}}; border: 1px solid {{rule}}; border-radius: 10px; overflow: hidden">
+<div style="display: flex; justify-content: space-between; background: {{rule}}; padding: 6px 12px; font-family: 'Departure Mono', monospace; font-size: 11px"><span>SHELL</span><span style="color: {{dim}}">32M</span></div>
+<div style="padding: 9px 12px; font-family: 'Departure Mono', monospace; font-size: 13px">MUSIC RECOGNIZED · <span style="color: {{dim}}">Panda Panda</span></div>
+</div>
+
+<div style="background: {{surface}}; border: 1px solid {{rule}}; border-radius: 20px; padding: 14px 16px; display: flex; align-items: center; gap: 14px">
+<div style="position: relative; width: 140px; height: 64px; flex-shrink: 0; border: 1px solid {{rule}}; border-radius: 6px; background-image: linear-gradient({{mGrid}} 1px, transparent 1px), linear-gradient(90deg, {{mGrid}} 1px, transparent 1px); background-size: 100% 16px, 28px 100%; overflow: hidden"><svg width="140" height="64" viewBox="0 0 140 64" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0"><path d="M0 32 H140" stroke="{{rule}}" stroke-width="1"/><polyline points="{{mScope}}" stroke="{{trace}}" stroke-width="1.6"/><path d="M 96 0 V 64" stroke="{{signal}}" stroke-width="1" stroke-dasharray="2 3"/></svg></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-family: 'Departure Mono', monospace"><span style="font-size: 11px; color: {{dim}}">AUD-01 · 3:01 / 4:24</span><span style="font-size: 15px">DEEP DEEPER</span><span style="font-size: 12px; color: {{dim}}">EastNewSound</span></div>
+</div>
+</sc-if>
+<sc-if value="{{isLogin}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span>SESSION // 02</span><span style="color: {{dim}}">F2 ▸ CYCLE</span></div>
+<div style="background: {{surface}}; border: 1px solid {{rule}}; border-radius: 14px; overflow: hidden; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: flex; justify-content: space-between; padding: 12px 14px; background: {{selBg}}"><span><span style="color: {{signal}}">▸</span> HYPRLAND · UWSM</span><span style="color: {{dim}}">DEFAULT</span></div>
+<div style="display: flex; justify-content: space-between; padding: 12px 14px; border-top: 1px solid {{rule}}; color: {{dim}}"><span>&#160; NIRI</span><span>WAYLAND</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<button style="background: {{surface}}; color: {{ink}}; border: 1px solid {{rule}}; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 13px"><span style="font-size: 11px; color: {{dim}}">[S]</span>SLEEP</button>
+<button style="background: {{surface}}; color: {{ink}}; border: 1px solid {{rule}}; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 13px"><span style="font-size: 11px; color: {{dim}}">[R]</span>REBOOT</button>
+<button style="background: {{surface}}; color: {{ink}}; border: 1px solid {{signal}}; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 13px"><span style="font-size: 11px; color: {{dim}}">[O]</span>POWER OFF</button>
+</div>
+<div style="background: {{surface}}; border: 1px solid {{rule}}; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<span style="color: {{dim}}">BOOT // SYSTEM</span>
+<div style="display: flex; justify-content: space-between"><span>HOST</span><span>[HOSTNAME]</span></div>
+<div style="display: flex; justify-content: space-between"><span>KERNEL</span><span>7.0 · ARCH</span></div>
+<div style="display: flex; justify-content: space-between"><span>GPU</span><span>RTX 3070 · NVIDIA</span></div>
+<div style="display: flex; justify-content: space-between"><span>DISPLAY</span><span>3840×2160 · 240 HZ</span></div>
+</div>
+</sc-if>
+</div>
+
+<div style="position: absolute; left: 200px; width: 1520px; top: 990px; height: 34px">
+<div style="position: absolute; left: 0; right: 0; top: 0; height: 14px; background: repeating-linear-gradient(90deg, {{dim}} 0 1px, transparent 1px 15.83px), repeating-linear-gradient(90deg, {{ink}} 0 1px, transparent 1px 253.33px); background-size: 100% 6px, 100% 14px; background-repeat: no-repeat; background-position: bottom, bottom; border-bottom: 1px solid {{dim}}"></div>
+<span style="position: absolute; left: 32.3%; top: -6px; width: 3px; height: 20px; background: {{signal}}"></span>
+<sc-for list="{{railLabels}}" as="h" hint-placeholder-count="7"><span style="position: absolute; left: {{h.x}}; top: 18px; font-family: 'Departure Mono', monospace; font-size: 10px; color: {{dim}}">{{h.t}}</span></sc-for>
+</div>
+
+<div style="position: absolute; right: 70px; bottom: 54px; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{dim}}">{{label}}</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["light","dark"],"default":"light"},"wall":{"editor":"text","default":""},"signal":{"editor":"color","default":"#bc3830"},"trace":{"editor":"color","default":"#76605d"},"tint":{"editor":"color","default":"#f5eceb"},"tint2":{"editor":"color","default":"#e8dfde"},"label":{"editor":"text","default":"LOCK · LIGHT"},"variant":{"editor":"enum","options":["lock","login"],"default":"lock"},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const p = this.props;
+const light = (p.mode ?? 'light') === 'light';
+const login = (p.variant ?? 'lock') === 'login';
+const signal = p.signal ?? '#bc3830';
+const trace = p.trace ?? '#76605d';
+const tint = p.tint ?? '#f5eceb';
+const tint2 = p.tint2 ?? '#e8dfde';
+const wall = p.wall ?? '';
+const rgba = (hex, a) => {
+const h = hex.replace('#', '');
+return 'rgba(' + parseInt(h.substr(0, 2), 16) + ',' + parseInt(h.substr(2, 2), 16) + ',' + parseInt(h.substr(4, 2), 16) + ',' + a + ')';
+};
+const mix = (h1, h2, t) => {
+const a = h1.replace('#', ''), b = h2.replace('#', '');
+let out = '#';
+for (let i = 0; i < 3; i++) {
+const v = Math.round(parseInt(a.substr(i * 2, 2), 16) * (1 - t) + parseInt(b.substr(i * 2, 2), 16) * t);
+out += ('0' + v.toString(16)).slice(-2);
+}
+return out;
+};
+const ink = light ? '#26292c' : '#ececec';
+const dim = light ? '#6e7378' : '#a3a3a3';
+const bg = light ? '#eeeeec' : mix(tint, '#000000', 0.2);
+const surface = light ? '#f9f9f7' : mix(tint2, '#ececec', 0.05);
+const hous = light ? '#a7abae' : mix(tint2, '#ececec', 0.16);
+const cx = 830, cy = 800, R = 480;
+const A0 = -192, SPAN = 182;
+const P = (deg, r) => {
+const a = deg * Math.PI / 180;
+return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+};
+const f = (v) => v.toFixed(1);
+const a0 = P(A0, R), a1 = P(A0 + SPAN, R);
+const arcD = 'M ' + f(a0[0]) + ' ' + f(a0[1]) + ' A ' + R + ' ' + R + ' 0 0 1 ' + f(a1[0]) + ' ' + f(a1[1]);
+const Ri = R - 28;
+const b0 = P(A0 + 6, Ri), b1 = P(-70, Ri);
+const arcInnerD = 'M ' + f(b0[0]) + ' ' + f(b0[1]) + ' A ' + Ri + ' ' + Ri + ' 0 0 1 ' + f(b1[0]) + ' ' + f(b1[1]);
+let tickD = '';
+const arcLabels = [];
+for (let k = 0; k <= 96; k++) {
+const d = A0 + k * SPAN / 96;
+const len = k % 16 === 0 ? 18 : (k % 4 === 0 ? 10 : 5);
+const s = P(d, R), e = P(d, R + len);
+tickD += 'M ' + f(s[0]) + ' ' + f(s[1]) + ' L ' + f(e[0]) + ' ' + f(e[1]) + ' ';
+if (k % 16 === 0) {
+const l = P(d, R + 36);
+const hh = ('0' + (k / 4)).slice(-2);
+if (!(l[0] > 410 && l[0] < 1280 && l[1] > 370 && l[1] < 770)) arcLabels.push({ x: (l[0] - 9).toFixed(0) + 'px', y: (l[1] - 8).toFixed(0) + 'px', t: hh });
+}
+}
+const curDeg = A0 + 7.75 * SPAN / 24;
+const c0 = P(curDeg, R - 8), c1 = P(curDeg, R + 26), cl = P(curDeg, R + 50);
+const cursorD = 'M ' + f(c0[0]) + ' ' + f(c0[1]) + ' L ' + f(c1[0]) + ' ' + f(c1[1]);
+const pa = P(-64, R + 22), pb = P(-64, R + 96), pc = P(-64, R + 104);
+const pinD = 'M ' + f(pa[0]) + ' ' + f(pa[1]) + ' L ' + f(pb[0]) + ' ' + f(pb[1]);
+const pipsFilled = 3;
+const pips = [];
+for (let i = 0; i < 10; i++) pips.push({ b: i < pipsFilled ? ink : dim, f: i < pipsFilled ? ink : 'transparent' });
+const rows = ['.......A........', '..B....S....B...', '.BBB.......BBB..', '.BKBB.....BBKB..', '.BBBBBBBBBBBBB..', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBMBBBBBBB.', 'BBBBBBMMMBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBBT', 'BBBBBBBBBBBBBBTT', '.BWWBBBBBBBWWBT.'];
+const lp = light ? { body: '#3b3f43', ear: '#8f9498', cream: '#eeeeec', stem: '#7d8287' } : { body: '#c9cbcc', ear: '#7d8287', cream: '#26292c', stem: '#a3a3a3' };
+const eyes = [[6, 3], [6, 4], [6, 10], [6, 11]];
+const loaf = [];
+for (let r = 0; r < rows.length; r++) {
+for (let c = 0; c < 16; c++) {
+const ch = rows[r][c];
+let b = 'transparent';
+if (ch === 'B' || ch === 'T') b = lp.body;
+else if (ch === 'K') b = lp.ear;
+else if (ch === 'M' || ch === 'W') b = lp.cream;
+else if (ch === 'S') b = lp.stem;
+else if (ch === 'A') b = signal;
+if (eyes.some((e) => e[0] === r && e[1] === c)) b = lp.cream;
+loaf.push({ bg: b });
+}
+}
+const ringR = [18, 32, 46, 60, 74];
+const ang = [30, 210, 320, 120, 250];
+const sizes = [4, 5, 7, 10, 8];
+const rings = ringR.map((r) => ({ off: (75 - r) + 'px', d: (2 * r) + 'px' }));
+const planets = ringR.map((r, i) => {
+const a = ang[i] * Math.PI / 180;
+const s = sizes[i];
+return { x: (75 + r * Math.cos(a) - s / 2) + 'px', y: (75 + r * Math.sin(a) - s / 2) + 'px', s: s + 'px', c: i === 2 ? signal : (i === 4 ? trace : rgba(ink, 0.5)) };
+});
+const mcx = 60, mcy = 60, mr = 30;
+const M = (deg, r) => [mcx + r * Math.cos(deg * Math.PI / 180), mcy + r * Math.sin(deg * Math.PI / 180)];
+const m0 = M(180, mr), m1 = M(360, mr);
+const mArcBase = 'M ' + f(m0[0]) + ' ' + f(m0[1]) + ' A ' + mr + ' ' + mr + ' 0 0 1 ' + f(m1[0]) + ' ' + f(m1[1]);
+let mArcBars = '';
+for (let i = 0; i < 16; i++) {
+const d = 188 + i * (164 / 15);
+const v = 0.25 + 0.75 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.2));
+const s = M(d, mr + 3), e = M(d, mr + 3 + v * 22);
+mArcBars += 'M ' + f(s[0]) + ' ' + f(s[1]) + ' L ' + f(e[0]) + ' ' + f(e[1]) + ' ';
+}
+let mScope = '';
+for (let x = 0; x <= 140; x += 3) mScope += x + ',' + (32 + 18 * Math.sin(x * 0.09) * Math.cos(x * 0.03) + 5 * Math.sin(x * 0.5)).toFixed(1) + ' ';
+const railLabels = [0, 4, 8, 12, 16, 20, 24].map((h) => ({ x: (h / 24 * 100).toFixed(2) + '%', t: ('0' + h).slice(-2) }));
+return {
+bg: bg, ink: ink, dim: dim, surface: surface, hous: hous, signal: signal, trace: trace,
+hasWall: wall !== '', wall: wall, veil: rgba(tint, light ? 0.82 : 0.8),
+dotGrid: rgba(ink, light ? 0.10 : 0.08), rule: rgba(ink, 0.16), ghost: rgba(ink, light ? 0.07 : 0.08),
+arcInk: rgba(ink, 0.55), tagBg: light ? '#26292c' : '#ececec', tagInk: light ? '#eeeeec' : '#111111', tagTop: light ? '#3a3e42' : '#c4c4c4',
+slipBg: light ? '#ffffff' : '#ececea',
+arcD: arcD, arcInnerD: arcInnerD, tickD: tickD, arcLabels: arcLabels, cursorD: cursorD,
+curLX: (cl[0] - 12).toFixed(0) + 'px', curLY: (cl[1] - 8).toFixed(0) + 'px',
+pinD: pinD, pinX: (pc[0] - 8).toFixed(0) + 'px', pinY: (pc[1] - 8).toFixed(0) + 'px',
+pinLX: (pc[0] + 16).toFixed(0) + 'px', pinLY: (pc[1] - 8).toFixed(0) + 'px',
+boxX: (a0[0] - 150).toFixed(0) + 'px', boxY: (a0[1] - 18).toFixed(0) + 'px',
+pips: pips, loaf: loaf, rings: rings, planets: planets, mArcBase: mArcBase, mArcBars: mArcBars,
+railLabels: railLabels, mScope: mScope,
+isLogin: login, isLock: !login, selBg: rgba(ink, 0.08),
+topTag: login ? 'LOGIN // [HOSTNAME] // SDDM' : 'LOCK // SESSION 0142 // KUNU',
+row1: login ? 'BOOT' : 'UP', row1v: login ? '00:01' : '04:12', row1s: login ? '12' : '33',
+row2: login ? 'LAST' : 'LOGIN', row2s: '12',
+enterHint: login ? 'ENTER ▸ LOG IN · F2 ▸ SESSION' : 'ENTER ▸ UNLOCK · ESC ▸ CLEAR',
+loafLabel: login ? 'LOAF · WAITING' : 'LOAF · GUARDING', mGrid: rgba(ink, 0.07), label: p.label ?? 'LOCK · LIGHT'
+};
+}
+}
+</script>
+</body>
+</html>

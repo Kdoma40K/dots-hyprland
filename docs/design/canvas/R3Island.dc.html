@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Island rev 0.3</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 1240px; box-sizing: border-box; padding: 40px 64px; background: #000000; color: #ececec; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">EL-06 R3 // ROUNDED ISLAND · AUDIO ALWAYS VISIBLE · OFF-CENTER POP-OUTS</div>
+
+<div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">STATE 0 · BAR VISIBLE</div>
+<div style="height: 52px; position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-family: 'Departure Mono', monospace; font-size: 13px; border-bottom: 1px solid #262626">
+<div style="position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: repeating-linear-gradient(90deg, #262626 0 1px, transparent 1px 10px); background-size: 100% 5px; background-repeat: no-repeat; background-position: bottom"></div>
+<div style="display: flex; gap: 16px; position: relative"><span style="color: {{signal}}">▼ 01</span><span style="color: #8c8c8c">02</span><span style="color: #8c8c8c">03</span></div>
+<div style="position: relative; height: 36px; display: flex; align-items: center; gap: 12px; padding: 0 18px; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{signal}}"></span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 16px">00:24</span><span style="display: flex; gap: 2px; align-items: flex-end; height: 16px"><sc-for list="{{miniBars}}" as="b" hint-placeholder-count="8"><span style="width: 3px; height: {{b.h}}; background: {{trace}}"></span></sc-for></span></div>
+<div style="display: flex; gap: 14px; position: relative; color: #8c8c8c"><span>NET <span style="color: #ececec">OK</span></span><span>VOL <span style="color: #ececec">70</span></span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">STATE 0B · BAR HIDDEN, AUDIO ON</div>
+<div style="height: 52px; display: flex; align-items: center; justify-content: center">
+<div style="height: 22px; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 999px"><span style="display: flex; gap: 2px; align-items: flex-end; height: 12px"><sc-for list="{{miniBars}}" as="b" hint-placeholder-count="8"><span style="width: 2px; height: {{b.h}}; background: {{trace}}"></span></sc-for></span></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">STATE 2 · ISLAND IN MEDIA MODE, NET AND SYS POPPED OUT OFF-CENTER</div>
+<div style="height: 500px; position: relative; border: 1px solid #171717; border-radius: 20px; background-image: radial-gradient(#1c1c1c 1px, transparent 1.2px); background-size: 16px 16px; overflow: hidden">
+<div style="position: absolute; left: 50%; top: 0; margin-left: -260px; width: 520px; height: 170px; box-sizing: border-box; background: #0e0e0e; border: 1px solid #3a3a3a; border-top: none; border-radius: 0 0 28px 28px; padding: 18px 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c"><span>AUD-01 // NOW PLAYING</span><span>3:01 / 4:24</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Departure Mono', monospace; font-size: 18px">DEEP DEEPER</span><span style="font-size: 12px; color: #c4c4c4">EastNewSound</span></div>
+<div style="display: flex; gap: 3px; align-items: flex-end; height: 44px"><sc-for list="{{bigBars}}" as="b" hint-placeholder-count="40"><span style="flex-grow: 1; height: {{b.h}}; background: {{b.c}}; border-radius: 1px"></span></sc-for></div>
+<div style="height: 2px; background: #222222; border-radius: 1px"><div style="width: 68%; height: 2px; background: #ececec"></div></div>
+</div>
+<div style="position: absolute; left: 820px; top: 170px; width: 1px; height: 60px; background: {{signal}}"></div>
+<div style="position: absolute; left: 820px; top: 230px; width: 80px; height: 1px; background: {{signal}}"></div>
+<div style="position: absolute; left: 820px; top: 166px; width: 9px; height: 9px; margin-left: -4px; border-radius: 50%; background: {{signal}}"></div>
+<div style="position: absolute; left: 900px; top: 196px; width: 300px; box-sizing: border-box; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: flex; justify-content: space-between"><span>NET // NETWORK</span><span style="color: #8c8c8c; font-size: 11px">SUPER+N</span></div>
+<div style="display: flex; justify-content: space-between"><span><span style="color: {{signal}}">▸</span> KUNU-5G</span><span style="color: #8c8c8c">▂▄▆█</span></div>
+<div style="display: flex; justify-content: space-between; color: #8c8c8c"><span>  NEIGHBOR-2.4</span><span>▂▄__</span></div>
+<div style="height: 1px; background: #262626"></div>
+<div style="display: flex; justify-content: space-between"><span>HEADPHONES</span><span><span style="color: {{signal}}">[■]</span> 82%</span></div>
+<div style="display: flex; justify-content: space-between; color: #8c8c8c"><span>CONTROLLER</span><span>[ ] PAIR</span></div>
+</div>
+<div style="position: absolute; left: 470px; top: 170px; width: 1px; height: 120px; background: #3a3a3a"></div>
+<div style="position: absolute; left: 330px; top: 290px; width: 141px; height: 1px; background: #3a3a3a"></div>
+<div style="position: absolute; left: 60px; top: 250px; width: 270px; box-sizing: border-box; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 13px">SYS // QUICK</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">BRT</span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px">069</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">VOL</span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px">070</span></div>
+</div>
+<div style="display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span>NIGHT LIGHT</span><span><span style="color: {{signal}}">[■]</span></span></div>
+</div>
+<span style="position: absolute; right: 18px; bottom: 14px; font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">POP-OUTS ANCHOR TO THE ISLAND BY LEADER LINES · ESC COLLAPSES ALL</span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">STATE 3A · FILES (SUPER+E) · TERMINAL-STYLE BROWSER</div>
+<div style="flex-grow: 1; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 20px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: flex; justify-content: space-between"><span><span style="color: #8c8c8c">~/</span>workspace<span style="color: #8c8c8c">/</span>dots-hyprland<span style="color: #8c8c8c">/</span></span><span style="color: #8c8c8c; font-size: 11px">HJKL · / FIND</span></div>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 6px; border-right: 1px solid #262626; padding-right: 12px">
+<span style="color: #8c8c8c">[D] ..</span>
+<span>[D] dots</span>
+<span style="background: #222222; border-radius: 4px; padding: 2px 6px; margin: 0 -6px"><span style="color: {{signal}}">▸</span> [D] sdata</span>
+<span>[D] setup</span>
+<span>[F] LICENSE</span>
+<span>[F] README.md</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; color: #c4c4c4">
+<span style="color: #8c8c8c">PREVIEW · sdata/</span>
+<span>[D] dist-arch</span>
+<span>[D] lib</span>
+<span>[D] subcmd-install</span>
+<span>[F] deps-info.md</span>
+<span style="color: #8c8c8c">5 ITEMS · 212 KB</span>
+</div>
+</div>
+<div style="display: flex; gap: 14px; color: #8c8c8c; font-size: 11px; border-top: 1px solid #262626; padding-top: 8px"><span>[O] OPEN</span><span>[T] TERMINAL HERE</span><span>[Y] COPY PATH</span><span>[C] ASK CLAUDE</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">STATE 3B · APPS (SUPER+A) · LAUNCH + MANAGE</div>
+<div style="flex-grow: 1; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 20px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="height: 36px; border: 1px solid #3a3a3a; border-radius: 999px; display: flex; align-items: center; gap: 10px; padding: 0 14px"><span style="color: {{signal}}">&gt;</span><span>fre</span><span style="width: 8px; height: 16px; background: #ececec"></span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; flex-grow: 1">
+<div style="display: grid; grid-template-columns: 22px minmax(0, 1fr) 110px; gap: 8px; background: #222222; border-radius: 6px; padding: 6px 8px"><span style="color: {{signal}}">▸</span><span>FreeCAD</span><span style="color: #8c8c8c; text-align: right">RUN · 1.2 GB</span></div>
+<div style="display: grid; grid-template-columns: 22px minmax(0, 1fr) 110px; gap: 8px; padding: 6px 8px"><span></span><span>Free42 Calculator</span><span style="color: #8c8c8c; text-align: right">—</span></div>
+<div style="display: grid; grid-template-columns: 22px minmax(0, 1fr) 110px; gap: 8px; padding: 6px 8px; color: #8c8c8c"><span></span><span>RUNNING NOW</span><span></span></div>
+<div style="display: grid; grid-template-columns: 22px minmax(0, 1fr) 110px; gap: 8px; padding: 6px 8px"><span style="color: {{trace}}">●</span><span>Vivaldi</span><span style="color: #8c8c8c; text-align: right">WS 01 · 2.1 GB</span></div>
+<div style="display: grid; grid-template-columns: 22px minmax(0, 1fr) 110px; gap: 8px; padding: 6px 8px"><span style="color: {{trace}}">●</span><span>foot</span><span style="color: #8c8c8c; text-align: right">WS 02 · 40 MB</span></div>
+</div>
+<div style="display: flex; gap: 14px; color: #8c8c8c; font-size: 11px; border-top: 1px solid #262626; padding-top: 8px"><span>ENTER LAUNCH</span><span>[G] GO TO</span><span>[K] KILL</span><span>[U] UPDATE (YAY)</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"signal":{"editor":"color","default":"#d71921","options":["#d71921","#8fb565","#b39be6","#e05a2b"]},"trace":{"editor":"color","default":"#8fb3c4","options":["#8fb3c4","#c9b77a","#7fc2c6","#9a9a9a"]},"$preview":{"width":1360,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() {
+const signal = this.props.signal ?? '#d71921';
+const trace = this.props.trace ?? '#8fb3c4';
+const mini = [40, 80, 55, 100, 30, 70, 90, 45].map((p) => ({ h: p + '%' }));
+const big = [];
+for (let i = 0; i < 40; i++) {
+const v = Math.round(18 + 80 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)));
+big.push({ h: v + '%', c: i < 27 ? trace : '#3a3a3a' });
+}
+return { signal: signal, trace: trace, miniBars: mini, bigBars: big };
+}
+}
+</script>
+</body>
+</html>

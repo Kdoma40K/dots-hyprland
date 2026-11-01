@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trio foundations</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Doto:wght@600;800&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 1100px; box-sizing: border-box; padding: 48px 64px; background: #000000; color: #ececec; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 34px">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #3a3a3a; padding-bottom: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">DOC-00 // FOUNDATIONS · REV 0.3</div>
+<div style="font-family: 'Doto', monospace; font-weight: 800; font-size: 48px; line-height: 1; letter-spacing: 2px">THREE SLOTS ADAPT</div>
+</div>
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; text-align: right; line-height: 1.6">FIXED: NEUTRALS · TYPE · MOTIFS · ALERT<br>ADAPTIVE: SIGNAL · TRACE · TINT</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px">
+<div style="background: #0e0e0e; border: 1px solid #262626; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px"><div style="height: 40px; border-radius: 6px; background: {{signal}}"></div><span style="font-family: 'Departure Mono', monospace; font-size: 15px">01 SIGNAL</span><span style="font-size: 12px; color: #c4c4c4; line-height: 1.5">The wallpaper's boldest hue, clamped. Active state, the hero dot, focus.</span></div>
+<div style="background: #0e0e0e; border: 1px solid #262626; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px"><div style="height: 40px; border-radius: 6px; background: {{trace}}"></div><span style="font-family: 'Departure Mono', monospace; font-size: 15px">02 TRACE</span><span style="font-size: 12px; color: #c4c4c4; line-height: 1.5">A second hue, at least 40° away and calmer. Data, visualizer, secondary orbits, links.</span></div>
+<div style="background: #0e0e0e; border: 1px solid #262626; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px"><div style="height: 40px; border-radius: 6px; background: linear-gradient(90deg, #0e0e0e, {{tint}})"></div><span style="font-family: 'Departure Mono', monospace; font-size: 15px">03 TINT</span><span style="font-size: 12px; color: #c4c4c4; line-height: 1.5">The wallpaper's average hue at 1–2% chroma, cast into panel greys. Felt, not seen.</span></div>
+<div style="background: #0e0e0e; border: 1px solid #262626; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px"><div style="height: 40px; border-radius: 6px; background: repeating-linear-gradient(-45deg, #ff5a1f 0 8px, #000000 8px 16px)"></div><span style="font-family: 'Departure Mono', monospace; font-size: 15px">FIXED ALERT</span><span style="font-size: 12px; color: #c4c4c4; line-height: 1.5">Hazard stripes in a fixed orange. Warnings must look like warnings on any wallpaper.</span></div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">02 // SAME UI · THREE WALLPAPERS</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px">
+<sc-for list="{{walls}}" as="w" hint-placeholder-count="3">
+<div style="border: 1px solid #262626; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 70px; background: {{w.wall}}; display: flex; align-items: flex-end; padding: 10px 14px; box-sizing: border-box"><span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #ffffff; background: #000000; padding: 2px 6px; border-radius: 3px">{{w.name}}</span></div>
+<div style="background: {{w.l1}}; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; gap: 6px"><span style="flex-grow: 1; height: 18px; border-radius: 4px; background: {{w.signal}}"></span><span style="flex-grow: 1; height: 18px; border-radius: 4px; background: {{w.trace}}"></span><span style="flex-grow: 1; height: 18px; border-radius: 4px; background: {{w.l2}}; border: 1px solid #3a3a3a"></span></div>
+<div style="align-self: center; height: 34px; border-radius: 999px; background: {{w.l2}}; border: 1px solid #3a3a3a; display: flex; align-items: center; gap: 12px; padding: 0 16px"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{w.signal}}"></span><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 15px">00:24</span><span style="display: flex; gap: 2px; align-items: flex-end; height: 14px"><span style="width: 3px; height: 6px; background: {{w.trace}}"></span><span style="width: 3px; height: 12px; background: {{w.trace}}"></span><span style="width: 3px; height: 9px; background: {{w.trace}}"></span><span style="width: 3px; height: 14px; background: {{w.trace}}"></span><span style="width: 3px; height: 5px; background: {{w.trace}}"></span></span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span>Night light</span><span style="font-family: 'Departure Mono', monospace"><span style="color: {{w.signal}}">[■]</span> ENGAGED</span></div>
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 64px; height: 64px; border-radius: 50%; border: 1px solid #3a3a3a; position: relative; flex-shrink: 0"><div style="position: absolute; left: 26px; top: 26px; width: 12px; height: 12px; border-radius: 50%; background: #ececec"></div><div style="position: absolute; right: 4px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: {{w.signal}}"></div><div style="position: absolute; left: 6px; bottom: 10px; width: 6px; height: 6px; border-radius: 50%; background: {{w.trace}}"></div></div>
+<span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c; line-height: 1.6">SIG {{w.signal}}<br>TRC {{w.trace}}<br>TNT {{w.l1}}</span>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">03 // SHAPE v3 · ROUNDED SHELLS, TECHNICAL INSIDES</div>
+<div style="display: flex; gap: 16px; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><div style="width: 70px; height: 44px; background: #171717; border: 1px solid #3a3a3a; border-radius: 6px"></div><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">R6 CONTROL</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><div style="width: 90px; height: 60px; background: #171717; border: 1px solid #3a3a3a; border-radius: 12px"></div><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">R12 CARD</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><div style="width: 110px; height: 76px; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 20px"></div><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">R20 PANEL</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><div style="width: 130px; height: 34px; background: #0e0e0e; border: 1px solid #3a3a3a; border-radius: 999px"></div><span style="font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">PILL ISLAND</span></div>
+</div>
+<span style="font-size: 12px; color: #c4c4c4; line-height: 1.6">Containers go soft. What's inside stays hard-edged: brackets, rulers, mono labels, square LEDs. Chamfers retire.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">04 // MOTION · OFF-CENTER POP-OUT</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div style="height: 110px; border: 1px solid #262626; border-radius: 10px; position: relative"><div style="position: absolute; left: 50%; top: 14px; margin-left: -30px; width: 60px; height: 16px; border-radius: 999px; background: #222222"></div><span style="position: absolute; left: 8px; bottom: 6px; font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">0 MS</span></div>
+<div style="height: 110px; border: 1px solid #262626; border-radius: 10px; position: relative"><div style="position: absolute; left: 50%; top: 14px; margin-left: -45px; width: 90px; height: 22px; border-radius: 999px; background: #222222"></div><div style="position: absolute; left: 60%; top: 36px; width: 1px; height: 26px; background: {{signal}}"></div><span style="position: absolute; left: 8px; bottom: 6px; font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">120 MS</span></div>
+<div style="height: 110px; border: 1px solid #262626; border-radius: 10px; position: relative"><div style="position: absolute; left: 50%; top: 14px; margin-left: -45px; width: 90px; height: 22px; border-radius: 999px; background: #222222"></div><div style="position: absolute; left: 60%; top: 36px; width: 1px; height: 22px; background: {{signal}}"></div><div style="position: absolute; left: 60%; top: 58px; width: 40%; height: 1px; background: {{signal}}"></div><div style="position: absolute; right: 8px; top: 50px; width: 58px; height: 34px; border-radius: 8px; background: #171717; border: 1px solid #3a3a3a"></div><span style="position: absolute; left: 8px; bottom: 6px; font-family: 'Departure Mono', monospace; font-size: 11px; color: #8c8c8c">260 MS</span></div>
+</div>
+<span style="font-size: 12px; color: #c4c4c4; line-height: 1.6">Island grows, a leader line draws, the panel lands off-center, rows stagger in 20 ms apart. Smooth deceleration, no bounce.</span>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;signal&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d71921&quot;,&quot;options&quot;:[&quot;#d71921&quot;,&quot;#8fb565&quot;,&quot;#b39be6&quot;,&quot;#e05a2b&quot;]},&quot;trace&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#8fb3c4&quot;,&quot;options&quot;:[&quot;#8fb3c4&quot;,&quot;#c9b77a&quot;,&quot;#7fc2c6&quot;,&quot;#9a9a9a&quot;]},&quot;tint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#141414&quot;,&quot;options&quot;:[&quot;#14181b&quot;,&quot;#111a0e&quot;,&quot;#15111b&quot;,&quot;#141414&quot;]},&quot;$preview&quot;:{&quot;width&quot;:1360,&quot;height&quot;:1100}}">
+class Component extends DCLogic {
+renderVals() {
+return {
+signal: this.props.signal ?? '#d71921',
+trace: this.props.trace ?? '#8fb3c4',
+tint: this.props.tint ?? '#14181b',
+walls: [
+{ name: 'FOREST', wall: 'linear-gradient(135deg, #0f1a0c, #2c4220 50%, #6a8a45)', signal: '#8fb565', trace: '#c9b77a', l1: '#0c100a', l2: '#151a12' },
+{ name: 'VIOLET', wall: 'linear-gradient(135deg, #1a1024, #4a2f6e 50%, #c9b3ec)', signal: '#b39be6', trace: '#7fc2c6', l1: '#0f0c13', l2: '#18141e' },
+{ name: 'GREY PHOTO', wall: 'linear-gradient(135deg, #111111, #555555 50%, #bdbdbd)', signal: '#d71921', trace: '#9a9a9a', l1: '#0e0e0e', l2: '#171717' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

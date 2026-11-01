@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>P3 Observatory</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; position: relative; overflow: hidden; color: #ececec; font-family: 'IBM Plex Mono', monospace">
+<dc-import name="DesktopKit" wall="/_blob/03d66609ac7b8704a8304494ae343a93" mode="dark" signal="#dc5f4f" trace="#baa19d" tint="#130d11" tint2="#1f181c" panel="none" side="left" greebles="{{ true }}" orbit="{{ false }}" viz="scope" label="P3 · OBSERVATORY · W4 DARK" hint-size="1920px,1080px"></dc-import>
+<div style="position: absolute; left: 0; top: 80px; width: 1920px; height: 1000px; background: radial-gradient(circle at 1240px 520px, rgba(0,0,0,0.82) 0, rgba(0,0,0,0.82) 470px, rgba(0,0,0,0) 660px)"></div>
+
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<sc-for list="{{rings}}" as="r" hint-placeholder-count="6"><circle cx="1240" cy="600" r="{{r.r}}" stroke="{{r.c}}" stroke-width="1" stroke-dasharray="{{r.dash}}"/></sc-for>
+<circle cx="1240" cy="600" r="430" stroke="rgba(236,236,236,0.35)" stroke-width="1"/>
+<path d="{{tickD}}" stroke="rgba(236,236,236,0.35)" stroke-width="1"/>
+<path d="{{issD}}" stroke="#baa19d" stroke-width="1"/>
+</svg>
+<sc-for list="{{degLabels}}" as="l" hint-placeholder-count="12"><span style="position: absolute; left: {{l.x}}; top: {{l.y}}; font-family: 'Departure Mono', monospace; font-size: 11px; color: rgba(236,236,236,0.5)">{{l.t}}</span></sc-for>
+<div style="position: absolute; left: 1222px; top: 582px; width: 36px; height: 36px; border-radius: 50%; background: #ececec"></div>
+<sc-for list="{{planets}}" as="p" hint-placeholder-count="6">
+<div style="position: absolute; left: {{p.x}}; top: {{p.y}}; width: {{p.s}}; height: {{p.s}}; border-radius: 50%; background: {{p.c}}"></div>
+<span style="position: absolute; left: {{p.lx}}; top: {{p.ly}}; font-family: 'Departure Mono', monospace; font-size: 11px; color: {{p.lc}}; white-space: nowrap">{{p.name}}</span>
+</sc-for>
+<div style="position: absolute; left: {{earthRX}}; top: {{earthRY}}; width: 34px; height: 34px; box-sizing: border-box; border-radius: 50%; border: 1px dashed #baa19d"></div>
+<span style="position: absolute; left: {{issLX}}; top: {{issLY}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: #baa19d; white-space: nowrap">ISS · 51.6° · [LAT] [LON]</span>
+<span style="position: absolute; left: 560px; top: 1044px; font-family: 'Departure Mono', monospace; font-size: 11px; color: rgba(236,236,236,0.5)">RINGS NOT TO SCALE · LONGITUDES LIVE</span>
+
+<div style="position: absolute; left: 70px; top: 110px; width: 440px; display: flex; flex-direction: column; gap: 14px; font-family: 'Departure Mono', monospace">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #a3a3a3">OBS // OBSERVATORY · SOL 301</span>
+<span style="font-size: 64px; line-height: 1">T+ 21:26</span>
+<span style="font-size: 14px">WED 28 OCT 2026 · <span style="color: #dc5f4f">● EARTH = YOU</span></span>
+</div>
+<div style="background: rgba(19,13,17,0.92); border: 1px solid rgba(236,236,236,0.16); border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 12px">
+<div style="display: flex; justify-content: space-between"><span style="font-size: 13px">ISS // TELEMETRY</span><span><span style="color: #baa19d">●</span> 10 S</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #a3a3a3; font-size: 10px">LAT</span>[LIVE]</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #a3a3a3; font-size: 10px">LON</span>[LIVE]</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #a3a3a3; font-size: 10px">OVER</span>[REGION]</span>
+</div>
+</div>
+<div style="border-radius: 12px; overflow: hidden; display: flex; background: #ececea; color: #111111">
+<div style="flex-grow: 1; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 11px; color: #555555"><span>NEXT LAUNCH</span><span>LL2</span></div><span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px">T-02:14:33</span><span style="font-size: 12px">[MISSION NAME] · [PROVIDER]</span></div>
+<div style="width: 28px; border-left: 2px dashed #b7b0a5; background: #dc5f4f"></div>
+</div>
+<div style="background: rgba(19,13,17,0.92); border: 1px solid rgba(236,236,236,0.16); border-radius: 16px; overflow: hidden; font-size: 12px">
+<div style="display: flex; justify-content: space-between; padding: 8px 14px; background: rgba(236,236,236,0.08)"><span>MISSION LOG // ACTIVE</span><span style="color: #a3a3a3">YOUR LIST</span></div>
+<div style="display: flex; justify-content: space-between; padding: 9px 14px; border-top: 1px solid rgba(236,236,236,0.1)"><span>[MISSION 01]</span><span style="color: #a3a3a3">CRUISE</span></div>
+<div style="display: flex; justify-content: space-between; padding: 9px 14px; border-top: 1px solid rgba(236,236,236,0.1)"><span>[MISSION 02]</span><span style="color: #a3a3a3">SURFACE OPS</span></div>
+<div style="display: flex; justify-content: space-between; padding: 9px 14px; border-top: 1px solid rgba(236,236,236,0.1)"><span>[MISSION 03]</span><span style="color: #dc5f4f">BURN T-04D</span></div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px">
+<div style="display: grid; grid-template-columns: repeat(16, 3px); grid-auto-rows: 3px" aria-hidden="true"><sc-for list="{{loaf}}" as="c" hint-placeholder-count="208"><span style="background: {{c.bg}}"></span></sc-for></div>
+<span style="font-size: 12px">LOAF · IDLE · <span style="color: #a3a3a3">SUPER+D</span></span>
+</div>
+</div>
+
+<div style="position: absolute; left: 70px; bottom: 40px; width: 440px; display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<span style="color: #a3a3a3">LCH // QUICK</span>
+<div style="display: flex; gap: 8px">
+<a href="#" style="flex-grow: 1; border: 1px solid #dc5f4f; border-radius: 999px; padding: 8px 12px; color: #ececec; text-decoration: none">[1] YOUTUBE</a>
+<a href="#" style="flex-grow: 1; border: 1px solid rgba(236,236,236,0.2); border-radius: 999px; padding: 8px 12px; color: #ececec; text-decoration: none">[2] NETFLIX</a>
+<a href="#" style="flex-grow: 1; border: 1px solid rgba(236,236,236,0.2); border-radius: 999px; padding: 8px 12px; color: #ececec; text-decoration: none">[3] STEAM</a>
+</div>
+<div style="display: flex; gap: 8px">
+<a href="#" style="flex-grow: 1; border: 1px solid rgba(236,236,236,0.2); border-radius: 999px; padding: 8px 12px; color: #ececec; text-decoration: none">[4] CYBERPUNK 2077</a>
+<a href="#" style="flex-grow: 1; border: 1px solid rgba(236,236,236,0.2); border-radius: 999px; padding: 8px 12px; color: #ececec; text-decoration: none">[5] BLACK MYTH: WUKONG</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const cx = 1240, cy = 600;
+const f = (v) => v.toFixed(1);
+const P = (deg, r) => [cx + r * Math.cos(deg * Math.PI / 180), cy + r * Math.sin(deg * Math.PI / 180)];
+const defs = [
+{ name: 'MERCURY · 0.39 AU', r: 70, a: 40, s: 6 },
+{ name: 'VENUS · 0.72 AU', r: 112, a: 205, s: 9 },
+{ name: 'EARTH · 1.00 AU', r: 158, a: 318, s: 12, earth: true },
+{ name: 'MARS · 1.52 AU', r: 205, a: 115, s: 9 },
+{ name: 'JUPITER · 5.20 AU', r: 300, a: 248, s: 24 },
+{ name: 'SATURN · 9.58 AU', r: 395, a: 20, s: 20 }
+];
+const rings = defs.map((d) => ({ r: d.r, c: d.earth ? 'rgba(220,95,79,0.55)' : 'rgba(236,236,236,0.2)', dash: d.r > 250 ? '2 6' : '0' }));
+let ex = 0, ey = 0;
+const planets = defs.map((d) => {
+const p = P(d.a, d.r);
+if (d.earth) { ex = p[0]; ey = p[1]; }
+return {
+x: (p[0] - d.s / 2).toFixed(0) + 'px', y: (p[1] - d.s / 2).toFixed(0) + 'px', s: d.s + 'px',
+c: d.earth ? '#dc5f4f' : (d.s > 15 ? '#c4c4c4' : '#8c8c8c'),
+lx: (p[0] + d.s / 2 + 8).toFixed(0) + 'px', ly: (p[1] - 7).toFixed(0) + 'px', lc: d.earth ? '#dc5f4f' : 'rgba(236,236,236,0.6)', name: d.name
+};
+});
+let tickD = '';
+const degLabels = [];
+for (let d = 0; d < 360; d += 5) {
+const major = d % 30 === 0;
+const s = P(d, 430), e = P(d, 430 + (major ? 14 : 6));
+tickD += 'M ' + f(s[0]) + ' ' + f(s[1]) + ' L ' + f(e[0]) + ' ' + f(e[1]) + ' ';
+if (major) {
+const l = P(d, 458);
+degLabels.push({ x: (l[0] - 10).toFixed(0) + 'px', y: (l[1] - 7).toFixed(0) + 'px', t: ('00' + ((360 - d) % 360)).slice(-3) });
+}
+}
+const ix = ex + 20, iy = ey - 20;
+const issD = 'M ' + f(ix) + ' ' + f(iy) + ' L ' + f(ix + 90) + ' ' + f(iy - 60) + ' L ' + f(ix + 150) + ' ' + f(iy - 60);
+const rows = ['.......A........', '..B....S....B...', '.BBB.......BBB..', '.BKBB.....BBKB..', '.BBBBBBBBBBBBB..', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBMBBBBBBB.', 'BBBBBBMMMBBBBBB.', 'BBBBBBBBBBBBBBB.', 'BBBBBBBBBBBBBBBT', 'BBBBBBBBBBBBBBTT', '.BWWBBBBBBBWWBT.'];
+const loaf = [];
+for (let r = 0; r < rows.length; r++) {
+for (let c = 0; c < 16; c++) {
+const ch = rows[r][c];
+let bg = 'transparent';
+if (ch === 'B' || ch === 'T') bg = '#c9cbcc';
+else if (ch === 'K') bg = '#7d8287';
+else if (ch === 'M' || ch === 'W') bg = '#26292c';
+else if (ch === 'S') bg = '#a3a3a3';
+else if (ch === 'A') bg = '#baa19d';
+if ((r === 5 || r === 6) && (c === 4 || c === 10)) bg = '#26292c';
+loaf.push({ bg: bg });
+}
+}
+return {
+rings: rings, planets: planets, tickD: tickD, degLabels: degLabels, issD: issD,
+earthRX: (ex - 17).toFixed(0) + 'px', earthRY: (ey - 17).toFixed(0) + 'px',
+issLX: (ix + 156).toFixed(0) + 'px', issLY: (iy - 67).toFixed(0) + 'px', loaf: loaf
+};
+}
+}
+</script>
+</body>
+</html>

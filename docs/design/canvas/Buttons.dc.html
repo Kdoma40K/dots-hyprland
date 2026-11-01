@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Button variants</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Roboto+Flex:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 560px; box-sizing: border-box; padding: 40px 64px; background: #16232b; color: #e5d1c5; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b; letter-spacing: 2px">EL-02 // PRIMARY BUTTON · SEGMENTED SELECT · CHIPS</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">NOW · M3 PILLS</div>
+<div style="flex-grow: 1; background: #1d1b20; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 22px; font-family: 'Roboto Flex', sans-serif; color: #e6e0e9; font-size: 15px">
+<button style="align-self: flex-start; background: #d0bcff; color: #381e72; border: none; border-radius: 16px; padding: 16px 20px; font-family: 'Roboto Flex', sans-serif; font-size: 15px; font-weight: 500">Config file</button>
+<div style="display: flex; gap: 4px"><span style="background: #d0bcff; color: #381e72; border-radius: 999px; padding: 8px 14px">Digital</span><span style="background: #2b2930; border-radius: 999px; padding: 8px 14px">Cookie</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 14px"><span style="background: #2b2930; border-radius: 10px; padding: 6px 10px">Auto</span><span style="background: #2b2930; border-radius: 10px; padding: 6px 10px">Content</span><span style="background: #4f378b; border-radius: 10px; padding: 6px 10px">Tonal Spot</span><span style="background: #2b2930; border-radius: 10px; padding: 6px 10px">Neutral</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">A · FLIGHT DECK</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 22px">
+<button style="align-self: flex-start; background: #e8642f; color: #10181d; border: none; border-radius: 4px; padding: 14px 18px; font-family: 'Departure Mono', monospace; font-size: 14px; letter-spacing: 1px">CONFIG FILE</button>
+<div style="display: flex; border: 1px solid #6b7378; border-radius: 4px; overflow: hidden; align-self: flex-start; font-family: 'Departure Mono', monospace; font-size: 13px"><span style="padding: 8px 14px; background: #e5d1c5; color: #1b2b34">DIGITAL</span><span style="padding: 8px 14px; border-left: 1px solid #6b7378">COOKIE</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="border: 1px solid #6b7378; border-radius: 2px; padding: 5px 8px">AUTO</span><span style="border: 1px solid #6b7378; border-radius: 2px; padding: 5px 8px">CONTENT</span><span style="border: 1px solid #e05a2b; color: #e05a2b; border-radius: 2px; padding: 5px 8px">■ STATIC</span><span style="border: 1px solid #6b7378; border-radius: 2px; padding: 5px 8px">NEUTRAL</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">B · CHAMFER + CODES</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 22px">
+<button style="align-self: flex-start; background: #e8642f; color: #10181d; border: none; padding: 14px 22px 14px 16px; font-family: 'Departure Mono', monospace; font-size: 14px; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)">01 · CONFIG FILE</button>
+<div style="display: flex; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 13px"><span style="background: #e5d1c5; color: #1b2b34; padding: 8px 14px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)">A1 DIGITAL</span><span style="background: #24343e; padding: 8px 14px; color: #a3abaf; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)">A2 COOKIE</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px; color: #a3abaf"><span style="background: #24343e; padding: 5px 8px">AUTO</span><span style="background: #24343e; padding: 5px 8px">CONTENT</span><span style="background: #e5d1c5; color: #1b2b34; padding: 5px 8px">STATIC</span><span style="background: #24343e; padding: 5px 8px">NEUTRAL</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">C · SPEC TABS (PAPER)</div>
+<div style="flex-grow: 1; background: #ece6dc; color: #1b2b34; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 22px">
+<button style="align-self: flex-start; background: #1b2b34; color: #ece6dc; border: none; border-radius: 2px; padding: 14px 18px; font-family: 'Departure Mono', monospace; font-size: 14px; display: flex; gap: 12px; align-items: center"><span style="width: 8px; height: 8px; background: #e05a2b"></span>CONFIG FILE</button>
+<div style="display: flex; gap: 22px; font-family: 'Departure Mono', monospace; font-size: 13px; border-bottom: 1px solid #b7b0a5"><span style="padding: 8px 0; border-bottom: 3px solid #e05a2b">DIGITAL</span><span style="padding: 8px 0; color: #4d575c">COOKIE</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="border: 1px solid #1b2b34; padding: 5px 8px">AUTO</span><span style="border: 1px solid #1b2b34; padding: 5px 8px">CONTENT</span><span style="background: #1b2b34; color: #ece6dc; padding: 5px 8px">STATIC</span><span style="border: 1px solid #1b2b34; padding: 5px 8px">NEUTRAL</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

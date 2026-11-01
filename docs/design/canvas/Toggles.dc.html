@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Toggle variants</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Roboto+Flex:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 560px; box-sizing: border-box; padding: 40px 64px; background: #16232b; color: #e5d1c5; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b; letter-spacing: 2px">EL-01 // TOGGLE SWITCH · SETTINGS ROWS</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">NOW · M3 PILL</div>
+<div style="flex-grow: 1; background: #1d1b20; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 22px; font-family: 'Roboto Flex', sans-serif; color: #e6e0e9; font-size: 15px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Show date</span><span style="width: 52px; height: 32px; border-radius: 999px; background: #d0bcff; position: relative"><span style="position: absolute; right: 4px; top: 4px; width: 24px; height: 24px; border-radius: 50%; background: #381e72"></span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Vertical</span><span style="width: 52px; height: 32px; border-radius: 999px; background: #d0bcff; position: relative"><span style="position: absolute; right: 4px; top: 4px; width: 24px; height: 24px; border-radius: 50%; background: #381e72"></span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Animate time change</span><span style="width: 52px; height: 32px; box-sizing: border-box; border-radius: 999px; border: 2px solid #938f99; position: relative"><span style="position: absolute; left: 6px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: #938f99"></span></span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">A · LED LATCH</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 22px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Show date</span><span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #e05a2b"></span><span style="width: 48px; height: 24px; box-sizing: border-box; border: 1px solid #e05a2b; border-radius: 3px; position: relative"><span style="position: absolute; right: 3px; top: 3px; width: 20px; height: 16px; border-radius: 2px; background: #e05a2b"></span></span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Vertical</span><span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #e05a2b"></span><span style="width: 48px; height: 24px; box-sizing: border-box; border: 1px solid #e05a2b; border-radius: 3px; position: relative"><span style="position: absolute; right: 3px; top: 3px; width: 20px; height: 16px; border-radius: 2px; background: #e05a2b"></span></span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Animate time change</span><span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 50%; border: 1px solid #6b7378; box-sizing: border-box"></span><span style="width: 48px; height: 24px; box-sizing: border-box; border: 1px solid #6b7378; border-radius: 3px; position: relative"><span style="position: absolute; left: 3px; top: 3px; width: 20px; height: 16px; border-radius: 2px; background: #6b7378"></span></span></span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">B · SEGMENTED OFF | ON</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 22px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Show date</span><span style="display: flex; border: 1px solid #6b7378; border-radius: 3px; overflow: hidden; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="padding: 4px 8px; color: #8d969b">OFF</span><span style="padding: 4px 8px; background: #e8642f; color: #10181d">ON</span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Vertical</span><span style="display: flex; border: 1px solid #6b7378; border-radius: 3px; overflow: hidden; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="padding: 4px 8px; color: #8d969b">OFF</span><span style="padding: 4px 8px; background: #e8642f; color: #10181d">ON</span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Animate time change</span><span style="display: flex; border: 1px solid #6b7378; border-radius: 3px; overflow: hidden; font-family: 'Departure Mono', monospace; font-size: 12px"><span style="padding: 4px 8px; background: #3a4c57; color: #e5d1c5">OFF</span><span style="padding: 4px 8px; color: #8d969b">ON</span></span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8d969b">C · BRACKET CHECK</div>
+<div style="flex-grow: 1; background: #1b2b34; border: 1px solid #6b7378; border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 22px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Show date</span><span style="font-family: 'Departure Mono', monospace; font-size: 14px"><span style="color: #e05a2b">[■]</span> <span>ENGAGED</span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Vertical</span><span style="font-family: 'Departure Mono', monospace; font-size: 14px"><span style="color: #e05a2b">[■]</span> <span>ENGAGED</span></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span>Animate time change</span><span style="font-family: 'Departure Mono', monospace; font-size: 14px; color: #8d969b">[ ] STANDBY</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Live orbit widget</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+@font-face{font-family:"Departure Mono";src:url(/_blob/7d3ac510b9f6b5da546b643f23b28875) format("woff2");font-weight:400}
+@font-face{font-family:"DSEG7";src:url(/_blob/cc10ec782d92c0f7b368251eb318d606) format("woff2");font-weight:700}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1360px; height: 940px; box-sizing: border-box; padding: 40px 64px; background: #000000; color: #ececec; font-family: 'IBM Plex Mono', monospace; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'Departure Mono', monospace; font-size: 13px; color: #8c8c8c; letter-spacing: 2px">EL-05 R3 // ORBIT WIDGET · LIVE DATA · DESKTOP + LOCKSCREEN</div>
+<div style="display: flex; gap: 40px; flex-grow: 1">
+
+<div style="width: 640px; height: 640px; flex-shrink: 0; position: relative; align-self: center">
+<sc-for list="{{rings}}" as="r" hint-placeholder-count="8">
+<div style="position: absolute; left: {{r.off}}; top: {{r.off}}; width: {{r.d}}; height: {{r.d}}; box-sizing: border-box; border-radius: 50%; border: 1px solid #222222"></div>
+</sc-for>
+<div style="position: absolute; left: 306px; top: 306px; width: 28px; height: 28px; border-radius: 50%; background: #ececec"></div>
+<sc-for list="{{planets}}" as="p" hint-placeholder-count="8">
+<div style="position: absolute; left: {{p.x}}; top: {{p.y}}; width: {{p.s}}; height: {{p.s}}; border-radius: 50%; background: {{p.c}}"></div>
+</sc-for>
+<div style="position: absolute; left: {{earthRingX}}; top: {{earthRingY}}; width: 30px; height: 30px; box-sizing: border-box; border-radius: 50%; border: 1px dashed {{trace}}"></div>
+<div style="position: absolute; left: {{issX}}; top: {{issY}}; width: 5px; height: 5px; background: {{trace}}"></div>
+<div style="position: absolute; left: {{calloutX}}; top: {{issY}}; width: 60px; height: 1px; background: {{trace}}"></div>
+<span style="position: absolute; left: {{calloutLabelX}}; top: {{issLabelY}}; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{trace}}; white-space: nowrap">ISS · 51.6° INC · LIVE</span>
+<div style="position: absolute; left: 430px; top: 150px; width: 8px; height: 8px; transform: rotate(45deg); border: 1px solid {{trace}}"></div>
+<div style="position: absolute; left: 438px; top: 154px; width: 80px; height: 1px; background: {{trace}}"></div>
+<span style="position: absolute; left: 522px; top: 146px; font-family: 'Departure Mono', monospace; font-size: 12px; color: {{trace}}; white-space: nowrap">[ACTIVE MISSION]</span>
+<span style="position: absolute; left: 0; top: 0; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">+ SOL // TOP VIEW</span>
+<span style="position: absolute; left: 0; bottom: 0; font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">RINGS NOT TO SCALE · POSITIONS SAMPLE</span>
+</div>
+
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 18px; min-width: 0">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Departure Mono', monospace; font-size: 12px; color: #8c8c8c">MISSION ELAPSED · DAY 301</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 52px; line-height: 1">T+ 00:24</span>
+<span style="font-family: 'Departure Mono', monospace; font-size: 14px">WED 28 OCT 2026 · <span style="color: {{signal}}">● EARTH = YOU</span></span>
+</div>
+
+<div style="background: #0e0e0e; border: 1px solid #262626; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: 'Departure Mono', monospace; font-size: 13px">
+<div style="display: flex; justify-content: space-between"><span>ISS // TELEMETRY</span><span style="color: {{trace}}">● 10 S</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #8c8c8c; font-size: 11px">LAT</span><span>[LIVE]</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #8c8c8c; font-size: 11px">LON</span><span>[LIVE]</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="color: #8c8c8c; font-size: 11px">OVER</span><span>[REGION]</span></span>
+</div>
+</div>
+
+<div style="background: #f2f1ed; color: #0a0a0a; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="background: #0a0a0a; color: #f2f1ed; padding: 8px 16px; display: flex; justify-content: space-between; font-family: 'Departure Mono', monospace; font-size: 12px"><span>NEXT LAUNCH</span><span>LAUNCH LIBRARY 2</span></div>
+<div style="padding: 14px 16px; display: flex; justify-content: space-between; align-items: center">
+<span style="display: flex; flex-direction: column; gap: 4px; font-family: 'Departure Mono', monospace"><span style="font-size: 16px">[MISSION NAME]</span><span style="font-size: 12px; color: #5a5a5a">[PROVIDER] · [PAD]</span></span>
+<span style="font-family: 'DSEG7', monospace; font-weight: 700; font-size: 26px">02:14:33</span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'Departure Mono', monospace; font-size: 12px">
+<span style="color: #8c8c8c">DATA SOURCES</span>
+<div style="display: grid; grid-template-columns: 100px minmax(0, 1fr) 80px; gap: 8px; border-top: 1px solid #262626; padding-top: 8px"><span>PLANETS</span><span style="color: #c4c4c4">astronomy-engine · computed offline</span><span style="color: #8c8c8c; text-align: right">10 MIN</span></div>
+<div style="display: grid; grid-template-columns: 100px minmax(0, 1fr) 80px; gap: 8px"><span>ISS</span><span style="color: #c4c4c4">Open Notify / Where the ISS at</span><span style="color: #8c8c8c; text-align: right">10 S</span></div>
+<div style="display: grid; grid-template-columns: 100px minmax(0, 1fr) 80px; gap: 8px"><span>LAUNCHES</span><span style="color: #c4c4c4">Launch Library 2 · rate-limited</span><span style="color: #8c8c8c; text-align: right">1 HR</span></div>
+<div style="display: grid; grid-template-columns: 100px minmax(0, 1fr) 80px; gap: 8px"><span>MISSIONS</span><span style="color: #c4c4c4">your own list, edited in settings</span><span style="color: #8c8c8c; text-align: right">MANUAL</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"signal":{"editor":"color","default":"#d71921","options":["#d71921","#8fb565","#b39be6","#e05a2b"]},"trace":{"editor":"color","default":"#8fb3c4","options":["#8fb3c4","#c9b77a","#7fc2c6","#9a9a9a"]},"$preview":{"width":1360,"height":940}}'>
+class Component extends DCLogic {
+renderVals() {
+const signal = this.props.signal ?? '#d71921';
+const trace = this.props.trace ?? '#8fb3c4';
+const c = 320;
+const defs = [
+{ r: 46, a: 40, s: 5 }, { r: 72, a: 200, s: 7 }, { r: 100, a: 320, s: 9, earth: true },
+{ r: 130, a: 110, s: 6 }, { r: 176, a: 250, s: 15 }, { r: 218, a: 15, s: 13 },
+{ r: 258, a: 155, s: 9 }, { r: 296, a: 290, s: 9 }
+];
+const rings = defs.map((d) => ({ off: (c - d.r) + 'px', d: (2 * d.r) + 'px' }));
+let ex = 0, ey = 0;
+const planets = defs.map((d) => {
+const rad = d.a * Math.PI / 180;
+const x = c + d.r * Math.cos(rad);
+const y = c + d.r * Math.sin(rad);
+if (d.earth) { ex = x; ey = y; }
+return { x: (x - d.s / 2) + 'px', y: (y - d.s / 2) + 'px', s: d.s + 'px', c: d.earth ? signal : (d.s > 12 ? '#c4c4c4' : '#8c8c8c') };
+});
+const issX = ex + 11, issY = ey - 12;
+return {
+signal: signal, trace: trace, rings: rings, planets: planets,
+earthRingX: (ex - 15) + 'px', earthRingY: (ey - 15) + 'px',
+issX: (issX - 2) + 'px', issY: issY + 'px',
+calloutX: (issX + 4) + 'px', calloutLabelX: (issX + 68) + 'px', issLabelY: (issY - 8) + 'px'
+};
+}
+}
+</script>
+</body>
+</html>
